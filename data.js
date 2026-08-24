@@ -31,11 +31,66 @@ const TITLE_NORMALIZATION = {
 const DEFAULT_WEIGHTS = { profession:25, qualifications:20, experience:20, licensing:15, skills:10, location:5, salary:5 };
 
 const JOB_SOURCES = [
-{ id:'src-jsearch', name:'JSearch / Google for Jobs (Live)', url:'https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch', type:'Live API', api:'JSearch REST API (RapidAPI)', lastSync:'2026-08-23 19:10', imported:98, active:true },
-{ id:'src-jooble', name:'Jooble (Live API)', url:'https://jooble.org/api/about', type:'Live API', api:'Jooble REST API', lastSync:'2026-08-23 18:17', imported:309, active:true },
-  { id:'src1', name:'HealthJobs SA (Demo)', url:'https://demo-healthjobs.example.com', type:'Demo feed', api:'Simulated REST feed', lastSync:'2026-08-22 21:00', imported:8, active:true },
-  { id:'src2', name:'SaudiMed Careers (Demo)', url:'https://demo-saudimed.example.com', type:'Demo feed', api:'Simulated JSON feed', lastSync:'2026-08-22 20:30', imported:7, active:true },
-  { id:'src3', name:'Gulf Health Careers (Demo)', url:'https://demo-gulfhealth.example.com', type:'Demo feed', api:'Manual import', lastSync:'2026-08-20 09:15', imported:5, active:false }
+  {
+    "id": "src-jsearch",
+    "name": "JSearch / Google for Jobs (Live)",
+    "url": "https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch",
+    "type": "Live API",
+    "api": "JSearch REST API (RapidAPI)",
+    "lastSync": "2026-08-23 19:10",
+    "imported": 98,
+    "active": true
+  },
+  {
+    "id": "src-jooble",
+    "name": "Jooble (Live API)",
+    "url": "https://jooble.org/api/about",
+    "type": "Live API",
+    "api": "Jooble REST API",
+    "lastSync": "2026-08-23 18:17",
+    "imported": 309,
+    "active": true
+  },
+  {
+    "id": "src1",
+    "name": "HealthJobs SA (Demo)",
+    "url": "https://demo-healthjobs.example.com",
+    "type": "Demo feed",
+    "api": "Simulated REST feed",
+    "lastSync": "2026-08-22 21:00",
+    "imported": 8,
+    "active": true
+  },
+  {
+    "id": "src2",
+    "name": "SaudiMed Careers (Demo)",
+    "url": "https://demo-saudimed.example.com",
+    "type": "Demo feed",
+    "api": "Simulated JSON feed",
+    "lastSync": "2026-08-22 20:30",
+    "imported": 7,
+    "active": true
+  },
+  {
+    "id": "src3",
+    "name": "Gulf Health Careers (Demo)",
+    "url": "https://demo-gulfhealth.example.com",
+    "type": "Demo feed",
+    "api": "Manual import",
+    "lastSync": "2026-08-20 09:15",
+    "imported": 5,
+    "active": false
+  },
+  {
+    "id": "src-clusters",
+    "name": "Health Clusters (Direct)",
+    "url": "https://www.health.sa/en/careers",
+    "type": "Employer portals",
+    "api": "HTML/JSON scrape",
+    "lastSync": "2026-08-24 19:57",
+    "imported": 0,
+    "active": false
+  }
 ];
 
 const DEMO_JOBS = [
