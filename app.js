@@ -1,5 +1,5 @@
 /* ============================================================
-   MedMatch — app.js (UI layer, v13)
+   MedMatch — app.js (UI layer, v14)
    Renders the whole app into #app.
    Depends on globals from data.js  (DEMO_JOBS, CITIES, PROFESSIONS,
    EMPLOYMENT_TYPES, JOB_SOURCES, SAMPLE_CV_TEXT, SKILLS_VOCAB) and
@@ -7,10 +7,13 @@
    matchLabel, parseNLQuery, improvementTips, completeness,
    profileStrength, fmtNum). No fetch() — works over file:// .
 
-   v13: local accounts (sign up / sign in / sign out — per-account
-   CV, saved jobs and preferences, stored in this browser) and a
-   polished notification center (unread badges, clickable items,
-   mark-all-read, outside-click close).
+   v14: PRIVACY FIX. Guest data no longer leaks into accounts and
+   vice versa. Sign-up starts the account with a CLEAN profile;
+   sign-in loads the account's own data (never the guest's);
+   sign-out wipes the visible profile/CV/saved jobs (they stay
+   saved inside the account for next sign-in). Guest data is only
+   ever loaded for guests.
+   v13: local accounts + notification center.
    v12: clickable stat cards + visible error toasts.
    v11: semantic matching (65% rules + 35% AI similarity).
    ============================================================ */
@@ -69,11 +72,12 @@
   });
 
   /* ============================================================
-     Local accounts
-     Accounts live only in this browser (localStorage) — no
-     password, no server. Each account gets its own CV, profile,
-     preferences and saved jobs. Guest data migrates into the
-     account on first sign-up/sign-in.
+     Local accounts & data boundaries
+     - Guest data lives under GUEST_KEY and is loaded ONLY when
+       no account session exists.
+     - Each account has its own storage key. Sign-up starts the
+       account CLEAN (guest CV is NOT carried over). Sign-in loads
+       the account's own data. Sign-out wipes the visible state.
      ============================================================ */
   const ACC_KEY = 'medmatch_accounts';
   const SES_KEY = 'medmatch_session';
@@ -103,6 +107,15 @@
     state.notifsReadIds = data.notifsReadIds || [];
   }
 
+  function wipeState() {
+    state.profile = emptyProfile();
+    state.cvText = '';
+    state.saved = {};
+    state.notifsReadIds = [];
+    embState.cvVec = null;
+    embState.ready = false;
+  }
+
   /* ---------- state ---------- */
   function emptyProfile() {
     return {
@@ -123,7 +136,7 @@
     notifsReadIds: []
   };
 
-  /* restore session (account) or guest data */
+  /* restore: account session -> account data; otherwise guest data */
   (function boot() {
     const ses = loadJSON(SES_KEY);
     const accs = loadJSON(ACC_KEY) || {};
@@ -802,7 +815,7 @@
       '<input class="input" id="authPass" type="password" placeholder="••••••••" onkeydown="if(event.key===\'Enter\')App.submitAuth(\'' + mode + '\')"></div>' +
       '<div id="authErr" class="hidden" style="color:var(--red);font-size:.85rem;margin-bottom:10px"></div>' +
       '<button class="btn btn-primary btn-block" onclick="App.submitAuth(\'' + mode + '\')">' + (isUp ? 'Create account' : 'Sign in') + '</button>' +
-      '<p class="muted mt" style="font-size:.78rem;margin:10px 0 0">Accounts are stored only in this browser (no server). Your CV, saved jobs and preferences follow your account on this device.</p>' +
+      '<p class="muted mt" style="font-size:.78rem;margin:10px 0 0">Accounts are stored only in this browser (no server). Each account has its own CV, saved jobs and preferences. Guest data is never carried into an account.</p>' +
       '</div></div>';
   }
 
@@ -947,7 +960,7 @@
     let h = '<section class="section"><div class="container">' +
       '<div class="dash-head"><div><h2 style="margin:0">Dashboard</h2>' +
       '<p class="muted" style="margin:4px 0 0">' + (displayName ? 'Welcome, ' + esc(displayName) : 'Your matching overview') +
-      (currentUser ? ' · signed in as ' + esc(currentUser.email) : ' · guest (sign in to keep your data tied to an account)') + '</p></div>' +
+      (currentUser ? ' · signed in as ' + esc(currentUser.email) : ' · guest — data stays in this browser only') + '</p></div>' +
       '<div class="flex wrap">' +
       (state.cvText ? '<button class="btn btn-primary" onclick="App.go(\'analysis\')">CV Analysis report</button>' : '') +
       '<button class="btn btn-outline" onclick="App.go(\'upload\')">' + (state.cvText ? 'Re-analyze CV' : 'Upload CV') + '</button></div></div>' +
@@ -1242,17 +1255,20 @@
         if (accs[email]) return fail('An account with this email already exists — sign in instead.');
         accs[email] = { name: name, createdAt: new Date().toISOString() };
         saveJSON(ACC_KEY, accs);
+        /* privacy: a new account starts CLEAN — guest CV/saved jobs are NOT carried over */
         currentUser = { email: email, name: name };
         saveJSON(SES_KEY, { email: email });
-        save(); // migrate current (guest) data into the new account
+        wipeState();
+        save();
         App.closeModal();
         render();
-        toast('Welcome, ' + name + '! Your account is ready.', 'ok');
+        toast('Welcome, ' + name + '! Your account is ready — upload your CV to begin.', 'ok');
       } else {
         if (!accs[email]) return fail('No account found with this email — sign up first.');
-        save(); // persist current guest data before switching
+        /* privacy: load ONLY this account's data — never the guest's */
         currentUser = { email: email, name: accs[email].name };
         saveJSON(SES_KEY, { email: email });
+        wipeState();
         const data = loadJSON(accountKey(email));
         if (data) applyData(data);
         save();
@@ -1262,12 +1278,15 @@
       }
     },
     signOut() {
-      save();
+      /* privacy: wipe visible state; the account's data stays saved
+         inside its own storage key for the next sign-in */
       currentUser = null;
       try { localStorage.removeItem(SES_KEY); } catch (e) { /* ignore */ }
+      wipeState();
       App.closeMenus();
+      App.closeModal();
       render();
-      toast('Signed out — you are now browsing as a guest on this device.', 'info');
+      toast('Signed out — your data stays inside your account on this device.', 'info');
     },
     setFilter(key, value) {
       state.filters[key] = value;
