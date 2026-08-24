@@ -1,5 +1,5 @@
 /* ============================================================
-   MedMatch — app.js (UI layer, v14)
+   MedMatch — app.js (UI layer, v15)
    Renders the whole app into #app.
    Depends on globals from data.js  (DEMO_JOBS, CITIES, PROFESSIONS,
    EMPLOYMENT_TYPES, JOB_SOURCES, SAMPLE_CV_TEXT, SKILLS_VOCAB) and
@@ -7,12 +7,11 @@
    matchLabel, parseNLQuery, improvementTips, completeness,
    profileStrength, fmtNum). No fetch() — works over file:// .
 
-   v14: PRIVACY FIX. Guest data no longer leaks into accounts and
-   vice versa. Sign-up starts the account with a CLEAN profile;
-   sign-in loads the account's own data (never the guest's);
-   sign-out wipes the visible profile/CV/saved jobs (they stay
-   saved inside the account for next sign-in). Guest data is only
-   ever loaded for guests.
+   v15: AUTH GATE. Upload CV, CV Analysis and Dashboard now require
+   a signed-in account — guests can only browse Home and Jobs.
+   No personal data is ever shown or stored outside an account.
+   Also fixed the sign-up form's misleading name placeholder.
+   v14: privacy fix — guest data never leaks into accounts.
    v13: local accounts + notification center.
    v12: clickable stat cards + visible error toasts.
    v11: semantic matching (65% rules + 35% AI similarity).
@@ -73,15 +72,14 @@
 
   /* ============================================================
      Local accounts & data boundaries
-     - Guest data lives under GUEST_KEY and is loaded ONLY when
-       no account session exists.
-     - Each account has its own storage key. Sign-up starts the
-       account CLEAN (guest CV is NOT carried over). Sign-in loads
-       the account's own data. Sign-out wipes the visible state.
+     - Personal data (CV, profile, saved jobs) lives ONLY inside
+       account storage. There is no guest CV storage anymore.
+     - Sign-up starts the account CLEAN. Sign-in loads only that
+       account's own data. Sign-out wipes the visible state.
      ============================================================ */
   const ACC_KEY = 'medmatch_accounts';
   const SES_KEY = 'medmatch_session';
-  const GUEST_KEY = 'medmatch_saudi_v1';
+  const GUEST_KEY = 'medmatch_saudi_v1'; // legacy slot — read once, then migrated out
 
   function loadJSON(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } }
   function saveJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* ignore */ } }
@@ -91,11 +89,11 @@
   function accountKey(email) { return 'medmatch_data_' + email; }
 
   function persistState() {
-    const data = {
+    if (!currentUser) return; // guests store nothing personal
+    saveJSON(accountKey(currentUser.email), {
       profile: state.profile, cvText: state.cvText, saved: state.saved,
       filters: state.filters, notifsReadIds: state.notifsReadIds
-    };
-    saveJSON(currentUser ? accountKey(currentUser.email) : GUEST_KEY, data);
+    });
   }
 
   function applyData(data) {
@@ -136,16 +134,17 @@
     notifsReadIds: []
   };
 
-  /* restore: account session -> account data; otherwise guest data */
+  /* restore: only a signed-in account's data is ever loaded */
   (function boot() {
+    /* one-time cleanup: remove the legacy guest slot so no personal
+       data ever shows outside an account again */
+    try { localStorage.removeItem(GUEST_KEY); } catch (e) { /* ignore */ }
     const ses = loadJSON(SES_KEY);
     const accs = loadJSON(ACC_KEY) || {};
     if (ses && ses.email && accs[ses.email]) {
       currentUser = { email: ses.email, name: accs[ses.email].name };
       applyData(loadJSON(accountKey(ses.email)));
-      return;
     }
-    applyData(loadJSON(GUEST_KEY));
   })();
 
   function save() { persistState(); }
@@ -729,16 +728,21 @@
   }
 
   function unreadNotifs() {
+    if (!currentUser) return [];
     return topMatches(3).filter(({ job }) => state.notifsReadIds.indexOf(job.id) === -1);
   }
 
   function notifsView() {
-    const top = topMatches(3);
-    const unread = unreadNotifs();
     let h = '<div class="notif-item" style="display:flex;justify-content:space-between;align-items:center;background:#fff;position:sticky;top:0">' +
       '<b>Notifications</b>' +
-      (unread.length ? '<button class="btn btn-ghost btn-sm" onclick="App.markNotifsRead(event)">Mark all read</button>' : '') +
+      (unreadNotifs().length ? '<button class="btn btn-ghost btn-sm" onclick="App.markNotifsRead(event)">Mark all read</button>' : '') +
       '</div>';
+    if (!currentUser) {
+      h += '<div class="notif-item">🔒 <b>Sign in</b> to get match alerts personalized to your CV.</div>' +
+        '<div class="notif-item" style="cursor:pointer" onclick="App.closeMenus();App.openAuth(\'signup\')"><b>Create a free local account →</b></div>';
+      return h;
+    }
+    const top = topMatches(3);
     if (!top.length) {
       h += '<div class="notif-item muted">No matches yet — analyze your CV to see personalized matches.</div>';
     } else {
@@ -809,14 +813,31 @@
       '<div class="tabs mt">' +
       '<a href="#" class="' + (!isUp ? 'active' : '') + '" onclick="App.openAuth(\'signin\');return false;">Sign in</a>' +
       '<a href="#" class="' + (isUp ? 'active' : '') + '" onclick="App.openAuth(\'signup\');return false;">Sign up</a></div>' +
-      (isUp ? '<div class="field"><label>Your name</label><input class="input" id="authName" placeholder="Dr. Ahmed Osama"></div>' : '') +
+      (isUp ? '<div class="field"><label>Your name</label><input class="input" id="authName" placeholder="e.g. Dr. Sara Ahmed"></div>' : '') +
       '<div class="field"><label>Email</label><input class="input" id="authEmail" type="email" placeholder="you@example.com" onkeydown="if(event.key===\'Enter\')App.submitAuth(\'' + mode + '\')"></div>' +
       '<div class="field"><label>Password <span class="hint">(anything — stored nowhere; this is a local demo account)</span></label>' +
       '<input class="input" id="authPass" type="password" placeholder="••••••••" onkeydown="if(event.key===\'Enter\')App.submitAuth(\'' + mode + '\')"></div>' +
       '<div id="authErr" class="hidden" style="color:var(--red);font-size:.85rem;margin-bottom:10px"></div>' +
       '<button class="btn btn-primary btn-block" onclick="App.submitAuth(\'' + mode + '\')">' + (isUp ? 'Create account' : 'Sign in') + '</button>' +
-      '<p class="muted mt" style="font-size:.78rem;margin:10px 0 0">Accounts are stored only in this browser (no server). Each account has its own CV, saved jobs and preferences. Guest data is never carried into an account.</p>' +
+      '<p class="muted mt" style="font-size:.78rem;margin:10px 0 0">Accounts are stored only in this browser (no server). Each account has its own CV, saved jobs and preferences. Nothing personal is stored or shown without an account.</p>' +
       '</div></div>';
+  }
+
+  /* ---------- auth gate ---------- */
+  const GATED = { upload: 1, analysis: 1, dashboard: 1 };
+
+  function lockedView(route) {
+    const names = { upload: 'Upload CV', analysis: 'CV Analysis', dashboard: 'Dashboard' };
+    return '<section class="section"><div class="container" style="max-width:560px">' +
+      '<div class="card empty"><div class="ic">🔒</div>' +
+      '<h3>' + (names[route] || 'This page') + ' requires an account</h3>' +
+      '<p>Your CV and personal data live only inside your account — never visible to guests ' +
+      'or to anyone else using this browser. Sign in or create a free local account to continue.</p>' +
+      '<div class="flex mt" style="justify-content:center">' +
+      '<button class="btn btn-primary" onclick="App.openAuth(\'signup\')">Create account</button>' +
+      '<button class="btn btn-outline" onclick="App.openAuth(\'signin\')">Sign in</button></div>' +
+      '<p class="muted mt" style="font-size:.8rem">Accounts are stored only in this browser — no server, nothing is uploaded anywhere.</p>' +
+      '</div></div></section>';
   }
 
   /* ---------- views ---------- */
@@ -829,9 +850,11 @@
     return '<section class="hero"><div class="container hero-grid"><div>' +
       '<span class="eyebrow">⚡ AI-matched healthcare jobs</span>' +
       '<h1>Find the healthcare job that matches <span style="color:var(--teal-d)">your</span> CV</h1>' +
-      '<p class="lead">Upload your CV and let the matching engine score live healthcare jobs — currently covering Saudi Arabia — against your qualifications, experience, licensing status and career goals.</p>' +
+      '<p class="lead">Create a free local account, upload your CV, and let the matching engine score live healthcare jobs — currently covering Saudi Arabia — against your qualifications, experience, licensing status and career goals.</p>' +
       '<div class="flex wrap mt">' +
-      '<button class="btn btn-primary btn-lg" onclick="App.go(\'upload\')">Upload your CV</button>' +
+      (currentUser
+        ? '<button class="btn btn-primary btn-lg" onclick="App.go(\'upload\')">Upload your CV</button>'
+        : '<button class="btn btn-primary btn-lg" onclick="App.openAuth(\'signup\')">Create free account</button>') +
       '<button class="btn btn-outline btn-lg" onclick="App.go(\'jobs\')">Browse jobs</button></div>' +
       '<div class="stats-row">' +
       '<div class="stat"><b>' + DEMO_JOBS.length + '</b><span>Live jobs</span></div>' +
@@ -841,14 +864,18 @@
       '</div></div>' +
       '<div class="hero-card"><div class="flex between"><h3 style="margin:0">Your profile strength</h3>' + ring(strength, 'teal') + '</div>' +
       '<div class="progress mt"><div style="width:' + strength + '%"></div></div>' +
-      '<p class="muted mt">' + (state.cvText
-        ? 'Profile built from your CV. Visit the dashboard to see how to improve it.'
-        : 'No CV analyzed yet. Upload or paste your CV to get personalized match scores.') + '</p>' +
-      '<button class="btn btn-blue btn-block" onclick="App.go(\'dashboard\')">Go to dashboard</button>' +
+      '<p class="muted mt">' + (currentUser
+        ? (state.cvText
+          ? 'Profile built from your CV. Visit the dashboard to see how to improve it.'
+          : 'Signed in. Upload or paste your CV to get personalized match scores.')
+        : 'Sign in and upload your CV — your profile strength and personal match scores appear here.') + '</p>' +
+      (currentUser
+        ? '<button class="btn btn-blue btn-block" onclick="App.go(\'dashboard\')">Go to dashboard</button>'
+        : '<button class="btn btn-blue btn-block" onclick="App.openAuth(\'signin\')">Sign in</button>') +
       '</div></div></section>' +
       '<section class="section"><div class="container">' +
       '<h2 class="center">How it works</h2><div class="grid grid-3 mt-lg">' +
-      step(1, 'Upload or paste your CV', 'The engine extracts your profession, experience, skills and licensing status (registration, primary-source verification, exams).') +
+      step(1, 'Create an account & upload your CV', 'Accounts live only in your browser. The engine extracts your profession, experience, skills and licensing status (registration, verification, exams).') +
       step(2, 'Get scored matches', 'Every job is scored 0–100 across profession, qualifications, experience, licensing, skills, location and salary — plus AI semantic similarity when available.') +
       step(3, 'Apply with confidence', 'See exactly what matches, what is missing, and how to strengthen your CV for employers.') +
       '</div></div></section>';
@@ -859,7 +886,9 @@
     return '<section class="section"><div class="container">' +
       '<div class="dash-head"><div><h2 style="margin:0">Matched jobs</h2>' +
       '<p class="muted" style="margin:4px 0 0">' + list.length + ' of ' + DEMO_JOBS.length + ' jobs · sorted by match score' +
-      (embState.ready ? ' · <span class="prov prov-ai">AI similarity on</span>' : '') + '</p></div></div>' +
+      (embState.ready ? ' · <span class="prov prov-ai">AI similarity on</span>' : '') +
+      (!currentUser ? ' · scores are neutral — <a href="#" onclick="App.openAuth(\'signup\');return false;">create an account</a> to personalize them' : '') +
+      '</p></div></div>' +
       '<div class="ai-search"><div class="field" style="margin:0"><label>🤖 Ask in plain English</label>' +
       '<input class="input" id="nlInput" placeholder=\'e.g. "GP jobs in Riyadh above 12000 suitable for my CV"\' value="' + esc(state.filters.nl) + '" onkeydown="if(event.key===\'Enter\')App.aiSearch()">' +
       '<div class="hint mt"><button class="btn btn-primary btn-sm" onclick="App.aiSearch()">Search</button> ' +
@@ -899,7 +928,7 @@
       (st ? '<span class="status-pill st-' + st + '">' + cap(st) + '</span>' : '') +
       '</div><div class="job-actions">' +
       '<button class="btn btn-primary btn-sm" onclick="App.openJob(\'' + job.id + '\')">View analysis</button>' +
-      '<button class="btn btn-outline btn-sm" onclick="App.setStatus(\'' + job.id + '\',\'' + (st === 'saved' ? '' : 'saved') + '\')">' + (st === 'saved' ? 'Unsave' : 'Save') + '</button>' +
+      (currentUser ? '<button class="btn btn-outline btn-sm" onclick="App.setStatus(\'' + job.id + '\',\'' + (st === 'saved' ? '' : 'saved') + '\')">' + (st === 'saved' ? 'Unsave' : 'Save') + '</button>' : '') +
       '<span class="muted" style="font-size:.78rem">' + posted(job.postedDaysAgo) + ' · ' + esc(job.source) + '</span>' +
       '</div></div>';
   }
@@ -960,7 +989,7 @@
     let h = '<section class="section"><div class="container">' +
       '<div class="dash-head"><div><h2 style="margin:0">Dashboard</h2>' +
       '<p class="muted" style="margin:4px 0 0">' + (displayName ? 'Welcome, ' + esc(displayName) : 'Your matching overview') +
-      (currentUser ? ' · signed in as ' + esc(currentUser.email) : ' · guest — data stays in this browser only') + '</p></div>' +
+      (currentUser ? ' · signed in as ' + esc(currentUser.email) : '') + '</p></div>' +
       '<div class="flex wrap">' +
       (state.cvText ? '<button class="btn btn-primary" onclick="App.go(\'analysis\')">CV Analysis report</button>' : '') +
       '<button class="btn btn-outline" onclick="App.go(\'upload\')">' + (state.cvText ? 'Re-analyze CV' : 'Upload CV') + '</button></div></div>' +
@@ -1086,9 +1115,11 @@
       '</ul></div></div>' +
       '<div class="flex mt wrap">' +
       '<button class="btn btn-primary" onclick="App.applyJob(\'' + job.id + '\')">' + esc(applyLabel) + '</button>' +
-      '<button class="btn btn-outline" onclick="App.coverLetter(\'' + job.id + '\')">✉ Cover letter</button>' +
-      '<button class="btn btn-outline" onclick="App.interviewPrep(\'' + job.id + '\')">🎤 Interview prep</button>' +
-      '<button class="btn btn-outline" onclick="App.setStatus(\'' + job.id + '\',\'interested\');App.closeModal()">Mark interested</button>' +
+      (currentUser
+        ? '<button class="btn btn-outline" onclick="App.coverLetter(\'' + job.id + '\')">✉ Cover letter</button>' +
+          '<button class="btn btn-outline" onclick="App.interviewPrep(\'' + job.id + '\')">🎤 Interview prep</button>' +
+          '<button class="btn btn-outline" onclick="App.setStatus(\'' + job.id + '\',\'interested\');App.closeModal()">Mark interested</button>'
+        : '<button class="btn btn-outline" onclick="App.openAuth(\'signup\')">Create account to save & track</button>') +
       '</div>' +
       applyNote +
       '</div></div>';
@@ -1097,7 +1128,8 @@
   /* ---------- master render ---------- */
   function render() {
     const views = { home: homeView, jobs: jobsView, upload: uploadView, analysis: analysisView, dashboard: dashboardView };
-    $('#app').innerHTML = navView() + (views[state.route] || homeView)() + footerView();
+    const main = (GATED[state.route] && !currentUser) ? lockedView(state.route) : (views[state.route] || homeView)();
+    $('#app').innerHTML = navView() + main + footerView();
     bindDropzone();
   }
 
@@ -1255,17 +1287,15 @@
         if (accs[email]) return fail('An account with this email already exists — sign in instead.');
         accs[email] = { name: name, createdAt: new Date().toISOString() };
         saveJSON(ACC_KEY, accs);
-        /* privacy: a new account starts CLEAN — guest CV/saved jobs are NOT carried over */
         currentUser = { email: email, name: name };
         saveJSON(SES_KEY, { email: email });
         wipeState();
         save();
         App.closeModal();
-        render();
+        App.go('dashboard');
         toast('Welcome, ' + name + '! Your account is ready — upload your CV to begin.', 'ok');
       } else {
         if (!accs[email]) return fail('No account found with this email — sign up first.');
-        /* privacy: load ONLY this account's data — never the guest's */
         currentUser = { email: email, name: accs[email].name };
         saveJSON(SES_KEY, { email: email });
         wipeState();
@@ -1273,19 +1303,17 @@
         if (data) applyData(data);
         save();
         App.closeModal();
-        render();
+        App.go('dashboard');
         toast('Welcome back, ' + accs[email].name + '!', 'ok');
       }
     },
     signOut() {
-      /* privacy: wipe visible state; the account's data stays saved
-         inside its own storage key for the next sign-in */
       currentUser = null;
       try { localStorage.removeItem(SES_KEY); } catch (e) { /* ignore */ }
       wipeState();
       App.closeMenus();
       App.closeModal();
-      render();
+      App.go('home');
       toast('Signed out — your data stays inside your account on this device.', 'info');
     },
     setFilter(key, value) {
@@ -1365,6 +1393,7 @@
     },
     closeModal() { $('#modal-root').innerHTML = ''; },
     setStatus(id, status) {
+      if (!currentUser) { App.openAuth('signin'); return; }
       if (status) state.saved[id] = status;
       else delete state.saved[id];
       save();
@@ -1374,13 +1403,15 @@
     applyJob(id) {
       const item = DEMO_JOBS.find((x) => x.id === id);
       const url = item && item.applyUrl;
-      state.saved[id] = 'applied';
-      save();
+      if (currentUser) {
+        state.saved[id] = 'applied';
+        save();
+      }
       App.closeModal();
       render();
       if (isRealUrl(url)) {
         window.open(url, '_blank', 'noopener');
-        toast('Opening the posting in a new tab — job marked as applied.', 'ok');
+        toast('Opening the posting in a new tab' + (currentUser ? ' — job marked as applied.' : '.'), 'ok');
       } else {
         toast('Application recorded (demo). Good luck! 🎉', 'ok');
       }
@@ -1400,6 +1431,7 @@
       toast('CV and profile cleared.', 'info');
     },
     analyze() {
+      if (!currentUser) { App.openAuth('signin'); return; }
       const ta = $('#cvText');
       const text = ta ? ta.value.trim() : '';
       if (!text) {
@@ -1436,6 +1468,6 @@
 
   render();
 
-  /* returning user with a CV: warm up AI similarity silently in the background */
+  /* returning signed-in user with a CV: warm up AI similarity silently */
   try { if (state.cvText) warmupSemantic(true); } catch (e) { /* never block the UI */ }
 })();
