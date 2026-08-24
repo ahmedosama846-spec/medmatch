@@ -1,0 +1,40 @@
+# MedMatch — Health Holding cluster portal scrape.
+# Runs Mondays 05:00 UTC (before the 06:00 embeddings rebuild, so new
+# cluster jobs get vectors the same morning), plus on demand.
+name: Cluster portal scrape
+
+on:
+  schedule:
+    - cron: "0 5 * * 1"   # Mondays 05:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install scraper dependencies
+        run: pip install --no-cache-dir beautifulsoup4
+
+      - name: Scrape the 20 health-cluster portals into data.js
+        run: python scrape_cluster.py
+
+      - name: Commit data.js (only if changed)
+        run: |
+          if [ -z "$(git status --porcelain data.js)" ]; then
+            echo "No changes — nothing to commit."
+            exit 0
+          fi
+          git config user.name "medmatch-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data.js
+          git commit -m "chore: health-cluster scrape ($(date +%Y-%m-%d))"
+          git push
