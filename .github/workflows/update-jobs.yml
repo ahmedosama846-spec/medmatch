@@ -1,0 +1,54 @@
+# ============================================================
+# MedMatch - scheduled job refresh (GitHub Actions)
+#
+# Use this AFTER the site is on GitHub (hosting step).
+# Placement: put this file at  .github/workflows/update-jobs.yml
+# in your repository.
+#
+# What it does:
+#   - Every Monday at 04:00 UTC (and whenever you click
+#     "Run workflow" manually), it checks out the repo, runs
+#     collector.py, and commits the refreshed data.js.
+#   - GitHub Pages then republishes the site automatically.
+#
+# One-time setup:
+#   Repo -> Settings -> Secrets and variables -> Actions ->
+#   "New repository secret" for each of:
+#     JOOBLE_KEY     = your Jooble key
+#     RAPIDAPI_KEY   = your RapidAPI key
+# Keys stay encrypted and never appear in the repo or logs.
+# ============================================================
+
+name: Refresh jobs
+
+on:
+  schedule:
+    - cron: '0 4 * * 1'   # every Monday at 04:00 UTC
+  workflow_dispatch:       # adds a manual "Run workflow" button
+
+permissions:
+  contents: write          # needed to commit the refreshed data.js
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run collector
+        env:
+          JOOBLE_KEY: ${{ secrets.JOOBLE_KEY }}
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+        run: python collector.py --pages 1
+
+      - name: Commit updated data.js (if changed)
+        run: |
+          git config user.name "medmatch-bot"
+          git config user.email "actions@github.com"
+          git add data.js
+          git diff --cached --quiet && echo "No changes" || git commit -m "chore: refresh jobs (scheduled run)"
+          git push
