@@ -37,8 +37,8 @@
         GitHub Pages address (e.g. https://user.github.io/medmatch/)
      4. Settings → API → paste the Project URL and anon public key here.
      ============================================================ */
-  const https://ahmedosama846-spec.github.io/medmatch/ = '';
-  const sb_publishable_TJIQpJIhPxkKDmH8YgIoVw_zuCNxzel = '';
+ const SUPABASE_URL = 'https://qglgpckjspltwetctzgv.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_TJIQpJIhPxkDMmH8YgToVw_zuCNxzel';
 
   /* ============================================================
      OPTIONAL: anonymous aggregate analytics (GoatCounter).
