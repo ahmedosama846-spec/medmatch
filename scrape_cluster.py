@@ -17,11 +17,11 @@ Safety rules:
     (protects against parser breakage wiping good data).
   - Duplicates are detected by applyUrl.
   - Never crashes the run: per-cluster try/except with diagnostics.
-  - read_const tolerates hand-written JS (unquoted keys, trailing
-    commas) as well as strict JSON.
+  - data.js parsing uses json5 (auto-installed) so hand-written JS
+    (unquoted keys, single quotes, trailing commas) parses fine.
 
 Usage:
-    pip install requests beautifulsoup4
+    pip install beautifulsoup4
     python scrape_cluster.py             # scrape + rewrite data.js
     python scrape_cluster.py --dry-run   # report only
 """
@@ -29,6 +29,7 @@ import hashlib
 import json
 import re
 import ssl
+import subprocess
 import sys
 import time
 import urllib.error
@@ -49,6 +50,12 @@ try:
     from bs4 import BeautifulSoup
 except ImportError:
     BeautifulSoup = None
+
+try:
+    import json5
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "-q", "json5"])
+    import json5
 
 # slug -> (display name, default city from the MedMatch CITIES list)
 CLUSTERS = {
@@ -268,11 +275,15 @@ def mk_job(slug, raw):
         "demo": False,
     }
 
-# ---------- data.js I/O (tolerant of hand-written JS) ----------
+# ---------- data.js I/O (json5: tolerates hand-written JS) ----------
 def js_to_json(text):
-    """Accept JS-ish arrays: quote bare keys, drop trailing commas."""
-    text = re.sub(r'([{,]\s*)([A-Za-z_][A-Za-z0-9_]*)\s*:', r'\1"\2":', text)
-    text = re.sub(r",\s*([}\]])", r"\1", text)
+    """Last-resort sanitizer if json5 is somehow unavailable."""
+    def sq(m):
+        inner = m.group(1).replace('\\\'', "'").replace('"', '\\"')
+        return '"' + inner + '"'
+    text = re.sub(r"'((?:[^'\\]|\\.)*)'", sq, text)          # single -> double quotes
+    text = re.sub(r'([{,]\s*)([A-Za-z_][A-Za-z0-9_]*)\s*:', r'\1"\2":', text)  # bare keys
+    text = re.sub(r",\s*([}\]])", r"\1", text)               # trailing commas
     return text
 
 def read_const(src, name):
@@ -283,6 +294,10 @@ def read_const(src, name):
     try:
         return json.loads(text)
     except json.JSONDecodeError:
+        pass
+    try:
+        return json5.loads(text)
+    except Exception:
         return json.loads(js_to_json(text))
 
 def write_const(src, name, arr):
