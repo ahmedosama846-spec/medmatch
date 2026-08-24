@@ -1,5 +1,5 @@
 /* ============================================================
-   MedMatch — app.js (UI layer, v17)
+   MedMatch — app.js (UI layer, v18)
    Renders the whole app into #app.
    Depends on globals from data.js  (DEMO_JOBS, CITIES, PROFESSIONS,
    EMPLOYMENT_TYPES, JOB_SOURCES, SAMPLE_CV_TEXT, SKILLS_VOCAB) and
@@ -7,29 +7,45 @@
    matchLabel, parseNLQuery, improvementTips, completeness,
    profileStrength, fmtNum). No fetch() — works over file:// .
 
-   v17: GUEST TEASER. Guests see only the first 6 jobs, with employer
-   and salary masked, no match scores, no details modal, no apply
-   links — everything unlocks after sign-in. Signed-in experience
-   unchanged.
+   v18: CLOUD ACCOUNTS (optional). Set SUPABASE_URL and
+   SUPABASE_ANON_KEY below and accounts become real: magic-link
+   email sign-in (no passwords), and the whole profile (CV, saved
+   jobs, preferences, activity) syncs across devices via Supabase
+   Postgres with row-level security. Leave the constants empty and
+   the app keeps working with browser-local accounts only.
+   v17: guest teaser — locked employer/salary/apply for guests.
    v16: feedback loop — activity log + learned boost + GoatCounter.
    v15: auth gate — personal features require sign-in.
-   v14: privacy fix — guest data never leaks into accounts.
    v11: semantic matching (65% rules + 35% AI similarity).
    ============================================================ */
 (function () {
   'use strict';
 
   /* ============================================================
-     OPTIONAL: anonymous aggregate analytics (GoatCounter).
-     1. Create a free site at https://www.goatcounter.com (no cookies,
-        no personal data, GDPR-friendly).
-     2. Paste your site code below, e.g. if your dashboard is
-        https://medmatch.goatcounter.com → const GOATCOUNTER_CODE = 'medmatch';
-     3. Events sent contain ONLY job metadata (id, title, employer,
-        profession, city) and page names — never CV text, names,
-        emails, or anything from a user's account.
+     OPTIONAL: cloud accounts + cross-device sync (Supabase).
+     1. Create a free project at https://supabase.com
+     2. SQL Editor → run:
+          create table user_data (
+            id uuid primary key references auth.users on delete cascade,
+            data jsonb,
+            updated_at timestamptz default now()
+          );
+          alter table user_data enable row level security;
+          create policy "own row" on user_data
+            for all using (auth.uid() = id) with check (auth.uid() = id);
+     3. Authentication → URL Configuration → set Site URL to your
+        GitHub Pages address (e.g. https://user.github.io/medmatch/)
+     4. Settings → API → paste the Project URL and anon public key here.
      ============================================================ */
-  const GOATCOUNTER_CODE = 'medmatch';
+  const SUPABASE_URL = '';
+  const SUPABASE_ANON_KEY = '';
+
+  /* ============================================================
+     OPTIONAL: anonymous aggregate analytics (GoatCounter).
+     Events sent contain ONLY job metadata — never CV text, names,
+     emails, or anything from a user's account.
+     ============================================================ */
+  const GOATCOUNTER_CODE = '';
 
   /* ---------- guards ---------- */
   if (typeof Engine === 'undefined' || typeof DEMO_JOBS === 'undefined') {
@@ -106,9 +122,9 @@
   })();
 
   /* ============================================================
-     Local accounts & data boundaries
-     - Personal data (CV, profile, saved jobs, activity) lives ONLY
-       inside account storage. Guests store nothing personal.
+     Accounts: cloud (Supabase magic links) when configured,
+     browser-local otherwise. Personal data lives in account
+     storage only — guests store nothing.
      ============================================================ */
   const ACC_KEY = 'medmatch_accounts';
   const SES_KEY = 'medmatch_session';
@@ -117,9 +133,11 @@
   function loadJSON(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } }
   function saveJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* ignore */ } }
 
-  let currentUser = null; // { email, name }
+  let currentUser = null; // { email, name, cloud? }
 
   function accountKey(email) { return 'medmatch_data_' + email; }
+  function cloudEnabled() { return !!(SUPABASE_URL && SUPABASE_ANON_KEY); }
+  function acctWord() { return cloudEnabled() ? 'account' : 'local account'; }
 
   function persistState() {
     if (!currentUser) return; // guests store nothing personal
@@ -150,6 +168,112 @@
     embState.ready = false;
   }
 
+  /* ---------- Supabase cloud layer ---------- */
+  let sb = null;
+  let handledUid = null;
+
+  function loadSupabase() {
+    return new Promise((resolve) => {
+      if (window.supabase && window.supabase.createClient) return resolve(true);
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
+      s.onload = () => resolve(true);
+      s.onerror = () => resolve(false);
+      document.head.appendChild(s);
+    });
+  }
+
+  function statePayload() {
+    return {
+      profile: state.profile, cvText: state.cvText, saved: state.saved,
+      filters: state.filters, notifsReadIds: state.notifsReadIds,
+      events: state.events
+    };
+  }
+
+  let pushTimer = null;
+  function pushCloud() {
+    if (!sb || !currentUser || !currentUser.cloud) return Promise.resolve();
+    return sb.auth.getUser().then(({ data }) => {
+      const user = data && data.user;
+      if (!user) return;
+      return sb.from('user_data')
+        .upsert({ id: user.id, data: statePayload(), updated_at: new Date().toISOString() })
+        .then(({ error }) => { if (error) console.warn('cloud sync:', error.message); });
+    }).catch((e) => console.warn('cloud sync:', e));
+  }
+  function schedulePush() {
+    if (!currentUser || !currentUser.cloud) return;
+    clearTimeout(pushTimer);
+    pushTimer = setTimeout(pushCloud, 1200); // debounce bursts of saves
+  }
+
+  async function onCloudSignIn(user) {
+    if (!user || handledUid === user.id) return;
+    handledUid = user.id;
+    const email = (user.email || '').toLowerCase();
+    const name = (user.user_metadata && user.user_metadata.name) || email.split('@')[0];
+    currentUser = { email: email, name: name, cloud: true };
+    wipeState();
+    try {
+      const { data } = await sb.from('user_data').select('data').eq('id', user.id).maybeSingle();
+      if (data && data.data) {
+        applyData(data.data);
+      } else {
+        /* first cloud sign-in on this account: adopt any local data */
+        const local = loadJSON(accountKey(email));
+        if (local) { applyData(local); pushCloud(); }
+      }
+    } catch (e) { /* offline — fall back to local cache */
+      const local = loadJSON(accountKey(email));
+      if (local) applyData(local);
+    }
+    save();
+    App.closeModal();
+    render();
+    if (state.cvText) warmupSemantic(true);
+    toast('Signed in as ' + email + ' — your data syncs across devices. ☁', 'ok');
+  }
+
+  async function initCloud() {
+    if (!cloudEnabled()) return;
+    const ok = await loadSupabase();
+    if (!ok) { console.warn('Supabase SDK failed to load — local mode.'); return; }
+    sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    sb.auth.onAuthStateChange((event, session) => {
+      if ((event === 'SIGNED_IN' || event === 'INITIAL_SESSION') && session && session.user) {
+        setTimeout(() => onCloudSignIn(session.user), 0);
+      }
+    });
+    const { data } = await sb.auth.getSession();
+    if (data && data.session && data.session.user) onCloudSignIn(data.session.user);
+  }
+
+  async function sendMagicLink(email, name, btn) {
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+    try {
+      const { error } = await sb.auth.signInWithOtp({
+        email: email,
+        options: {
+          emailRedirectTo: location.href.split('#')[0],
+          data: name ? { name: name } : undefined
+        }
+      });
+      if (error) throw error;
+      $('#modal-root').innerHTML =
+        '<div class="modal-back" onclick="if(event.target===this)App.closeModal()"><div class="modal">' +
+        '<div class="center" style="padding:20px 0"><div style="font-size:44px">📬</div>' +
+        '<h3>Check your email</h3>' +
+        '<p class="muted">We sent a sign-in link to <b>' + esc(email) + '</b>.<br>' +
+        'Click it and you\'ll land back here, signed in — on any device.</p>' +
+        '<button class="btn btn-outline" onclick="App.closeModal()">Close</button></div></div></div>';
+    } catch (e) {
+      const errEl = $('#authErr');
+      if (errEl) { errEl.textContent = e.message || 'Could not send the link — try again.'; errEl.classList.remove('hidden'); }
+      if (btn) { btn.disabled = false; btn.textContent = 'Email me a sign-in link'; }
+    }
+  }
+
   /* ---------- state ---------- */
   function emptyProfile() {
     return {
@@ -171,9 +295,10 @@
     events: [] // { t, type, id, prof, city } — the feedback loop
   };
 
-  /* restore: only a signed-in account's data is ever loaded */
+  /* restore: local-mode session (cloud restores async via initCloud) */
   (function boot() {
     try { localStorage.removeItem(GUEST_KEY); } catch (e) { /* ignore */ }
+    if (cloudEnabled()) return; // cloud session handled by initCloud()
     const ses = loadJSON(SES_KEY);
     const accs = loadJSON(ACC_KEY) || {};
     if (ses && ses.email && accs[ses.email]) {
@@ -182,7 +307,7 @@
     }
   })();
 
-  function save() { persistState(); }
+  function save() { persistState(); schedulePush(); }
 
   /* ============================================================
      Feedback loop: activity log + learned boost
@@ -808,7 +933,7 @@
       '</div>';
     if (!currentUser) {
       h += '<div class="notif-item">🔒 <b>Sign in</b> to get match alerts personalized to your CV.</div>' +
-        '<div class="notif-item" style="cursor:pointer" onclick="App.closeMenus();App.openAuth(\'signup\')"><b>Create a free local account →</b></div>';
+        '<div class="notif-item" style="cursor:pointer" onclick="App.closeMenus();App.openAuth(\'signup\')"><b>Create a free ' + acctWord() + ' →</b></div>';
       return h;
     }
     const top = topMatches(3);
@@ -836,7 +961,7 @@
       '<button class="avatar" title="Account" onclick="App.toggleAccountMenu(event)">' + esc(initials) + '</button>' +
       '<div class="menu hidden" id="acctMenu">' +
       '<div style="padding:9px 12px;border-bottom:1px solid var(--line)"><b>' + esc(currentUser.name) + '</b><br>' +
-      '<small class="muted">' + esc(currentUser.email) + '</small></div>' +
+      '<small class="muted">' + esc(currentUser.email) + (currentUser.cloud ? ' · ☁ synced' : '') + '</small></div>' +
       '<button onclick="App.closeMenus();App.go(\'dashboard\')">📊 Dashboard</button>' +
       '<button onclick="App.closeMenus();App.go(\'analysis\')">📄 CV Analysis</button>' +
       '<button onclick="App.signOut()">↩ Sign out</button>' +
@@ -875,6 +1000,7 @@
   /* ---------- auth modal ---------- */
   function authView(mode) {
     const isUp = mode === 'signup';
+    const cloud = cloudEnabled();
     $('#modal-root').innerHTML =
       '<div class="modal-back" onclick="if(event.target===this)App.closeModal()"><div class="modal">' +
       '<div class="flex between"><h3 style="margin:0">' + (isUp ? 'Create your account' : 'Welcome back') + '</h3>' +
@@ -884,12 +1010,18 @@
       '<a href="#" class="' + (isUp ? 'active' : '') + '" onclick="App.openAuth(\'signup\');return false;">Sign up</a></div>' +
       (isUp ? '<div class="field"><label>Your name</label><input class="input" id="authName" placeholder="e.g. Dr. Sara Ahmed"></div>' : '') +
       '<div class="field"><label>Email</label><input class="input" id="authEmail" type="email" placeholder="you@example.com" onkeydown="if(event.key===\'Enter\')App.submitAuth(\'' + mode + '\')"></div>' +
-      '<div class="field"><label>Password <span class="hint">(anything — stored nowhere; this is a local demo account)</span></label>' +
-      '<input class="input" id="authPass" type="password" placeholder="••••••••" onkeydown="if(event.key===\'Enter\')App.submitAuth(\'' + mode + '\')"></div>' +
+      (cloud
+        ? ''
+        : '<div class="field"><label>Password <span class="hint">(anything — stored nowhere; this is a local demo account)</span></label>' +
+          '<input class="input" id="authPass" type="password" placeholder="••••••••" onkeydown="if(event.key===\'Enter\')App.submitAuth(\'' + mode + '\')"></div>') +
       '<div id="authErr" class="hidden" style="color:var(--red);font-size:.85rem;margin-bottom:10px"></div>' +
-      '<button class="btn btn-primary btn-block" onclick="App.submitAuth(\'' + mode + '\')">' + (isUp ? 'Create account' : 'Sign in') + '</button>' +
-      '<p class="muted mt" style="font-size:.78rem;margin:10px 0 0">Accounts are stored only in this browser (no server). Each account has its own CV, saved jobs and preferences. Nothing personal is stored or shown without an account.</p>' +
-      '</div></div>';
+      '<button class="btn btn-primary btn-block" onclick="App.submitAuth(\'' + mode + '\')">' +
+      (cloud ? '📬 Email me a sign-in link' : (isUp ? 'Create account' : 'Sign in')) + '</button>' +
+      '<p class="muted mt" style="font-size:.78rem;margin:10px 0 0">' +
+      (cloud
+        ? 'No password needed — we email you a magic link. Your CV, saved jobs and preferences sync securely across your devices (row-level security; only you can read your data).'
+        : 'Accounts are stored only in this browser (no server). Each account has its own CV, saved jobs and preferences. Nothing personal is stored or shown without an account.') +
+      '</p></div></div>';
   }
 
   /* ---------- auth gate ---------- */
@@ -901,12 +1033,13 @@
       '<div class="card empty"><div class="ic">🔒</div>' +
       '<h3>' + (names[route] || 'This page') + ' requires an account</h3>' +
       '<p>Your CV and personal data live only inside your account — never visible to guests ' +
-      'or to anyone else using this browser. Sign in or create a free local account to continue.</p>' +
+      'or to anyone else using this ' + (cloudEnabled() ? 'device. Sign in on any device and everything follows you.' : 'browser. Sign in or create a free local account to continue.') + '</p>' +
       '<div class="flex mt" style="justify-content:center">' +
       '<button class="btn btn-primary" onclick="App.openAuth(\'signup\')">Create account</button>' +
       '<button class="btn btn-outline" onclick="App.openAuth(\'signin\')">Sign in</button></div>' +
-      '<p class="muted mt" style="font-size:.8rem">Accounts are stored only in this browser — no server, nothing is uploaded anywhere.</p>' +
-      '</div></div></section>';
+      '<p class="muted mt" style="font-size:.8rem">' +
+      (cloudEnabled() ? 'Magic-link sign-in — no passwords, nothing to remember.' : 'Accounts are stored only in this browser — no server, nothing is uploaded anywhere.') +
+      '</p></div></div></section>';
   }
 
   /* ---------- views ---------- */
@@ -919,7 +1052,7 @@
     return '<section class="hero"><div class="container hero-grid"><div>' +
       '<span class="eyebrow">⚡ AI-matched healthcare jobs</span>' +
       '<h1>Find the healthcare job that matches <span style="color:var(--teal-d)">your</span> CV</h1>' +
-      '<p class="lead">Create a free local account, upload your CV, and let the matching engine score live healthcare jobs — currently covering Saudi Arabia — against your qualifications, experience, licensing status and career goals.</p>' +
+      '<p class="lead">Create a free ' + acctWord() + ', upload your CV, and let the matching engine score live healthcare jobs — currently covering Saudi Arabia — against your qualifications, experience, licensing status and career goals.</p>' +
       '<div class="flex wrap mt">' +
       (currentUser
         ? '<button class="btn btn-primary btn-lg" onclick="App.go(\'upload\')">Upload your CV</button>'
@@ -944,7 +1077,9 @@
       '</div></div></section>' +
       '<section class="section"><div class="container">' +
       '<h2 class="center">How it works</h2><div class="grid grid-3 mt-lg">' +
-      step(1, 'Create an account & upload your CV', 'Accounts live only in your browser. The engine extracts your profession, experience, skills and licensing status (registration, verification, exams).') +
+      step(1, 'Create an account & upload your CV', cloudEnabled()
+        ? 'Sign in with a magic email link — no password. The engine extracts your profession, experience, skills and licensing status, and everything syncs across your devices.'
+        : 'Accounts live only in your browser. The engine extracts your profession, experience, skills and licensing status (registration, verification, exams).') +
       step(2, 'Get scored matches', 'Every job is scored 0–100 across profession, qualifications, experience, licensing, skills, location and salary — plus AI semantic similarity when available.') +
       step(3, 'Apply with confidence', 'See exactly what matches, what is missing, and how to strengthen your CV for employers.') +
       '</div></div></section>';
@@ -1013,9 +1148,9 @@
     return '<div class="card empty" style="border:2px dashed var(--teal);background:#f0faf8">' +
       '<div class="ic">🔒</div>' +
       '<h3>' + hidden + ' more job' + (hidden > 1 ? 's' : '') + ' locked</h3>' +
-      '<p>Create a free local account to see every posting with employer names, salary ranges, ' +
-      'your personal match scores, full analysis and direct apply links. ' +
-      'Your data never leaves this browser.</p>' +
+      '<p>Create a free ' + acctWord() + ' to see every posting with employer names, salary ranges, ' +
+      'your personal match scores, full analysis and direct apply links.' +
+      (cloudEnabled() ? ' Sign in once — on any device — and everything follows you.' : ' Your data never leaves this browser.') + '</p>' +
       '<div class="flex mt" style="justify-content:center">' +
       '<button class="btn btn-primary" onclick="App.openAuth(\'signup\')">Create free account</button>' +
       '<button class="btn btn-outline" onclick="App.openAuth(\'signin\')">Sign in</button></div>' +
@@ -1057,7 +1192,9 @@
       '<div class="st ' + (state.cvText ? 'done' : '') + '" data-n="3">Matched jobs</div></div>' +
       '<div class="card"><h2>Upload your CV</h2>' +
       '<p class="muted">Drop in your <b>PDF</b> CV, upload a <code>.txt</code> file, or paste the text below. ' +
-      'Everything is read and analyzed locally in your browser — nothing is uploaded to any server.</p>' +
+      (cloudEnabled()
+        ? 'Your CV is analyzed in your browser and stored in your account — it syncs to your other devices, and only you can read it.'
+        : 'Everything is read and analyzed locally in your browser — nothing is uploaded to any server.') + '</p>' +
       '<div class="dropzone" id="dz">' +
       '<div class="ic">📄</div><b>Drop your CV here (PDF or .txt) — or click to browse</b>' +
       '<div class="hint">PDFs are read in your browser via pdf.js (needs internet once, to load the library). ' +
@@ -1115,7 +1252,7 @@
       (ev.length ? '<button class="btn btn-ghost btn-sm" onclick="App.clearActivity()">Clear activity</button>' : '') + '</div>';
     if (!ev.length) {
       h += '<p class="muted">No activity yet. Viewing, saving and applying to jobs teaches the matcher what you want — ' +
-        'those jobs earn a small score boost (up to +8) over time. Everything stays inside your account on this device.</p></div>';
+        'those jobs earn a small score boost (up to +8) over time. Everything stays inside your account.</p></div>';
       return h;
     }
     h += '<div class="list-row"><span class="muted">Last 30 days</span><span><b>' + views + '</b> views · <b>' + saves + '</b> saves · <b>' + applies + '</b> applies</span></div>' +
@@ -1124,7 +1261,7 @@
       (topCity ? '<div class="list-row"><span class="muted">Most engaged city</span><span>' + esc(topCity) + ' <span class="prov prov-user">+' + Math.min(4, byCity[topCity]) + ' boost</span></span></div>' : '') +
       '<p class="muted mt" style="font-size:.82rem">How it learns: each view is worth 1 point, a save 2, an apply 3. ' +
       'Points in a profession add up to +6 and in a city up to +4 to matching scores (max +8 total). ' +
-      'Clearing activity removes the boost immediately. Stored only in your account — never uploaded.</p></div>';
+      'Clearing activity removes the boost immediately. Stored only in your account.</p></div>';
     return h;
   }
 
@@ -1141,7 +1278,7 @@
     let h = '<section class="section"><div class="container">' +
       '<div class="dash-head"><div><h2 style="margin:0">Dashboard</h2>' +
       '<p class="muted" style="margin:4px 0 0">' + (displayName ? 'Welcome, ' + esc(displayName) : 'Your matching overview') +
-      (currentUser ? ' · signed in as ' + esc(currentUser.email) : '') + '</p></div>' +
+      (currentUser ? ' · signed in as ' + esc(currentUser.email) + (currentUser.cloud ? ' · ☁ synced' : '') : '') + '</p></div>' +
       '<div class="flex wrap">' +
       (state.cvText ? '<button class="btn btn-primary" onclick="App.go(\'analysis\')">CV Analysis report</button>' : '') +
       '<button class="btn btn-outline" onclick="App.go(\'upload\')">' + (state.cvText ? 'Re-analyze CV' : 'Upload CV') + '</button></div></div>' +
@@ -1437,6 +1574,16 @@
         if (errEl) { errEl.textContent = msg; errEl.classList.remove('hidden'); }
       };
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return fail('Enter a valid email address.');
+
+      /* cloud mode: magic link for both sign-in and sign-up */
+      if (cloudEnabled()) {
+        if (mode === 'signup' && name.length < 2) return fail('Enter your name.');
+        if (!sb) return fail('Sign-in service is still loading — try again in a few seconds.');
+        sendMagicLink(email, mode === 'signup' ? name : '', $('.modal .btn-primary'));
+        return;
+      }
+
+      /* local mode */
       const accs = loadJSON(ACC_KEY) || {};
       if (mode === 'signup') {
         if (name.length < 2) return fail('Enter your name.');
@@ -1464,13 +1611,16 @@
       }
     },
     signOut() {
+      const wasCloud = currentUser && currentUser.cloud;
       currentUser = null;
+      handledUid = null;
       try { localStorage.removeItem(SES_KEY); } catch (e) { /* ignore */ }
+      if (wasCloud && sb) { sb.auth.signOut().catch(() => {}); }
       wipeState();
       App.closeMenus();
       App.closeModal();
       App.go('home');
-      toast('Signed out — your data stays inside your account on this device.', 'info');
+      toast('Signed out — your data stays safe in your account.', 'info');
     },
     setFilter(key, value) {
       state.filters[key] = value;
@@ -1643,6 +1793,7 @@
   });
 
   render();
+  initCloud();
 
   /* returning signed-in user with a CV: warm up AI similarity silently */
   try { if (state.cvText) warmupSemantic(true); } catch (e) { /* never block the UI */ }
