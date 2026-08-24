@@ -17,6 +17,8 @@ Safety rules:
     (protects against parser breakage wiping good data).
   - Duplicates are detected by applyUrl.
   - Never crashes the run: per-cluster try/except with diagnostics.
+  - read_const tolerates hand-written JS (unquoted keys, trailing
+    commas) as well as strict JSON.
 
 Usage:
     pip install requests beautifulsoup4
@@ -142,7 +144,7 @@ def parse_api_json(obj, base):
         if isinstance(desc, str):
             desc = re.sub(r"<[^>]+>", " ", desc).strip()[:500]
         title = str(title).strip()
-        if title and (url or True):
+        if title:
             out.append({"title": title, "url": abs_url(str(url), base), "desc": desc})
     return out
 
@@ -200,7 +202,6 @@ def parse_links(html, base):
 
 # ---------- scrape one cluster ----------
 def scrape_cluster(slug):
-    name, city = CLUSTERS[slug]
     base = "https://%s-careers.health.sa" % slug
 
     for path in ("/api/jobs", "/jobs.json", "/api/v1/jobs", "/api/careers/jobs",
@@ -267,10 +268,22 @@ def mk_job(slug, raw):
         "demo": False,
     }
 
-# ---------- data.js I/O ----------
+# ---------- data.js I/O (tolerant of hand-written JS) ----------
+def js_to_json(text):
+    """Accept JS-ish arrays: quote bare keys, drop trailing commas."""
+    text = re.sub(r'([{,]\s*)([A-Za-z_][A-Za-z0-9_]*)\s*:', r'\1"\2":', text)
+    text = re.sub(r",\s*([}\]])", r"\1", text)
+    return text
+
 def read_const(src, name):
     m = re.search(r"const %s\s*=\s*(\[.*?\]);" % name, src, re.S)
-    return json.loads(m.group(1)) if m else None
+    if not m:
+        return None
+    text = m.group(1)
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        return json.loads(js_to_json(text))
 
 def write_const(src, name, arr):
     return re.sub(r"const %s\s*=\s*\[.*?\];" % name,
@@ -293,7 +306,7 @@ def main():
         except Exception as e:
             raw, how = [], "error: %s" % e
         fresh[slug] = [mk_job(slug, r) for r in raw]
-        print("  %-16s %3d jobs   (%s)" % [slug, len(raw), how])
+        print("  %-16s %3d jobs   (%s)" % (slug, len(raw), how))
         time.sleep(PAUSE)
 
     # merge: keep non-cluster jobs; per cluster, replace only when we got fresh data
