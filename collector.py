@@ -9,15 +9,19 @@ Pulls REAL healthcare jobs from TWO APIs and merges them:
                postings (free Basic plan via RapidAPI:
                https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch/pricing)
 
-v4.8: Job Details enrichment. After collection, the script calls JSearch's
-Job Details endpoint for the top doctor-level matches (--details N, default
-10). Details include extra application options - so employer-direct apply
-links replace aggregator links where they exist - plus fuller descriptions
-and structured requirements/responsibilities.
+v5.0: SEMANTIC LAYER. After collection, each job is embedded with the free
+all-MiniLM-L6-v2 sentence-transformer and written (int8-quantized) to
+embeddings.js. The site embeds the user's CV in the browser with the same
+model and blends: final score = 65% rule engine + 35% AI similarity.
+If the 'sentence-transformers' package is not installed, embeddings are
+skipped and the site keeps working with rule-only scores.
 
-Also: country flag, medical-insurance roles, employer-direct link
-preference, endpoint auto-detection, "via linkedin" passes, defensive
-parsing, clinical-only filter, rank classification, 30-day freshness.
+  pip install sentence-transformers     # only needed for embeddings
+
+Also: Job Details enrichment, country flag, medical-insurance roles,
+employer-direct link preference, endpoint auto-detection, "via linkedin"
+passes, defensive parsing, clinical-only filter, rank classification,
+30-day freshness.
 
 Run with either key or both (in the folder that contains data.js):
   python collector.py --key YOUR_JOOBLE_KEY --rapid-key YOUR_RAPIDAPI_KEY
@@ -27,14 +31,13 @@ Options:
   --country CODE    ISO country code to collect from (default: sa)
   --host HOST       Jooble domain (default: derived from --country)
   --pages N         pages per search term per source (default: 2)
-  --details N       enrich the top N doctor-level jobs with Job Details
-                    (default: 10; 0 disables; costs N extra JSearch requests)
+  --details N       enrich the top N doctor-level jobs via Job Details
+                    (default: 10; 0 disables)
   --max-age N       only keep jobs posted in the last N days (default: 30)
   --query "term"    add your own search term (repeatable)
   --keep-demo       keep the 20 demo jobs and append live jobs after them
   --doctors-only    keep only physician-level roles (GP/specialist/consultant)
-
-Note: a full two-source run uses ~75-90 JSearch requests (free: 200/month).
+  --no-embeddings   skip the semantic embedding step even if installed
 """
 
 import argparse
@@ -55,6 +58,7 @@ JSEARCH_HOST = "jsearch.p.rapidapi.com"
 JSEARCH_BASE = "https://" + JSEARCH_HOST
 JSEARCH_CANDIDATE_PATHS = ["/search-v2", "/search", "/job-search"]
 JSEARCH_DETAILS_PATHS = ["/job-details-v2", "/job-details", "/jobdetails"]
+EMB_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 
 COUNTRY_NAMES = {
     "sa": "Saudi Arabia", "ae": "United Arab Emirates", "qa": "Qatar",
@@ -67,16 +71,13 @@ DEFAULT_QUERIES = [
     "physician", "specialist physician", "consultant physician", "doctor",
     "staff nurse", "nurse", "pharmacist", "dentist", "physiotherapist",
     "radiologist", "medical laboratory technologist", "hospital",
-    # specialty terms - each one is up to 10 more JSearch results
     "internal medicine", "cardiology", "pediatrics", "emergency medicine",
     "dermatology", "obstetrics gynecology", "general surgery", "icu nurse",
     "emergency room doctor", "family medicine",
-    # medical insurance / pre-authorization roles
     "medical approval", "pre-authorization medical", "medical claims reviewer",
     "insurance medical officer",
 ]
 
-# Extra JSearch passes that explicitly pull LinkedIn-published jobs.
 LINKEDIN_QUERIES = ["general practitioner", "physician", "medical officer", "staff nurse"]
 
 # --- apply-link quality ------------------------------------------------------
@@ -100,7 +101,6 @@ def host_of(url):
 
 
 def best_apply_link(default_link, options):
-    """Pick the most employer-direct apply link available."""
     cands = []
     for o in (options or []):
         if isinstance(o, dict):
@@ -205,8 +205,6 @@ def is_doctor_job(title, desc):
 CITIES = ["Riyadh", "Jeddah", "Dammam", "Khobar", "Mecca", "Medina",
           "Abha", "Tabuk", "Al Ahsa", "Qassim"]
 
-# IMPORTANT: seniority ranks are checked BEFORE the GP keywords, because
-# titles like "Consultant Family Medicine" are NOT GP-rank jobs.
 PROF_KEYS = [
     (r"\b(consultant|sr\.? consultant|senior consultant|assistant consultant|associate consultant)\b", "Consultant"),
     (r"\b(specialist|registrar)\b", "Specialist"),
@@ -261,7 +259,6 @@ def clean(text):
 
 
 def extract_jobs(payload):
-    """Normalize a JSearch response into a flat list of job dicts."""
     if not isinstance(payload, dict):
         return []
     items = payload.get("data")
@@ -281,7 +278,6 @@ def extract_jobs(payload):
 
 
 def extract_cursor(payload):
-    """JSearch v2 pagination cursor - field name varies between versions."""
     if not isinstance(payload, dict):
         return None
     cur = payload.get("cursor") or payload.get("next_cursor") or payload.get("nextCursor")
@@ -358,7 +354,6 @@ def find_experience(text, exp_years=None):
 
 
 def parse_salary_text(s):
-    """Jooble salary is free text, e.g. '15000 - 20000 SAR'."""
     if not s:
         return 0, 0
     nums = [int(x.replace(",", "")) for x in re.findall(r"[\d,]{4,}", s)]
@@ -373,7 +368,6 @@ def parse_salary_text(s):
 
 
 def monthly_salary(value, period, currency):
-    """JSearch salary is numeric with a period + currency."""
     if not value or not currency:
         return 0
     if period == "YEAR":
@@ -473,6 +467,53 @@ def build_job(job_id, title, desc, employer, location_text, sal_min, sal_max,
     }
 
 
+# --- semantic embeddings (optional; needs sentence-transformers) -------------
+def load_embed_model():
+    try:
+        from sentence_transformers import SentenceTransformer
+        return SentenceTransformer(EMB_MODEL_NAME)
+    except Exception:
+        return None
+
+
+def embed_texts(model, texts):
+    """Chunked (~200 words, MiniLM truncates at 256 tokens), mean-pooled,
+    unit-norm embeddings."""
+    import numpy as np
+    out = []
+    for t in texts:
+        words = t.split()
+        chunks = [" ".join(words[i:i + 200]) for i in range(0, len(words), 200)] or [""]
+        vecs = model.encode(chunks, normalize_embeddings=True)
+        v = vecs.mean(axis=0)
+        n = float(np.linalg.norm(v)) or 1.0
+        out.append(v / n)
+    return out
+
+
+def quantize(v):
+    import numpy as np
+    s = float(np.max(np.abs(v))) or 1.0
+    return s, [int(round(float(x) / s * 127)) for x in v]
+
+
+def write_embeddings(data_path, jobs, model):
+    texts = [(j["title"] + ". " + j["profession"] + ". " + (j["specialty"] or "") + ". "
+              + ", ".join(j["skills"]) + ". " + j["description"]) for j in jobs]
+    vecs = embed_texts(model, texts)
+    emb = {}
+    for j, v in zip(jobs, vecs):
+        s, q = quantize(v)
+        emb[j["id"]] = {"s": round(s, 6), "q": q}
+    out = os.path.join(os.path.dirname(data_path) or ".", "embeddings.js")
+    with open(out, "w", encoding="utf-8") as f:
+        f.write("/* MedMatch - precomputed job embeddings (all-MiniLM-L6-v2,\n")
+        f.write("   int8-quantized, unit-norm). Generated by collector.py. */\n")
+        f.write("const EMB_META = { model: 'all-MiniLM-L6-v2', dims: %d };\n" % len(vecs[0]))
+        f.write("const JOB_EMBEDDINGS = " + json.dumps(emb, separators=(",", ":")) + ";\n")
+    return out, len(emb)
+
+
 # --- Jooble ------------------------------------------------------------------
 def fetch_jooble(api_key, host, query, page, location):
     url = "https://%s/api/%s" % (host, api_key.strip().strip('"').strip("'"))
@@ -481,7 +522,7 @@ def fetch_jooble(api_key, host, query, page, location):
         "page": str(page), "companysearch": "false",
     }).encode("utf-8")
     req = urllib.request.Request(url, data=body, method="POST", headers={
-        "Content-Type": "application/json", "User-Agent": "MedMatchCollector/4.8",
+        "Content-Type": "application/json", "User-Agent": "MedMatchCollector/5.0",
     })
     with urllib.request.urlopen(req, timeout=30) as r:
         return json.loads(r.read().decode("utf-8"))
@@ -509,7 +550,7 @@ def normalize_jooble(job):
     )
 
 
-# --- JSearch (RapidAPI) with endpoint auto-detection -------------------------
+# --- JSearch (RapidAPI) ------------------------------------------------------
 def fetch_jsearch(rapid_key, full_query, path, country, cursor=None):
     if cursor:
         params = {"cursor": cursor}
@@ -521,29 +562,28 @@ def fetch_jsearch(rapid_key, full_query, path, country, cursor=None):
     req = urllib.request.Request(url, headers={
         "X-RapidAPI-Key": rapid_key.strip().strip('"').strip("'"),
         "X-RapidAPI-Host": JSEARCH_HOST,
-        "User-Agent": "MedMatchCollector/4.8",
+        "User-Agent": "MedMatchCollector/5.0",
     })
     with urllib.request.urlopen(req, timeout=30) as r:
         return json.loads(r.read().decode("utf-8"))
 
 
-def fetch_jsearch_details(rapid_key, path, job_id):
-    params = {"job_id": job_id, "country": "sa", "language": "en"}
+def fetch_jsearch_details(rapid_key, path, job_id, country):
+    params = {"job_id": job_id, "country": country, "language": "en"}
     url = JSEARCH_BASE + path + "?" + urllib.parse.urlencode(params)
     req = urllib.request.Request(url, headers={
         "X-RapidAPI-Key": rapid_key.strip().strip('"').strip("'"),
         "X-RapidAPI-Host": JSEARCH_HOST,
-        "User-Agent": "MedMatchCollector/4.8",
+        "User-Agent": "MedMatchCollector/5.0",
     })
     with urllib.request.urlopen(req, timeout=30) as r:
         return json.loads(r.read().decode("utf-8"))
 
 
-def probe_details_path(rapid_key, sample_job_id):
-    """Find the working Job Details endpoint (once per run)."""
+def probe_details_path(rapid_key, sample_job_id, country):
     for path in JSEARCH_DETAILS_PATHS:
         try:
-            data = fetch_jsearch_details(rapid_key, path, sample_job_id)
+            data = fetch_jsearch_details(rapid_key, path, sample_job_id, country)
             if isinstance(data, dict) and ("data" in data or "results" in data):
                 print("Job Details endpoint: %s" % path)
                 return path
@@ -582,20 +622,18 @@ def normalize_jsearch(job):
         reqs=[clean(x) for x in (highlights.get("Qualifications") or []) if isinstance(x, str) and clean(x)],
         resps=[clean(x) for x in (highlights.get("Responsibilities") or []) if isinstance(x, str) and clean(x)],
     )
-    # keep the FULL JSearch id for the details lookup (stripped before writing)
     built["_jsid"] = str(job.get("job_id", ""))
     return built
 
 
-def enrich_with_details(jobs, rapid_key, details_path, count):
-    """Upgrade the top doctor-level JSearch jobs with Job Details data."""
+def enrich_with_details(jobs, rapid_key, details_path, count, country):
     rank = {"General Practitioner": 0, "Consultant": 1, "Specialist": 2}
     cands = [j for j in jobs if j.get("_jsid")]
     cands.sort(key=lambda j: (rank.get(j["profession"], 9), j["postedDaysAgo"]))
     enriched = 0
     for j in cands[:count]:
         try:
-            data = fetch_jsearch_details(rapid_key, details_path, j["_jsid"])
+            data = fetch_jsearch_details(rapid_key, details_path, j["_jsid"], country)
             det = extract_jobs(data)
             if not det:
                 continue
@@ -646,7 +684,6 @@ def test_jooble(api_key, host, location):
 
 
 def test_jsearch(rapid_key, country, location):
-    """Probe the known search-endpoint paths; return the working one or None."""
     auth_error = None
     for path in JSEARCH_CANDIDATE_PATHS:
         try:
@@ -745,6 +782,7 @@ def main():
     ap.add_argument("--query", action="append", default=[], help="extra search term (repeatable)")
     ap.add_argument("--keep-demo", action="store_true", help="keep demo jobs and append live ones")
     ap.add_argument("--doctors-only", action="store_true", help="keep only physician-level roles")
+    ap.add_argument("--no-embeddings", action="store_true", help="skip the semantic embedding step")
     args = ap.parse_args()
 
     country = args.country.lower().strip()
@@ -856,10 +894,10 @@ def main():
     enriched = 0
     if "jsearch" in sources and args.details > 0:
         sample = next((j["_jsid"] for j in jobs if j.get("_jsid")), None)
-        details_path = probe_details_path(args.rapid_key, sample) if sample else None
+        details_path = probe_details_path(args.rapid_key, sample, country) if sample else None
         if details_path:
             print("Enriching top %d doctor-level jobs with Job Details..." % args.details)
-            enriched = enrich_with_details(jobs, args.rapid_key, details_path, args.details)
+            enriched = enrich_with_details(jobs, args.rapid_key, details_path, args.details, country)
         else:
             print("Job Details endpoint not available on this plan - skipping enrichment.")
 
@@ -876,6 +914,20 @@ def main():
                                "JSearch REST API (RapidAPI)", per_source["jsearch"]))
 
     update_data_js(args.data, jobs, args.keep_demo, source_entries)
+
+    # --- semantic embeddings ---
+    emb_note = "skipped (--no-embeddings)"
+    if not args.no_embeddings:
+        model = load_embed_model()
+        if model is None:
+            emb_note = "skipped (sentence-transformers not installed)"
+            print("\nNote: sentence-transformers not installed - embeddings skipped.")
+            print("The site keeps working with rule-only scores. To enable AI similarity:")
+            print("  pip install sentence-transformers")
+        else:
+            print("\nComputing semantic embeddings for %d jobs..." % len(jobs))
+            out, n = write_embeddings(args.data, jobs, model)
+            emb_note = "%d jobs -> %s" % (n, out)
 
     cities = {}
     for j in jobs:
@@ -894,6 +946,7 @@ def main():
           % (skipped_clinical, skipped_old, args.max_age, skipped_dup, skipped_bad))
     print("Employer-direct apply links: %d of %d (details-enriched: %d)." % (direct, len(jobs), enriched))
     print("Medical insurance / pre-auth roles: %d." % insurance)
+    print("Semantic embeddings: %s" % emb_note)
     print("By profession: %s" % prof_line)
     print("Top cities: %s" % top)
     print("Backup of the previous data: data.backup.js")
