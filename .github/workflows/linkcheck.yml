@@ -1,0 +1,39 @@
+# MedMatch — weekly dead-link pruning.
+# Runs every Sunday 03:00 UTC (before Monday's job sync), plus on demand
+# via the Actions tab ("Run workflow"). Commits the pruned data.js only
+# when something was actually removed.
+name: Dead-link pruning
+
+on:
+  schedule:
+    - cron: "0 3 * * 0"   # Sundays 03:00 UTC
+  workflow_dispatch:       # manual run from the Actions tab
+
+permissions:
+  contents: write          # needed to push the pruned data.js
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: HEAD-check apply URLs and prune dead postings
+        run: python check_links.py
+
+      - name: Commit pruned data.js (only if changed)
+        run: |
+          if git diff --quiet data.js; then
+            echo "No dead links found — nothing to commit."
+            exit 0
+          fi
+          git config user.name "medmatch-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data.js
+          REMOVED=$(git diff --cached --stat | tail -1)
+          git commit -m "chore: prune dead apply links ($REMOVED)"
+          git push
