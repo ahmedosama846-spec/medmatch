@@ -1,5 +1,5 @@
 /* ============================================================
-   MedMatch — app.js (UI layer, v16)
+   MedMatch — app.js (UI layer, v17)
    Renders the whole app into #app.
    Depends on globals from data.js  (DEMO_JOBS, CITIES, PROFESSIONS,
    EMPLOYMENT_TYPES, JOB_SOURCES, SAMPLE_CV_TEXT, SKILLS_VOCAB) and
@@ -7,12 +7,11 @@
    matchLabel, parseNLQuery, improvementTips, completeness,
    profileStrength, fmtNum). No fetch() — works over file:// .
 
-   v16: FEEDBACK LOOP. Views, saves, applies and searches are logged
-   per account (local only) and teach the matcher: jobs in
-   professions/cities you engage with get a learned boost (up to +8).
-   Dashboard gains an "Activity & learning" card with a clear-data
-   control. Optional GoatCounter hook (anonymous, aggregate) for
-   site-level stats — set GOATCOUNTER_CODE below to enable.
+   v17: GUEST TEASER. Guests see only the first 6 jobs, with employer
+   and salary masked, no match scores, no details modal, no apply
+   links — everything unlocks after sign-in. Signed-in experience
+   unchanged.
+   v16: feedback loop — activity log + learned boost + GoatCounter.
    v15: auth gate — personal features require sign-in.
    v14: privacy fix — guest data never leaks into accounts.
    v11: semantic matching (65% rules + 35% AI similarity).
@@ -30,7 +29,7 @@
         profession, city) and page names — never CV text, names,
         emails, or anything from a user's account.
      ============================================================ */
- const GOATCOUNTER_CODE = 'medmatch';
+  const GOATCOUNTER_CODE = '';
 
   /* ---------- guards ---------- */
   if (typeof Engine === 'undefined' || typeof DEMO_JOBS === 'undefined') {
@@ -951,13 +950,24 @@
       '</div></div></section>';
   }
 
+  /* ============================================================
+     Jobs view — guests get a teaser, members get everything
+     ============================================================ */
+  const GUEST_JOB_LIMIT = 6;
+
   function jobsView() {
-    const list = filteredJobs();
+    const all = filteredJobs();
+    const isGuest = !currentUser;
+    const list = isGuest ? all.slice(0, GUEST_JOB_LIMIT) : all;
+    const hidden = all.length - list.length;
+
     return '<section class="section"><div class="container">' +
       '<div class="dash-head"><div><h2 style="margin:0">Matched jobs</h2>' +
-      '<p class="muted" style="margin:4px 0 0">' + list.length + ' of ' + DEMO_JOBS.length + ' jobs · sorted by match score' +
-      (embState.ready ? ' · <span class="prov prov-ai">AI similarity on</span>' : '') +
-      (!currentUser ? ' · scores are neutral — <a href="#" onclick="App.openAuth(\'signup\');return false;">create an account</a> to personalize them' : '') +
+      '<p class="muted" style="margin:4px 0 0">' +
+      (isGuest
+        ? 'Showing ' + list.length + ' of ' + all.length + ' jobs — <a href="#" onclick="App.openAuth(\'signup\');return false;">create a free account</a> to unlock employer names, salaries, match scores and apply links'
+        : all.length + ' of ' + DEMO_JOBS.length + ' jobs · sorted by match score' +
+          (embState.ready ? ' · <span class="prov prov-ai">AI similarity on</span>' : '')) +
       '</p></div></div>' +
       '<div class="ai-search"><div class="field" style="margin:0"><label>🤖 Ask in plain English</label>' +
       '<input class="input" id="nlInput" placeholder=\'e.g. "GP jobs in Riyadh above 12000 suitable for my CV"\' value="' + esc(state.filters.nl) + '" onkeydown="if(event.key===\'Enter\')App.aiSearch()">' +
@@ -973,8 +983,43 @@
       '<button class="btn btn-ghost btn-sm mt" onclick="App.resetFilters()">Reset filters</button>' +
       '</aside>' +
       '<div class="grid">' +
-      (list.length ? list.map(jobCard).join('') : emptyState('No jobs match these filters', 'Try removing a filter or broadening your search.')) +
+      (list.length
+        ? list.map(isGuest ? guestJobCard : jobCard).join('')
+        : emptyState('No jobs match these filters', 'Try removing a filter or broadening your search.')) +
+      (isGuest && hidden > 0 ? teaserWall(hidden) : '') +
       '</div></div></div></section>';
+  }
+
+  /* Guest card: hook (title, city, profession) visible — value
+     (employer, salary, score, details, apply) locked behind sign-in. */
+  function guestJobCard({ job }) {
+    const blur = 'filter:blur(6px);user-select:none;pointer-events:none';
+    return '<div class="card job-card"><div class="job-top"><div>' +
+      '<p class="job-title">' + esc(job.title) + '</p>' +
+      '<div class="job-emp"><span style="' + blur + '" aria-hidden="true">Al Confidential Hospital Group</span> · ' + esc(job.city) + '</div></div>' +
+      '<span class="badge badge-gray" title="Sign in to see your match score">🔒 Match</span></div>' +
+      '<div class="job-meta">' +
+      '<span class="badge badge-gray">' + esc(job.profession) + '</span>' +
+      '<span class="badge badge-blue">' + esc(job.employment) + '</span>' +
+      '<span class="badge badge-teal" style="' + blur + '" aria-hidden="true">SAR 00,000–00,000</span>' +
+      '<span class="badge badge-gray">' + job.expMin + '–' + job.expMax + ' yrs</span>' +
+      '</div><div class="job-actions">' +
+      '<button class="btn btn-primary btn-sm" onclick="App.openAuth(\'signup\')">🔒 Sign in to view details &amp; apply</button>' +
+      '<span class="muted" style="font-size:.78rem">' + posted(job.postedDaysAgo) + '</span>' +
+      '</div></div>';
+  }
+
+  function teaserWall(hidden) {
+    return '<div class="card empty" style="border:2px dashed var(--teal);background:#f0faf8">' +
+      '<div class="ic">🔒</div>' +
+      '<h3>' + hidden + ' more job' + (hidden > 1 ? 's' : '') + ' locked</h3>' +
+      '<p>Create a free local account to see every posting with employer names, salary ranges, ' +
+      'your personal match scores, full analysis and direct apply links. ' +
+      'Your data never leaves this browser.</p>' +
+      '<div class="flex mt" style="justify-content:center">' +
+      '<button class="btn btn-primary" onclick="App.openAuth(\'signup\')">Create free account</button>' +
+      '<button class="btn btn-outline" onclick="App.openAuth(\'signin\')">Sign in</button></div>' +
+      '</div>';
   }
 
   function jobCard({ job, res }) {
@@ -999,7 +1044,7 @@
       (st ? '<span class="status-pill st-' + st + '">' + cap(st) + '</span>' : '') +
       '</div><div class="job-actions">' +
       '<button class="btn btn-primary btn-sm" onclick="App.openJob(\'' + job.id + '\')">View analysis</button>' +
-      (currentUser ? '<button class="btn btn-outline btn-sm" onclick="App.setStatus(\'' + job.id + '\',\'' + (st === 'saved' ? '' : 'saved') + '\')">' + (st === 'saved' ? 'Unsave' : 'Save') + '</button>' : '') +
+      '<button class="btn btn-outline btn-sm" onclick="App.setStatus(\'' + job.id + '\',\'' + (st === 'saved' ? '' : 'saved') + '\')">' + (st === 'saved' ? 'Unsave' : 'Save') + '</button>' +
       '<span class="muted" style="font-size:.78rem">' + posted(job.postedDaysAgo) + ' · ' + esc(job.source) + '</span>' +
       '</div></div>';
   }
@@ -1179,6 +1224,7 @@
 
   /* ---------- modal ---------- */
   function openJobModal(id) {
+    if (!currentUser) { authView('signup'); return; }
     const item = scoredJobs().find((x) => x.job.id === id);
     if (!item) return;
     const job = item.job, res = item.res;
@@ -1226,11 +1272,9 @@
       '</ul></div></div>' +
       '<div class="flex mt wrap">' +
       '<button class="btn btn-primary" onclick="App.applyJob(\'' + job.id + '\')">' + esc(applyLabel) + '</button>' +
-      (currentUser
-        ? '<button class="btn btn-outline" onclick="App.coverLetter(\'' + job.id + '\')">✉ Cover letter</button>' +
-          '<button class="btn btn-outline" onclick="App.interviewPrep(\'' + job.id + '\')">🎤 Interview prep</button>' +
-          '<button class="btn btn-outline" onclick="App.setStatus(\'' + job.id + '\',\'interested\');App.closeModal()">Mark interested</button>'
-        : '<button class="btn btn-outline" onclick="App.openAuth(\'signup\')">Create account to save & track</button>') +
+      '<button class="btn btn-outline" onclick="App.coverLetter(\'' + job.id + '\')">✉ Cover letter</button>' +
+      '<button class="btn btn-outline" onclick="App.interviewPrep(\'' + job.id + '\')">🎤 Interview prep</button>' +
+      '<button class="btn btn-outline" onclick="App.setStatus(\'' + job.id + '\',\'interested\');App.closeModal()">Mark interested</button>' +
       '</div>' +
       applyNote +
       '</div></div>';
@@ -1533,18 +1577,17 @@
       if (status) toast('Job marked as "' + cap(status) + '".', 'ok');
     },
     applyJob(id) {
+      if (!currentUser) { App.openAuth('signin'); return; }
       const item = DEMO_JOBS.find((x) => x.id === id);
       const url = item && item.applyUrl;
       if (item) trackEvent('apply', item);
-      if (currentUser) {
-        state.saved[id] = 'applied';
-        save();
-      }
+      state.saved[id] = 'applied';
+      save();
       App.closeModal();
       render();
       if (isRealUrl(url)) {
         window.open(url, '_blank', 'noopener');
-        toast('Opening the posting in a new tab' + (currentUser ? ' — job marked as applied.' : '.'), 'ok');
+        toast('Opening the posting in a new tab — job marked as applied.', 'ok');
       } else {
         toast('Application recorded (demo). Good luck! 🎉', 'ok');
       }
