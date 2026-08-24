@@ -30,7 +30,7 @@
         profession, city) and page names — never CV text, names,
         emails, or anything from a user's account.
      ============================================================ */
-  const GOATCOUNTER_CODE = '';
+ const GOATCOUNTER_CODE = 'medmatch';
 
   /* ---------- guards ---------- */
   if (typeof Engine === 'undefined' || typeof DEMO_JOBS === 'undefined') {
