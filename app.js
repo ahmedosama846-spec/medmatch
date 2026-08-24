@@ -37,9 +37,8 @@
         GitHub Pages address (e.g. https://user.github.io/medmatch/)
      4. Settings → API → paste the Project URL and anon public key here.
      ============================================================ */
- const SUPABASE_URL = 'https://qglgpckjspltwetctzgv.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFnbGdwY2tqc3BsdHdldGN0emd2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc1OTM5ODcsImV4cCI6MjEwMzE2OTk4N30.jqoomFHdODESztcwRTA3L9A8whuyup-SkElwMdj1Vm0';
-
+const SUPABASE_URL = 'https://qglgpckjspltwetctzgv.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_TJIQpJIhPxkKDmH8YgIoVw_zuCNxzel';
   /* ============================================================
      OPTIONAL: anonymous aggregate analytics (GoatCounter).
      Events sent contain ONLY job metadata — never CV text, names,
