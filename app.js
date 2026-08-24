@@ -1,5 +1,5 @@
 /* ============================================================
-   MedMatch — app.js (UI layer, v15)
+   MedMatch — app.js (UI layer, v16)
    Renders the whole app into #app.
    Depends on globals from data.js  (DEMO_JOBS, CITIES, PROFESSIONS,
    EMPLOYMENT_TYPES, JOB_SOURCES, SAMPLE_CV_TEXT, SKILLS_VOCAB) and
@@ -7,17 +7,30 @@
    matchLabel, parseNLQuery, improvementTips, completeness,
    profileStrength, fmtNum). No fetch() — works over file:// .
 
-   v15: AUTH GATE. Upload CV, CV Analysis and Dashboard now require
-   a signed-in account — guests can only browse Home and Jobs.
-   No personal data is ever shown or stored outside an account.
-   Also fixed the sign-up form's misleading name placeholder.
+   v16: FEEDBACK LOOP. Views, saves, applies and searches are logged
+   per account (local only) and teach the matcher: jobs in
+   professions/cities you engage with get a learned boost (up to +8).
+   Dashboard gains an "Activity & learning" card with a clear-data
+   control. Optional GoatCounter hook (anonymous, aggregate) for
+   site-level stats — set GOATCOUNTER_CODE below to enable.
+   v15: auth gate — personal features require sign-in.
    v14: privacy fix — guest data never leaks into accounts.
-   v13: local accounts + notification center.
-   v12: clickable stat cards + visible error toasts.
    v11: semantic matching (65% rules + 35% AI similarity).
    ============================================================ */
 (function () {
   'use strict';
+
+  /* ============================================================
+     OPTIONAL: anonymous aggregate analytics (GoatCounter).
+     1. Create a free site at https://www.goatcounter.com (no cookies,
+        no personal data, GDPR-friendly).
+     2. Paste your site code below, e.g. if your dashboard is
+        https://medmatch.goatcounter.com → const GOATCOUNTER_CODE = 'medmatch';
+     3. Events sent contain ONLY job metadata (id, title, employer,
+        profession, city) and page names — never CV text, names,
+        emails, or anything from a user's account.
+     ============================================================ */
+  const GOATCOUNTER_CODE = '';
 
   /* ---------- guards ---------- */
   if (typeof Engine === 'undefined' || typeof DEMO_JOBS === 'undefined') {
@@ -71,15 +84,36 @@
   });
 
   /* ============================================================
+     GoatCounter (anonymous aggregate) — optional
+     ============================================================ */
+  function gcReady() {
+    return !!(GOATCOUNTER_CODE && window.goatcounter && window.goatcounter.count);
+  }
+  function gcEvent(path, title) {
+    if (!gcReady()) return;
+    try { window.goatcounter.count({ path: path, title: title || path, event: true }); } catch (e) { /* ignore */ }
+  }
+  function gcPage(route) {
+    if (!gcReady()) return;
+    try { window.goatcounter.count({ path: '/' + route }); } catch (e) { /* ignore */ }
+  }
+  (function loadGoatCounter() {
+    if (!GOATCOUNTER_CODE) return;
+    const s = document.createElement('script');
+    s.src = 'https://gc.zgo.at/count.js';
+    s.setAttribute('data-goatcounter', 'https://' + GOATCOUNTER_CODE + '.goatcounter.com/count');
+    s.async = true;
+    document.head.appendChild(s);
+  })();
+
+  /* ============================================================
      Local accounts & data boundaries
-     - Personal data (CV, profile, saved jobs) lives ONLY inside
-       account storage. There is no guest CV storage anymore.
-     - Sign-up starts the account CLEAN. Sign-in loads only that
-       account's own data. Sign-out wipes the visible state.
+     - Personal data (CV, profile, saved jobs, activity) lives ONLY
+       inside account storage. Guests store nothing personal.
      ============================================================ */
   const ACC_KEY = 'medmatch_accounts';
   const SES_KEY = 'medmatch_session';
-  const GUEST_KEY = 'medmatch_saudi_v1'; // legacy slot — read once, then migrated out
+  const GUEST_KEY = 'medmatch_saudi_v1'; // legacy slot — removed on load
 
   function loadJSON(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } }
   function saveJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* ignore */ } }
@@ -92,7 +126,8 @@
     if (!currentUser) return; // guests store nothing personal
     saveJSON(accountKey(currentUser.email), {
       profile: state.profile, cvText: state.cvText, saved: state.saved,
-      filters: state.filters, notifsReadIds: state.notifsReadIds
+      filters: state.filters, notifsReadIds: state.notifsReadIds,
+      events: state.events
     });
   }
 
@@ -103,6 +138,7 @@
     state.saved = data.saved || {};
     state.filters = data.filters || state.filters;
     state.notifsReadIds = data.notifsReadIds || [];
+    state.events = data.events || [];
   }
 
   function wipeState() {
@@ -110,6 +146,7 @@
     state.cvText = '';
     state.saved = {};
     state.notifsReadIds = [];
+    state.events = [];
     embState.cvVec = null;
     embState.ready = false;
   }
@@ -131,13 +168,12 @@
     cvText: '',
     filters: { profession: '', city: '', employment: '', minSalary: '', nl: '' },
     saved: {},
-    notifsReadIds: []
+    notifsReadIds: [],
+    events: [] // { t, type, id, prof, city } — the feedback loop
   };
 
   /* restore: only a signed-in account's data is ever loaded */
   (function boot() {
-    /* one-time cleanup: remove the legacy guest slot so no personal
-       data ever shows outside an account again */
     try { localStorage.removeItem(GUEST_KEY); } catch (e) { /* ignore */ }
     const ses = loadJSON(SES_KEY);
     const accs = loadJSON(ACC_KEY) || {};
@@ -148,6 +184,34 @@
   })();
 
   function save() { persistState(); }
+
+  /* ============================================================
+     Feedback loop: activity log + learned boost
+     ============================================================ */
+  const EVENT_W = { view: 1, search: 1, save: 2, interested: 2, apply: 3, interview: 3, offer: 3, rejected: 0, withdrawn: 0 };
+
+  function pushEvent(e) {
+    state.events.push(e);
+    if (state.events.length > 500) state.events = state.events.slice(-500);
+  }
+
+  function trackEvent(type, job) {
+    if (job) gcEvent(type + '/' + job.id, type + ': ' + job.title + ' @ ' + job.employer);
+    if (!currentUser || !job) return;
+    pushEvent({ t: Date.now(), type: type, id: job.id, prof: job.profession, city: job.city });
+    save();
+  }
+
+  function learnedBoost(job) {
+    if (!currentUser || !state.events.length) return 0;
+    let profPts = 0, cityPts = 0;
+    state.events.forEach((e) => {
+      const w = EVENT_W[e.type] !== undefined ? EVENT_W[e.type] : 1;
+      if (e.prof && e.prof === job.profession) profPts += w;
+      if (e.city && e.city === job.city) cityPts += w;
+    });
+    return Math.min(8, Math.min(6, profPts) + Math.min(4, cityPts));
+  }
 
   /* ============================================================
      Semantic (AI similarity) layer
@@ -232,7 +296,8 @@
     return DEMO_JOBS.map((job) => {
       const res = Engine.scoreJob(state.profile, job);
       res.semantic = semanticScore(job);
-      res.final = finalScore(res);
+      res.boost = learnedBoost(job);
+      res.final = Math.min(100, finalScore(res) + res.boost);
       return { job, res };
     });
   }
@@ -291,6 +356,11 @@
   function bdRow(label, val) {
     return '<div class="bd-row"><span>' + label + '</span>' +
       '<div class="progress"><div style="width:' + val + '%"></div></div><b>' + val + '</b></div>';
+  }
+
+  function boostRow(boost) {
+    return '<div class="bd-row"><span>Learned from your activity</span>' +
+      '<div class="progress"><div style="width:' + Math.round(boost / 8 * 100) + '%"></div></div><b>+' + boost + '</b></div>';
   }
 
   function catRow(c) {
@@ -916,6 +986,7 @@
       '<div class="job-emp">' + esc(job.employer) + ' · ' + esc(job.city) + '</div></div>' +
       '<div class="ring-wrap">' + ring(res.final, color) + '<div class="ring-sub">' + matchBadge(res.final) +
       (res.semantic !== null && res.semantic !== undefined ? ' <span class="prov prov-ai">AI</span>' : '') +
+      (res.boost ? ' <span class="prov prov-user" title="Boosted by your activity">+' + res.boost + '</span>' : '') +
       '</div></div></div>' +
       '<div class="job-meta">' +
       '<span class="badge badge-gray">' + esc(job.profession) + '</span>' +
@@ -976,6 +1047,42 @@
       '<button class="btn btn-primary btn-sm" onclick="App.savePrefs()">Save preferences</button></div>';
   }
 
+  /* ---------- activity & learning insights ---------- */
+  function insightsCard() {
+    const ev = state.events || [];
+    const now = Date.now(), d30 = 30 * 24 * 3600 * 1000;
+    const recent = ev.filter((e) => now - e.t < d30);
+    const cnt = (arr, types) => arr.filter((e) => types.indexOf(e.type) !== -1).length;
+    const views = cnt(recent, ['view']);
+    const saves = cnt(recent, ['save', 'interested']);
+    const applies = cnt(recent, ['apply']);
+
+    const byProf = {}, byCity = {};
+    ev.forEach((e) => {
+      const w = EVENT_W[e.type] !== undefined ? EVENT_W[e.type] : 1;
+      if (e.prof) byProf[e.prof] = (byProf[e.prof] || 0) + w;
+      if (e.city) byCity[e.city] = (byCity[e.city] || 0) + w;
+    });
+    const topProf = Object.keys(byProf).sort((a, b) => byProf[b] - byProf[a])[0];
+    const topCity = Object.keys(byCity).sort((a, b) => byCity[b] - byCity[a])[0];
+
+    let h = '<div class="card mt-lg"><div class="flex between"><h3 style="margin:0">📈 Activity &amp; learning</h3>' +
+      (ev.length ? '<button class="btn btn-ghost btn-sm" onclick="App.clearActivity()">Clear activity</button>' : '') + '</div>';
+    if (!ev.length) {
+      h += '<p class="muted">No activity yet. Viewing, saving and applying to jobs teaches the matcher what you want — ' +
+        'those jobs earn a small score boost (up to +8) over time. Everything stays inside your account on this device.</p></div>';
+      return h;
+    }
+    h += '<div class="list-row"><span class="muted">Last 30 days</span><span><b>' + views + '</b> views · <b>' + saves + '</b> saves · <b>' + applies + '</b> applies</span></div>' +
+      '<div class="list-row"><span class="muted">Total events</span><span>' + ev.length + '</span></div>' +
+      (topProf ? '<div class="list-row"><span class="muted">Most engaged profession</span><span>' + esc(topProf) + ' <span class="prov prov-user">+' + Math.min(6, byProf[topProf]) + ' boost</span></span></div>' : '') +
+      (topCity ? '<div class="list-row"><span class="muted">Most engaged city</span><span>' + esc(topCity) + ' <span class="prov prov-user">+' + Math.min(4, byCity[topCity]) + ' boost</span></span></div>' : '') +
+      '<p class="muted mt" style="font-size:.82rem">How it learns: each view is worth 1 point, a save 2, an apply 3. ' +
+      'Points in a profession add up to +6 and in a city up to +4 to matching scores (max +8 total). ' +
+      'Clearing activity removes the boost immediately. Stored only in your account — never uploaded.</p></div>';
+    return h;
+  }
+
   function dashboardView() {
     const p = state.profile;
     const displayName = p.fullName || (currentUser && currentUser.name) || '';
@@ -1032,6 +1139,8 @@
     }
     h += '</div>';
 
+    h += insightsCard();
+
     /* saved jobs */
     h += '<div class="card mt-lg" id="savedJobs"><h3>Saved jobs</h3>';
     if (!savedIds.length) {
@@ -1073,6 +1182,7 @@
     const item = scoredJobs().find((x) => x.job.id === id);
     if (!item) return;
     const job = item.job, res = item.res;
+    trackEvent('view', job);
     const pair = Engine.matchLabel(res.final);
     const color = pair[1];
     const realApply = isRealUrl(job.applyUrl);
@@ -1106,6 +1216,7 @@
       '<h4>Score breakdown</h4>' +
       rows.map((r) => bdRow(r[0], Math.round(res.breakdown[r[1]] || 0))).join('') +
       (hasSem ? bdRow('AI similarity', res.semantic) : '') +
+      (res.boost ? boostRow(res.boost) : '') +
       (res.caps.length ? '<p class="mt"><span class="badge badge-red">Score capped</span> <span class="muted">' + res.caps.map(esc).join(' · ') + '</span></p>' : '') +
       '<div class="grid grid-2 mt"><div><h4>Analysis vs your profile</h4>' + analysisList(res) + '</div>' +
       '<div><h4>Requirements</h4><ul class="analysis-list">' +
@@ -1223,6 +1334,7 @@
       state.route = route;
       save();
       render();
+      gcPage(route);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     },
     goAnchor(route, anchorId) {
@@ -1329,6 +1441,15 @@
     aiSearch() {
       const inp = $('#nlInput');
       state.filters.nl = inp ? inp.value.trim() : '';
+      if (state.filters.nl) {
+        gcEvent('search', 'search: ' + state.filters.nl);
+        if (currentUser) {
+          const nl = Engine.parseNLQuery(state.filters.nl);
+          if (nl.profession || nl.city) {
+            pushEvent({ t: Date.now(), type: 'search', id: '', prof: nl.profession || '', city: nl.city || '' });
+          }
+        }
+      }
       save();
       render();
       if (state.filters.nl) toast('AI search applied: "' + state.filters.nl + '"', 'info');
@@ -1391,11 +1512,22 @@
       render();
       toast('Preferences saved — Location and Salary now score personally.', 'ok');
     },
+    clearActivity() {
+      state.events = [];
+      save();
+      render();
+      toast('Activity history cleared — learned boosts removed.', 'info');
+    },
     closeModal() { $('#modal-root').innerHTML = ''; },
     setStatus(id, status) {
       if (!currentUser) { App.openAuth('signin'); return; }
-      if (status) state.saved[id] = status;
-      else delete state.saved[id];
+      const job = DEMO_JOBS.find((x) => x.id === id);
+      if (status) {
+        state.saved[id] = status;
+        if (job) trackEvent(status === 'saved' ? 'save' : status, job);
+      } else {
+        delete state.saved[id];
+      }
       save();
       render();
       if (status) toast('Job marked as "' + cap(status) + '".', 'ok');
@@ -1403,6 +1535,7 @@
     applyJob(id) {
       const item = DEMO_JOBS.find((x) => x.id === id);
       const url = item && item.applyUrl;
+      if (item) trackEvent('apply', item);
       if (currentUser) {
         state.saved[id] = 'applied';
         save();
