@@ -44,7 +44,7 @@ jobs:
         env:
           JOOBLE_KEY: ${{ secrets.JOOBLE_KEY }}
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
-                run: |
+        run: |
           python collector.py
           python filter_jobs.py
 
