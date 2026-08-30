@@ -25,7 +25,9 @@ jobs:
         run: pip install --no-cache-dir beautifulsoup4
 
       - name: Scrape the 20 health-cluster portals into data.js
-        run: python scrape_cluster.py
+        run: |
+          python scrape_cluster.py
+          python filter_jobs.py
 
       - name: Commit data.js (only if changed)
         run: |
