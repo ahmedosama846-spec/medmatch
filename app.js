@@ -1134,6 +1134,7 @@
         : '<p class="muted">' + t('strongNone') + '</p>') +
       '</div></div>' +
       cvReviewCard(a) +
+      aiCard() +
       '<div class="card mt-lg"><h3>' + t('weakPts') + '</h3>' +
       (a.weak.length
         ? '<ul class="analysis-list">' + a.weak.map((w) => {
@@ -1160,8 +1161,9 @@
   }
 
 
-  /* ---------- CV review: original file, document preview, edit-in-place, hover fixes, export (v27) ---------- */
+  /* ---------- CV review + AI (DeepSeek via Supabase Edge Function) (v28) ---------- */
   let cvEditMode = false, cvTpl = 'classic', cvMarks = true, cvView = 'auto', pdfStashText = '';
+  let aiBusy = false, aiFixes = [];
 
   const CV_TPLS = { classic: 'Classic', modern: 'Modern', executive: 'Executive', compact: 'Compact', elegant: 'Elegant' };
 
@@ -1181,6 +1183,33 @@
     pdfStashText = '';
     const k = cvFileKey();
     if (k) try { localStorage.removeItem(k); } catch (e) { /* ignore */ }
+  }
+
+  async function callAi(mode, text, context) {
+    if (!sb || !currentUser || !currentUser.cloud) return { error: 'AI features need a cloud sign-in (magic link).' };
+    try {
+      const r = await sb.functions.invoke('cv-ai', { body: { mode, text, context } });
+      if (r.error) return { error: r.error.message || 'AI call failed' };
+      return r.data || { error: 'Empty AI response' };
+    } catch (e) { return { error: e.message || 'AI unavailable' }; }
+  }
+
+  function aiCard() {
+    let inner;
+    if (aiBusy) {
+      inner = '<p class="muted">DeepSeek is reviewing your CV… this takes a few seconds.</p>';
+    } else if (aiFixes.length) {
+      inner = '<ul class="analysis-list">' + aiFixes.map((f, i) =>
+        '<li><span class="mk mk-info">✨</span><span><b>' + esc(f.why || 'Suggested rewrite') + '</b>' +
+        '<br><span class="muted" style="text-decoration:line-through">' + esc(f.find.slice(0, 140)) + (f.find.length > 140 ? '…' : '') + '</span>' +
+        '<br><span>' + esc(f.replace.slice(0, 220)) + (f.replace.length > 220 ? '…' : '') + '</span>' +
+        '<br><button class="btn btn-primary btn-sm mt" onclick="App.aiApply(' + i + ')">Apply this fix</button></span></li>').join('') + '</ul>' +
+        '<button class="btn btn-ghost btn-sm" onclick="App.aiDismiss()">Dismiss all</button>';
+    } else {
+      inner = '<p class="muted">Rule checks above are instant and free. For deeper work, DeepSeek proposes concrete rewrites you can apply with one click. Your CV text is sent to DeepSeek only when you click the button.</p>' +
+        '<button class="btn btn-primary btn-sm" onclick="App.aiImprove()">✨ Get AI suggestions</button>';
+    }
+    return '<div class="card mt-lg"><div class="flex between"><h3 style="margin:0">AI improvements</h3><span class="prov prov-ai">DeepSeek</span></div>' + inner + '</div>';
   }
 
   const CV_STYLE =
@@ -1214,8 +1243,10 @@
     '.cv-doc li.cv-fix{background:#fdf3e3;cursor:help}' +
     '.cv-doc li.cv-fix:hover{outline:1px dashed var(--amber)}' +
     '.cv-doc li.cv-good{background:#eafaf3}' +
-    '.cv-fix-btn{display:none;position:absolute;inset-inline-end:4px;top:1px;font-size:.68rem;padding:2px 10px;border:0;border-radius:20px;background:var(--amber);color:#4a3200;cursor:pointer;font-weight:700}' +
-    '.cv-doc li.cv-fix:hover .cv-fix-btn{display:inline-block}';
+    '.cv-fix-btn{display:none;position:absolute;inset-inline-end:4px;top:1px}' +
+    '.cv-fix-btn button{font-size:.68rem;padding:2px 10px;border:0;border-radius:20px;background:var(--amber);color:#4a3200;cursor:pointer;font-weight:700;margin-inline-start:4px}' +
+    '.cv-fix-btn button.ai{background:var(--teal);color:#fff}' +
+    '.cv-doc li.cv-fix:hover .cv-fix-btn{display:inline-flex}';
 
   function cvExportCss(tpl) {
     let css = 'body{max-width:820px;margin:24px auto;padding:0 16px;color:#1c2733;line-height:1.5;font-family:Georgia,serif}' +
@@ -1299,10 +1330,11 @@
         const c = itemCls(it);
         const w = it.split(/\s+/).filter(Boolean).length;
         const tip = c === 'cv-fix'
-          ? ' title="Long item (' + w + ' words). Suggestion: split into 2-3 short bullets — hover and click the Split button."'
+          ? ' title="Long item (' + w + ' words). Hover for one-click fixes: rule-based Split or an AI rewrite."'
           : (c === 'cv-good' ? ' title="Quantified achievement — recruiters and ATS systems love numbers. Keep it."' : '');
         const btn = (withMarks && c === 'cv-fix')
-          ? '<button class="cv-fix-btn" onclick="App.autoSplit(' + si + ', ' + ii + ');return false;">Split into bullets</button>'
+          ? '<span class="cv-fix-btn"><button onclick="App.autoSplit(' + si + ', ' + ii + ');return false;">Split into bullets</button>' +
+            '<button class="ai" title="DeepSeek rewrites this item (facts preserved)" onclick="App.aiRewrite(' + si + ', ' + ii + ');return false;">✨ AI rewrite</button></span>'
           : '';
         return '<li' + (c ? ' class="' + c + '"' : '') + tip + '>' + itemHtml(it) + btn + '</li>';
       }).join('') + '</ul></div>').join('');
@@ -1321,6 +1353,7 @@
     if (!state.profile.phone && prevPhone) state.profile.phone = prevPhone;
     state.cvText = text;
     cvFileClear();
+    aiFixes = [];
     const r2 = analyzeCv(text, state.profile);
     if (!state.atsHistory) state.atsHistory = [];
     const prev = state.atsHistory.length > 1 ? state.atsHistory[state.atsHistory.length - 1].score : null;
@@ -1375,7 +1408,7 @@
       const doc = cvDocHtml(st, cvMarks);
       body = cvToolbar(file, view) +
         (cvMarks ? '<div class="flex wrap" style="gap:12px;margin-bottom:8px">' +
-          '<span class="muted" style="font-size:.8rem"><span style="color:var(--amber)">■</span> ' + doc.fix + ' long item' + (doc.fix === 1 ? '' : 's') + ' — hover one and click <b>Split into bullets</b> to auto-fix</span>' +
+          '<span class="muted" style="font-size:.8rem"><span style="color:var(--amber)">■</span> ' + doc.fix + ' long item' + (doc.fix === 1 ? '' : 's') + ' — hover one for <b>Split</b> or <b>AI rewrite</b></span>' +
           '<span class="muted" style="font-size:.8rem"><span style="color:var(--green)">■</span> ' + doc.good + ' quantified — keep these</span>' +
           '<span class="muted" style="font-size:.8rem"><span style="color:var(--teal-d)">■</span> ' + doc.kw + ' clinical keyword hits</span></div>' : '') +
         '<div class="doc-wrap tpl-' + cvTpl + '">' + doc.html + '</div>';
@@ -2282,7 +2315,7 @@
       const sec = st.secs[si], item = sec && sec.items[ii];
       if (!item) return;
       const parts = splitLongItem(item);
-      if (parts.length < 2) { toast('No clean split point in this one — use Edit in place instead.', 'info'); return; }
+      if (parts.length < 2) { toast('No clean split point in this one — try the AI rewrite or Edit in place.', 'info'); return; }
       const at = state.cvText.indexOf(item);
       if (at === -1) { toast('Could not locate that text — use Edit in place.', 'info'); return; }
       const next = state.cvText.slice(0, at) + parts.join('\n- ') + state.cvText.slice(at + item.length);
@@ -2291,6 +2324,69 @@
       } catch (err) {
         toast('Fix failed: ' + err.message, 'err');
       }
+    },
+    async aiRewrite(si, ii) {
+      if (aiBusy) return;
+      const st = structureCv(state.cvText);
+      const sec = st.secs[si], item = sec && sec.items[ii];
+      if (!item) return;
+      aiBusy = true;
+      render();
+      try {
+        const r = await callAi('rewrite', item, { profession: state.profile.profession });
+        aiBusy = false;
+        if (r.error || !r.bullets || !r.bullets.length) {
+          render();
+          toast(r.error || 'AI gave nothing usable — try Split instead.', 'info');
+          return;
+        }
+        const at = state.cvText.indexOf(item);
+        if (at === -1) { render(); toast('Could not locate that text — use Edit in place.', 'info'); return; }
+        const next = state.cvText.slice(0, at) + r.bullets.join('\n- ') + state.cvText.slice(at + item.length);
+        applyCvText(next, 'AI rewrite applied');
+      } catch (e) {
+        aiBusy = false;
+        render();
+        toast('AI unavailable: ' + e.message, 'err');
+      }
+    },
+    async aiImprove() {
+      if (aiBusy || !state.cvText) return;
+      aiBusy = true;
+      render();
+      try {
+        const r = await callAi('improve', state.cvText.slice(0, 6000), { profession: state.profile.profession });
+        aiBusy = false;
+        if (r.error || !r.fixes || !r.fixes.length) {
+          render();
+          toast(r.error || 'AI found nothing to change — your CV is in good shape.', 'info');
+          return;
+        }
+        aiFixes = r.fixes.filter((f) => f.find && f.replace && state.cvText.indexOf(f.find) !== -1).slice(0, 6);
+        render();
+        if (!aiFixes.length) toast('AI suggestions did not match your text closely enough to auto-apply — try Edit in place.', 'info');
+      } catch (e) {
+        aiBusy = false;
+        render();
+        toast('AI unavailable: ' + e.message, 'err');
+      }
+    },
+    aiApply(i) {
+      const f = aiFixes[i];
+      if (!f) return;
+      const at = state.cvText.indexOf(f.find);
+      if (at === -1) { toast('Text changed since the suggestion — run AI again.', 'info'); return; }
+      aiFixes = [];
+      const next = state.cvText.slice(0, at) + f.replace + state.cvText.slice(at + f.find.length);
+      try {
+        applyCvText(next, 'AI fix applied');
+      } catch (err) {
+        toast('Fix failed: ' + err.message, 'err');
+      }
+    },
+    aiDismiss() {
+      aiFixes = [];
+      render();
     },
     downloadOriginal() {
       const f = cvFileGet();
@@ -2383,6 +2479,7 @@
     },
     clearCv() {
       cvFileClear();
+      aiFixes = [];
       state.cvText = '';
       state.profile = emptyProfile();
       embState.cvVec = null;
@@ -2408,6 +2505,7 @@
         if (prevSalary) state.profile.preferredSalary = prevSalary;
         state.cvText = text;
         if (text !== pdfStashText) cvFileClear();
+        aiFixes = [];
         const _res = analyzeCv(text, state.profile);
         if (!state.atsHistory) state.atsHistory = [];
         const _prev = state.atsHistory.length ? state.atsHistory[state.atsHistory.length - 1].score : null;
