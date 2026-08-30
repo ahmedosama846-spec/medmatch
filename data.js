@@ -121,7 +121,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...evolving digital infrastructure. For more details, please visit our website – PURPOSE OF POSITION The Infection Control Practitioner (ICP) is responsible for implementing and overseeing infection control activities across all Diaverum clinics under the...",
     "source": "careers.diaverum.com",
-    "applyUrl": "https://sa.jooble.org/desc/4323503491590013509?ckey=general+practitioner&rgn=0&pos=4&elckey=4651934797310668300&p=1&aq=-3799587311498776557&cid=36&jobAge=93&relb=100&brelb=100&bscr=2815.7722&scr=2815.7722",
+    "applyUrl": "https://sa.jooble.org/desc/4323503491590013509?ckey=general+practitioner&rgn=0&pos=4&elckey=3808023916440955203&p=1&aq=451412475558401323&cid=36&jobAge=94&relb=100&brelb=100&bscr=2814.8252&scr=2814.8252",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -151,7 +151,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...JOB INFORMATION Job Title: General Pediatric Consultant SHORT DESCRIPTION An Excellent opportunity to join as General Pediatric Consultant for one of the most prestigious and top tier Hospital in Jeddah Saudi Arabia JOB SUMMARY A pediatric consultant...",
     "source": "manatal.com",
-    "applyUrl": "https://sa.jooble.org/desc/6200677716216835634?ckey=general+practitioner&rgn=0&pos=20&elckey=4651934797310668300&p=1&aq=-3799587311498776557&cid=36&jobAge=141&relb=100&brelb=100&bscr=2423.44&scr=2423.44",
+    "applyUrl": "https://sa.jooble.org/desc/6200677716216835634?ckey=general+practitioner&rgn=0&pos=20&elckey=3808023916440955203&p=1&aq=451412475558401323&cid=36&jobAge=142&relb=100&brelb=100&bscr=2423.1372&scr=2423.1372",
     "applyIsDirect": false,
     "postedDaysAgo": 5,
     "demo": false
@@ -181,7 +181,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Consultant General Surgery in Eastern Province- Saudi Arabia on a fixed term / permanent basis; working for our client via Workplace Doctors *** Location: Eastern Province- Saudi Arabia *** Speciality: General Surgery / Surgeon *** Pay rate: Consultants Monthly salary...",
     "source": "workplacedoctors.co.uk",
-    "applyUrl": "https://sa.jooble.org/desc/6563424028603965019?ckey=general+practitioner&rgn=0&pos=34&elckey=4651934797310668300&p=2&aq=-7938555378022046454&cid=36&jobAge=251&relb=100&brelb=100&bscr=1970.5983&scr=1970.5983",
+    "applyUrl": "https://sa.jooble.org/desc/6563424028603965019?ckey=general+practitioner&rgn=0&pos=34&elckey=3808023916440955203&p=2&aq=75109603238353478&cid=36&jobAge=252&relb=100&brelb=100&bscr=1970.2666&scr=1970.2666",
     "applyIsDirect": false,
     "postedDaysAgo": 10,
     "demo": false
@@ -214,7 +214,7 @@ const DEMO_JOBS = [
     ],
     "description": "...contracts for healthcare facilities, clinic operations and medical staffing, and ambulance fleet solutions. We're looking for a practitioner classified by the Saudi Commission for Health Specialties at the Specialist tier — someone who leads the crew clinically on...",
     "source": "zoho.com",
-    "applyUrl": "https://sa.jooble.org/desc/5851647251661480358?ckey=general+practitioner&rgn=0&pos=40&elckey=4651934797310668300&p=2&aq=-7938555378022046454&cid=36&jobAge=93&relb=100&brelb=100&bscr=655.40027&scr=655.40027",
+    "applyUrl": "https://sa.jooble.org/desc/5851647251661480358?ckey=general+practitioner&rgn=0&pos=40&elckey=3808023916440955203&p=2&aq=75109603238353478&cid=36&jobAge=94&relb=100&brelb=100&bscr=655.33435&scr=655.33435",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -249,7 +249,7 @@ const DEMO_JOBS = [
     ],
     "description": "...BUPA Arabia is expanding telemedicine services focused on diabetology within family medicine. The role centers on diagnosing, treating, and long-term management of diabetes and related metabolic disorders through virtual care and population health approaches. Candidates...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-7809535641594039395?p=1&pos=1&rgn=0&cid=36&ckey=family+medicine+physician&jobAge=28&relb=50&brelb=10&scr=3512.7557500000003&bscr=702.55115&aq=-6035258595677682833&elckey=1995941716835812272",
+    "applyUrl": "https://sa.jooble.org/away/-7809535641594039395?p=1&pos=1&rgn=0&cid=36&ckey=family+medicine+physician&jobAge=29&relb=50&brelb=10&scr=3512.5137499999996&bscr=702.50275&aq=5940117637259550616&elckey=1152030835966099175",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -279,7 +279,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Consultant Acute Medicine in Madinah- Saudi Arabia on a fixed term / permanent basis; working... ...consultants plus support junior physicians and interns to develop their skills and... ...year renewable contract · Air Tickets/ Family Air Tickets to job location at beginning...",
     "source": "workplacedoctors.co.uk",
-    "applyUrl": "https://sa.jooble.org/desc/5431709933833201524?ckey=family+medicine+physician&rgn=0&pos=2&elckey=1995941716835812272&p=1&aq=-6035258595677682833&cid=36&jobAge=179&relb=100&brelb=100&bscr=3275.2139&scr=3275.2139",
+    "applyUrl": "https://sa.jooble.org/desc/5431709933833201524?ckey=family+medicine+physician&rgn=0&pos=2&elckey=1152030835966099175&p=1&aq=5940117637259550616&cid=36&jobAge=181&relb=100&brelb=100&bscr=3274.621&scr=3274.6210000000005",
     "applyIsDirect": false,
     "postedDaysAgo": 7,
     "demo": false
@@ -316,7 +316,7 @@ const DEMO_JOBS = [
     ],
     "description": "...BUPA Arabia seeks an experienced telemedicine diabetology physician to provide comprehensive care for adults and children within family medicine. You will diagnose, treat, and manage diabetes and metabolic disorders via virtual visits, with a focus on prevention and long...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/5564477107775642964?p=1&pos=4&rgn=0&cid=36&ckey=family+medicine+physician&jobAge=69&relb=50&brelb=10&scr=2975.0935&bscr=595.0187&aq=-6035258595677682833&elckey=1995941716835812272",
+    "applyUrl": "https://sa.jooble.org/away/5564477107775642964?p=1&pos=4&rgn=0&cid=36&ckey=family+medicine+physician&jobAge=70&relb=50&brelb=10&scr=2974.4145&bscr=594.8829&aq=5940117637259550616&elckey=1152030835966099175",
     "applyIsDirect": false,
     "postedDaysAgo": 2,
     "demo": false
@@ -349,7 +349,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...A leading healthcare organization in Saudi Arabia is seeking an experienced Consultant IVF / Reproductive Medicine to join its specialist medical team. This is an excellent opportunity for a senior fertility specialist with strong experience in IVF, Assisted Reproductive...",
     "source": "zoho.com",
-    "applyUrl": "https://sa.jooble.org/desc/2174998907740575589?ckey=family+medicine+physician&rgn=0&pos=5&elckey=1995941716835812272&p=1&aq=-6035258595677682833&cid=36&jobAge=333&relb=100&brelb=100&bscr=2830.4436&scr=2830.4436",
+    "applyUrl": "https://sa.jooble.org/desc/2174998907740575589?ckey=family+medicine+physician&rgn=0&pos=5&elckey=1152030835966099175&p=1&aq=5940117637259550616&cid=36&jobAge=334&relb=100&brelb=100&bscr=2829.884&scr=2829.884",
     "applyIsDirect": false,
     "postedDaysAgo": 13,
     "demo": false
@@ -383,7 +383,7 @@ const DEMO_JOBS = [
     ],
     "description": "...Specialized Hospital in Qassim as an Internal Medicine Consultant Why Join KASH? World-... ...care, supervises and trains junior physicians, participates in academic and research activities... ...standards. Educate patients and families on disease prevention, management, and...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/3037642922199939735?p=1&pos=6&rgn=0&cid=36&ckey=family+medicine+physician&jobAge=93&relb=70&brelb=10&scr=2722.88828&bscr=388.98404&aq=-6035258595677682833&elckey=1995941716835812272",
+    "applyUrl": "https://sa.jooble.org/away/3037642922199939735?p=1&pos=6&rgn=0&cid=36&ckey=family+medicine+physician&jobAge=94&relb=70&brelb=10&scr=2722.24701&bscr=388.89243&aq=5940117637259550616&elckey=1152030835966099175",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -417,7 +417,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Join King Abdulaziz Hospital Al-Ahsa as an Emergency Medicine Consultant! Why Join KAMC? World-Class Facilities – Work in a cutting... ...Board of Emergency Medicine (ABEM) Canada: Royal College of Physicians and Surgeons Certificate (FRCPC – Emergency Medicine) UK and...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-8677908101068122905?p=1&pos=7&rgn=0&cid=36&ckey=family+medicine+physician&jobAge=93&relb=70&brelb=10&scr=2296.4659199999996&bscr=328.06656&aq=-6035258595677682833&elckey=1995941716835812272",
+    "applyUrl": "https://sa.jooble.org/away/-8677908101068122905?p=1&pos=7&rgn=0&cid=36&ckey=family+medicine+physician&jobAge=94&relb=70&brelb=10&scr=2295.9251&bscr=327.9893&aq=5940117637259550616&elckey=1152030835966099175",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -449,39 +449,9 @@ const DEMO_JOBS = [
     ],
     "description": "...line within the Sports Center, such as rehabilitation, sports medicine, performance, fitness, or wellness. The role owns strategy, operations... ...oversee patient pathways, scheduling, capacity, and quality standards, and coordinate with physicians, therapists, #J-18808-Ljbffr...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-5734448399064894291?p=1&pos=9&rgn=0&cid=36&ckey=family+medicine+physician&jobAge=93&relb=70&brelb=10&scr=2077.16516&bscr=296.73788&aq=-6035258595677682833&elckey=1995941716835812272",
+    "applyUrl": "https://sa.jooble.org/away/-5734448399064894291?p=1&pos=9&rgn=0&cid=36&ckey=family+medicine+physician&jobAge=94&relb=70&brelb=10&scr=2076.6757900000002&bscr=296.66797&aq=5940117637259550616&elckey=1152030835966099175",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
-    "demo": false
-  },
-  {
-    "id": "jb-4581115764417168811",
-    "title": "Head of Performance Medicine for Elite Sport",
-    "profession": "Other",
-    "specialty": "",
-    "employer": "Sporting Group International",
-    "city": "Other",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 0,
-    "expMax": 5,
-    "degreeReq": "",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [],
-    "certs": [],
-    "requirements": [],
-    "responsibilities": [],
-    "description": "Al Qadsiah seeks a Medical Lead to head a multidisciplinary team of practitioners, establishing world-class medical standards and collaborating with coaches to minimise injury risk and maximise athlete health and availability. You will oversee medical services across...",
-    "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-4581115764417168811?p=1&pos=11&rgn=0&cid=36&ckey=family+medicine+physician&jobAge=4&relb=70&brelb=10&scr=2025.56368&bscr=289.36624&aq=-6035258595677682833&elckey=1995941716835812272",
-    "applyIsDirect": false,
-    "postedDaysAgo": 0,
     "demo": false
   },
   {
@@ -516,7 +486,7 @@ const DEMO_JOBS = [
     ],
     "description": "...patients in both physical and telemedicine settings in all internal medicine and Endocrinology needs. Responsible for providing expert... ...with other healthcare professionals, including primary care physicians, specialists, and nurses, to ensure seamless patient care...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/8621961580959419209?p=1&pos=12&rgn=0&cid=36&ckey=family+medicine+physician&jobAge=52&relb=50&brelb=10&scr=1592.8308000000002&bscr=318.56616&aq=-6035258595677682833&elckey=1995941716835812272",
+    "applyUrl": "https://sa.jooble.org/away/8621961580959419209?p=1&pos=11&rgn=0&cid=36&ckey=family+medicine+physician&jobAge=53&relb=50&brelb=10&scr=1591.8944&bscr=318.37888&aq=5940117637259550616&elckey=1152030835966099175",
     "applyIsDirect": false,
     "postedDaysAgo": 2,
     "demo": false
@@ -546,7 +516,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...time experience must be working as a Board-certified Nurse Practitioner (after receiving Master's degree ), in Genomics/Precision Medicine in a large, tertiary, teaching setting Benefits: Tax-free income Accommodations provided Annual Air Transportation...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-2044452334957096487?p=1&pos=13&rgn=0&cid=36&ckey=family+medicine+physician&jobAge=93&relb=50&brelb=10&scr=1508.2228&bscr=301.64456&aq=-6035258595677682833&elckey=1995941716835812272",
+    "applyUrl": "https://sa.jooble.org/away/-2044452334957096487?p=1&pos=12&rgn=0&cid=36&ckey=family+medicine+physician&jobAge=94&relb=50&brelb=10&scr=1507.95625&bscr=301.59125&aq=5940117637259550616&elckey=1152030835966099175",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -576,7 +546,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Zahrawi Group is seeking a Product Executive for Nuclear Medicine & Radiotherapy in Jeddah. You will promote products, identify new customers, demonstrate equipment, and negotiate contracts to maximize profits. The role requires knowledge of radiotherapy, nuclear medicine...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/7294553378518704037?p=1&pos=14&rgn=0&cid=36&ckey=family+medicine+physician&jobAge=93&relb=50&brelb=10&scr=1505.4471&bscr=301.08942&aq=-6035258595677682833&elckey=1995941716835812272",
+    "applyUrl": "https://sa.jooble.org/away/7294553378518704037?p=1&pos=13&rgn=0&cid=36&ckey=family+medicine+physician&jobAge=94&relb=50&brelb=10&scr=1505.0923&bscr=301.01846&aq=5940117637259550616&elckey=1152030835966099175",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -609,7 +579,7 @@ const DEMO_JOBS = [
     ],
     "description": "...RESPONSIBILITIES Provides high-quality endocrinology care to patients in this area of medicine. Provide consultative service as requested. Supervise fellows, staff/assistant physicians, and residents. Actively participates in the training and teaching of...",
     "source": "manatal.com",
-    "applyUrl": "https://sa.jooble.org/desc/2456186531791646999?ckey=family+medicine+physician&rgn=0&pos=15&elckey=1995941716835812272&p=1&aq=-6035258595677682833&cid=36&jobAge=453&relb=100&brelb=100&bscr=1053.0824&scr=1053.0824",
+    "applyUrl": "https://sa.jooble.org/desc/2456186531791646999?ckey=family+medicine+physician&rgn=0&pos=14&elckey=1152030835966099175&p=1&aq=5940117637259550616&cid=36&jobAge=454&relb=100&brelb=100&bscr=1052.9143&scr=1052.9143",
     "applyIsDirect": false,
     "postedDaysAgo": 18,
     "demo": false
@@ -646,7 +616,7 @@ const DEMO_JOBS = [
     ],
     "description": "...collaboratively with neurosurgery, rehabilitation, radiology, emergency medicine and other relevant specialties. Provide appropriate follow-... .... Support clinical teaching and supervision of junior physicians. Participate in clinical audit, quality improvement and...",
     "source": "zoho.com",
-    "applyUrl": "https://sa.jooble.org/desc/2911397820340961493?ckey=family+medicine+physician&rgn=0&pos=16&elckey=1995941716835812272&p=1&aq=-6035258595677682833&cid=36&jobAge=333&relb=100&brelb=100&bscr=1009.26666&scr=1009.26666",
+    "applyUrl": "https://sa.jooble.org/desc/2911397820340961493?ckey=family+medicine+physician&rgn=0&pos=15&elckey=1152030835966099175&p=1&aq=5940117637259550616&cid=36&jobAge=334&relb=100&brelb=100&bscr=1008.3843&scr=1008.3843",
     "applyIsDirect": false,
     "postedDaysAgo": 13,
     "demo": false
@@ -682,7 +652,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...seeking an experienced Consultant Intensive Care / Critical Care Physician to join its clinical team. The successful candidate will... ...Work closely with multidisciplinary teams including emergency medicine, anesthesia, surgery and other specialties. Develop and...",
     "source": "zoho.com",
-    "applyUrl": "https://sa.jooble.org/desc/7859035728062264385?ckey=family+medicine+physician&rgn=0&pos=17&elckey=1995941716835812272&p=1&aq=-6035258595677682833&cid=36&jobAge=333&relb=100&brelb=100&bscr=997.00635&scr=997.00635",
+    "applyUrl": "https://sa.jooble.org/desc/7859035728062264385?ckey=family+medicine+physician&rgn=0&pos=16&elckey=1152030835966099175&p=1&aq=5940117637259550616&cid=36&jobAge=334&relb=100&brelb=100&bscr=996.80927&scr=996.80927",
     "applyIsDirect": false,
     "postedDaysAgo": 13,
     "demo": false
@@ -715,7 +685,7 @@ const DEMO_JOBS = [
     ],
     "description": "...Provides high-quality ga stroenterology care to patients in this area of medicine. Provide consultative service as requested. Supervise fellows, staff/assistant physicians, and residents. Actively participates in the training and teaching of residents...",
     "source": "manatal.com",
-    "applyUrl": "https://sa.jooble.org/desc/-1645830403855998646?ckey=family+medicine+physician&rgn=0&pos=20&elckey=1995941716835812272&p=1&aq=-6035258595677682833&cid=36&jobAge=309&relb=100&brelb=100&bscr=895.3996&scr=895.3996",
+    "applyUrl": "https://sa.jooble.org/desc/-1645830403855998646?ckey=family+medicine+physician&rgn=0&pos=19&elckey=1152030835966099175&p=1&aq=5940117637259550616&cid=36&jobAge=310&relb=100&brelb=100&bscr=895.22986&scr=895.22986",
     "applyIsDirect": false,
     "postedDaysAgo": 12,
     "demo": false
@@ -747,7 +717,7 @@ const DEMO_JOBS = [
     ],
     "description": "...lives and delivering compelling growth. Our deep understanding of the immune system – and innovative pipeline – enables us to invent medicines and vaccines that treat and protect millions of people around the world. Together, we chase the miracles of science to improve...",
     "source": "sanofi.com",
-    "applyUrl": "https://sa.jooble.org/desc/-3817953252453351784?ckey=family+medicine+physician&rgn=0&pos=25&elckey=1995941716835812272&p=2&aq=1720122377322366781&cid=36&jobAge=45&relb=100&brelb=100&bscr=557.78314&scr=557.78314",
+    "applyUrl": "https://sa.jooble.org/desc/-3817953252453351784?ckey=family+medicine+physician&rgn=0&pos=24&elckey=1152030835966099175&p=2&aq=2860369460779786021&cid=36&jobAge=46&relb=100&brelb=100&bscr=557.72705&scr=557.72705",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -779,7 +749,7 @@ const DEMO_JOBS = [
     ],
     "description": "...expert neurological consultative services upon request from other departments. Supervise, mentor, and train fellows, assistant physicians, and residents. Actively participate in academic teaching programs and clinical research activities. Serve on hospital...",
     "source": "manatal.com",
-    "applyUrl": "https://sa.jooble.org/desc/810453782518219078?ckey=family+medicine+physician&rgn=0&pos=26&elckey=1995941716835812272&p=2&aq=1720122377322366781&cid=36&jobAge=117&relb=100&brelb=100&bscr=553.5779&scr=553.5779",
+    "applyUrl": "https://sa.jooble.org/desc/810453782518219078?ckey=family+medicine+physician&rgn=0&pos=25&elckey=1152030835966099175&p=2&aq=2860369460779786021&cid=36&jobAge=118&relb=100&brelb=100&bscr=553.38696&scr=553.38696",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
     "demo": false
@@ -811,7 +781,7 @@ const DEMO_JOBS = [
     ],
     "description": "...Manages surgical emergencies and participates in on-call services as required. Supervises and supports fellows, residents, staff physicians, and other junior medical professionals. Actively participates in the training and teaching of residents, fellows, and other...",
     "source": "manatal.com",
-    "applyUrl": "https://sa.jooble.org/desc/-4135409158258381582?ckey=family+medicine+physician&rgn=0&pos=28&elckey=1995941716835812272&p=2&aq=1720122377322366781&cid=36&jobAge=117&relb=100&brelb=100&bscr=503.19897&scr=503.19897",
+    "applyUrl": "https://sa.jooble.org/desc/-4135409158258381582?ckey=family+medicine+physician&rgn=0&pos=27&elckey=1152030835966099175&p=2&aq=2860369460779786021&cid=36&jobAge=118&relb=100&brelb=100&bscr=503.14197&scr=503.14197",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
     "demo": false
@@ -841,7 +811,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Company Description About AbbVie AbbVie's mission is to discover and deliver innovative medicines and solutions that solve serious health issues today and address the medical challenges of tomorrow. We strive to have a remarkable impact on people's lives across...",
     "source": "powertofly.com",
-    "applyUrl": "https://sa.jooble.org/desc/-6041075734690375841?ckey=family+medicine+physician&rgn=0&pos=29&elckey=1995941716835812272&p=2&aq=1720122377322366781&cid=36&jobAge=45&relb=100&brelb=100&bscr=465.66202&scr=465.66202",
+    "applyUrl": "https://sa.jooble.org/desc/-6041075734690375841?ckey=family+medicine+physician&rgn=0&pos=28&elckey=1152030835966099175&p=2&aq=2860369460779786021&cid=36&jobAge=46&relb=100&brelb=100&bscr=465.47806&scr=465.47806",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -871,7 +841,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...-led, patient-focused biopharmaceutical company that focuses on the discovery, development, and commercialisation of prescription medicines for some of the world’s most serious diseases. But we’re more than one of the world’s leading pharmaceutical companies. Join a...",
     "source": "astrazeneca.com",
-    "applyUrl": "https://sa.jooble.org/desc/7659770654368496819?ckey=family+medicine+physician&rgn=0&pos=31&elckey=1995941716835812272&p=2&aq=1720122377322366781&cid=36&jobAge=165&relb=100&brelb=100&bscr=446.1093&scr=446.1093",
+    "applyUrl": "https://sa.jooble.org/desc/7659770654368496819?ckey=family+medicine+physician&rgn=0&pos=30&elckey=1152030835966099175&p=2&aq=2860369460779786021&cid=36&jobAge=166&relb=100&brelb=100&bscr=446.04886&scr=446.04886",
     "applyIsDirect": false,
     "postedDaysAgo": 6,
     "demo": false
@@ -904,7 +874,7 @@ const DEMO_JOBS = [
     ],
     "description": "...performance solutions that address unmet patient needs and reduce the cost of healthcare. Our portfolio of devices and therapies helps physicians diagnose and treat complex cardiovascular, respiratory, digestive, oncological, neurological and urological diseases and...",
     "source": "jobs.bostonscientific.com",
-    "applyUrl": "https://sa.jooble.org/desc/-4415970104083112168?ckey=family+medicine+physician&rgn=0&pos=33&elckey=1995941716835812272&p=2&aq=1720122377322366781&cid=36&jobAge=321&relb=100&brelb=100&bscr=436.19986&scr=436.19985999999994",
+    "applyUrl": "https://sa.jooble.org/desc/-4415970104083112168?ckey=family+medicine+physician&rgn=0&pos=32&elckey=1152030835966099175&p=2&aq=2860369460779786021&cid=36&jobAge=322&relb=100&brelb=100&bscr=436.11584&scr=436.11584000000005",
     "applyIsDirect": false,
     "postedDaysAgo": 13,
     "demo": false
@@ -934,9 +904,41 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Company Description About AbbVie AbbVie's mission is to discover and deliver innovative medicines and solutions that solve serious health issues today and address the medical challenges of tomorrow. We strive to have a remarkable impact on people's lives across...",
     "source": "powertofly.com",
-    "applyUrl": "https://sa.jooble.org/desc/-7159436803829609282?ckey=family+medicine+physician&rgn=0&pos=38&elckey=1995941716835812272&p=2&aq=1720122377322366781&cid=36&jobAge=45&relb=100&brelb=100&bscr=403.49896&scr=403.49896",
+    "applyUrl": "https://sa.jooble.org/desc/-7159436803829609282?ckey=family+medicine+physician&rgn=0&pos=37&elckey=1152030835966099175&p=2&aq=2860369460779786021&cid=36&jobAge=46&relb=100&brelb=100&bscr=403.08527&scr=403.0852699999999",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
+    "demo": false
+  },
+  {
+    "id": "jb-5190944325431687456",
+    "title": "BP Manager - Saudi and Lower Gulf Countries",
+    "profession": "Laboratory",
+    "specialty": "ENT",
+    "employer": "Not specified",
+    "city": "Riyadh",
+    "salaryMin": 0,
+    "salaryMax": 0,
+    "expMin": 0,
+    "expMax": 5,
+    "degreeReq": "BSc Medical Laboratory Sciences",
+    "scfhs": "not_specified",
+    "dataflow": "not_specified",
+    "saudiExp": "not_specified",
+    "gender": "Not specified",
+    "employment": "Full-time",
+    "contract": "",
+    "hours": "",
+    "skills": [],
+    "certs": [],
+    "requirements": [],
+    "responsibilities": [
+      "...our innovative technologies and services in the areas of diagnostic and therapeutic imaging, laboratory diagnostics and molecular medicine, as well as digital health and enterprise services."
+    ],
+    "description": "...our innovative technologies and services in the areas of diagnostic and therapeutic imaging, laboratory diagnostics and molecular medicine, as well as digital health and enterprise services. This is what truly matters to us. Join our team now at Siemens Healthineers...",
+    "source": "siemens.com",
+    "applyUrl": "https://sa.jooble.org/desc/-5190944325431687456?ckey=family+medicine+physician&rgn=0&pos=40&elckey=1152030835966099175&p=2&aq=2860369460779786021&cid=36&jobAge=87&relb=100&brelb=100&bscr=390.89896&scr=390.89896",
+    "applyIsDirect": false,
+    "postedDaysAgo": 3,
     "demo": false
   },
   {
@@ -964,7 +966,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...per the adopted procedures. 4. Liaises with co-pilots (First Officer and Second Officer) and Dispatch Team prior to each flight ensuring... ...civil aviation authority standards. He/she must pass the Medical Fitness check-up carried for the Pilots as per the Airline and...",
     "source": "bestpilotjobs.com",
-    "applyUrl": "https://sa.jooble.org/desc/9184718164415767079?ckey=medical+officer&rgn=0&pos=3&elckey=-60208319835284662&p=1&aq=537235314501341244&cid=36&jobAge=169&relb=100&brelb=100&bscr=2582.942&scr=2582.942",
+    "applyUrl": "https://sa.jooble.org/desc/9184718164415767079?ckey=medical+officer&rgn=0&pos=3&elckey=-904119200704997759&p=1&aq=5644209934890859532&cid=36&jobAge=170&relb=100&brelb=100&bscr=2582.5908&scr=2582.5908",
     "applyIsDirect": false,
     "postedDaysAgo": 6,
     "demo": false
@@ -996,7 +998,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...We are hiring an experienced Patient Relations Officer for reputed Company in Saudi Arabia Job Purpose Serve as the primary... ...required. Act as a liaison between patients, families, and medical staff. Communicate patient feedback accurately and diplomatically...",
     "source": "recruitee.com",
-    "applyUrl": "https://sa.jooble.org/desc/3837851814656117617?ckey=medical+officer&rgn=0&pos=25&elckey=-60208319835284662&p=2&aq=8983707801305090140&cid=36&jobAge=621&relb=100&brelb=100&bscr=2181.0625&scr=2181.0625",
+    "applyUrl": "https://sa.jooble.org/desc/3837851814656117617?ckey=medical+officer&rgn=0&pos=25&elckey=-904119200704997759&p=2&aq=3361594582483634901&cid=36&jobAge=622&relb=100&brelb=100&bscr=2180.4387&scr=2180.4387",
     "applyIsDirect": false,
     "postedDaysAgo": 25,
     "demo": false
@@ -1026,7 +1028,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...techniques in analyzing laboratory samples/specimen and interpreting results use for technical and clinical consultative services to physicians on diagnosis, prevention and treatment of diseases in line with clinical standard practice, policies, regulating and accrediting...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/1061768452073481775?p=1&pos=1&rgn=0&cid=36&ckey=physician&jobAge=21&relb=70&brelb=10&scr=1933.2159&bscr=276.1737&aq=8226210242125827466&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/1061768452073481775?p=1&pos=1&rgn=0&cid=36&ckey=physician&jobAge=22&relb=70&brelb=10&scr=1932.88165&bscr=276.12595&aq=-1307837933170824991&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -1059,7 +1061,7 @@ const DEMO_JOBS = [
     ],
     "description": "Buraidah, Saudi Arabia | Posted on 04/09/2026 We are hiring a Consultant Obstetrician & Gynecologist for a leading healthcare provider in Saudi Arabia. The role is ideal for a specialist with strong clinical exposure in women’s health, with added expertise in cosmetic...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/7279089285290888052?p=1&pos=3&rgn=0&cid=36&ckey=physician&jobAge=45&relb=50&brelb=10&scr=1386.95265&bscr=277.39053&aq=8226210242125827466&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/7279089285290888052?p=1&pos=3&rgn=0&cid=36&ckey=physician&jobAge=46&relb=50&brelb=10&scr=1386.59575&bscr=277.31915&aq=-1307837933170824991&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -1091,7 +1093,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "..., Western Europe, Australia or New Zealand. USA: The American Board of Medical Specialties (ABMS) Canada: Royal College of Physicians and Surgeons Certificate (RCPS-C) UK and Ireland: GMC/CCST Specialist Register Australia and New Zealand: Fellowship from the...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-697673534909837941?p=1&pos=20&rgn=0&cid=36&ckey=physician&jobAge=93&relb=70&brelb=10&scr=383.456255&bscr=54.779465&aq=8226210242125827466&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/-697673534909837941?p=1&pos=20&rgn=0&cid=36&ckey=physician&jobAge=94&relb=70&brelb=10&scr=383.39679&bscr=54.77097&aq=-1307837933170824991&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -1123,7 +1125,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...America, Western Europe, Australia or New Zealand. USA: The American Board of Medical Specialties (ABMS) Canada: Royal College of Physicians and Surgeons Certificate (RCPS‑C) UK and Ireland: GMC/CCST Specialist Register Australia and New Zealand: Fellowship from...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-6719648865605430591?p=2&pos=22&rgn=0&cid=36&ckey=physician&jobAge=21&relb=70&brelb=10&scr=365.628312&bscr=52.232616&aq=4544073791720128415&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/-6719648865605430591?p=2&pos=22&rgn=0&cid=36&ckey=physician&jobAge=22&relb=70&brelb=10&scr=365.565109&bscr=52.223587&aq=-5215247669577659451&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -1153,7 +1155,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...education and training for Associate Consultants, Assistant Consultants and Neurology Residents, Medicine residents, National Guard physicians; supervise clinics, monitor quality improvement program; undertake clinical research; self education and participate in on-calf...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/637213696294300315?p=2&pos=23&rgn=0&cid=36&ckey=physician&jobAge=93&relb=70&brelb=10&scr=361.35127&bscr=51.62161&aq=4544073791720128415&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/637213696294300315?p=2&pos=23&rgn=0&cid=36&ckey=physician&jobAge=94&relb=70&brelb=10&scr=361.266129&bscr=51.609447&aq=-5215247669577659451&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -1186,7 +1188,7 @@ const DEMO_JOBS = [
     ],
     "description": "...performance solutions that address unmet patient needs and reduce the cost of healthcare. Our portfolio of devices and therapies helps physicians diagnose and treat complex cardiovascular, respiratory, digestive, oncological, neurological and urological diseases and...",
     "source": "successfactors.com",
-    "applyUrl": "https://sa.jooble.org/desc/-5565608829451622322?ckey=physician&rgn=0&pos=24&elckey=-784772002120420919&p=2&aq=4544073791720128415&cid=36&jobAge=4&relb=100&brelb=100&bscr=359.12585&scr=359.12585",
+    "applyUrl": "https://sa.jooble.org/desc/-5565608829451622322?ckey=physician&rgn=0&pos=24&elckey=5479684350958809800&p=2&aq=-5215247669577659451&cid=36&jobAge=5&relb=100&brelb=100&bscr=359.12585&scr=359.12585",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -1219,7 +1221,7 @@ const DEMO_JOBS = [
     ],
     "description": "...Ophthalmologist and Sub-specialist. Performs YAG and Argon laser applications. Reports to and receives administrative guidance from the physician manager, Ophthalmology Services Unit. Has daily contacts with patients and their families, physicians, specialist, nurses,...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/993839331692342668?p=2&pos=26&rgn=0&cid=36&ckey=physician&jobAge=45&relb=70&brelb=10&scr=344.066275&bscr=49.152325&aq=4544073791720128415&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/993839331692342668?p=2&pos=26&rgn=0&cid=36&ckey=physician&jobAge=46&relb=70&brelb=10&scr=344.00384199999996&bscr=49.143406&aq=-5215247669577659451&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -1253,7 +1255,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...America, Western Europe, Australia or New Zealand. USA: The American Board of Medical Specialties (ABMS) Canada: Royal College of Physicians and Surgeons Certificate (RCPS-C) UK and Ireland: GMC/CCST Specialist Register Australia and New Zealand: Fellowship from...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/1717259406425209078?p=2&pos=27&rgn=0&cid=36&ckey=physician&jobAge=21&relb=70&brelb=10&scr=342.76389&bscr=48.96627&aq=4544073791720128415&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/1717259406425209078?p=2&pos=27&rgn=0&cid=36&ckey=physician&jobAge=22&relb=70&brelb=10&scr=342.67898&bscr=48.95414&aq=-5215247669577659451&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -1287,7 +1289,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...America, Western Europe, Australia or New Zealand. USA: The American Board of Medical Specialties (ABMS). Canada: Royal College of Physicians and Surgeons Certificate (RCPS‑C). UK and Ireland: GMC/CCST Specialist Register. Australia and New Zealand: Fellowship from the...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-6851910822518766085?p=2&pos=28&rgn=0&cid=36&ckey=physician&jobAge=21&relb=70&brelb=10&scr=340.80184599999995&bscr=48.685978&aq=4544073791720128415&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/-6851910822518766085?p=2&pos=28&rgn=0&cid=36&ckey=physician&jobAge=22&relb=70&brelb=10&scr=340.54258000000004&bscr=48.64894&aq=-5215247669577659451&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -1319,7 +1321,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...America, Western Europe, Australia or New Zealand. USA: The American Board of Medical Specialties (ABMS) Canada: Royal College of Physicians and Surgeons Certificate (RCPS-C) UK and Ireland: GMC/CCST Specialist Register Australia and New Zealand: Fellowship from...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/7271986552363880007?p=2&pos=29&rgn=0&cid=36&ckey=physician&jobAge=21&relb=70&brelb=10&scr=328.46076200000005&bscr=46.922966&aq=4544073791720128415&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/7271986552363880007?p=2&pos=29&rgn=0&cid=36&ckey=physician&jobAge=22&relb=70&brelb=10&scr=328.403992&bscr=46.914856&aq=-5215247669577659451&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -1353,7 +1355,7 @@ const DEMO_JOBS = [
     ],
     "description": "...Specialty Medicine. Has daily contact with patients, family members, staff, nurses, allied health professionals, administrators and physicians. Provides person-centered care and consultations to inpatients and outpatients in the area of expertise Provides diagnostic...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/5660601546416091357?p=2&pos=30&rgn=0&cid=36&ckey=physician&jobAge=117&relb=70&brelb=10&scr=314.44154&bscr=44.92022&aq=4544073791720128415&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/5660601546416091357?p=2&pos=30&rgn=0&cid=36&ckey=physician&jobAge=118&relb=70&brelb=10&scr=314.36517&bscr=44.90931&aq=-5215247669577659451&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
     "demo": false
@@ -1385,7 +1387,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...policies. Incumbent frequently works independently of professional supervision. Daily contact with Chief Anesthesiology Services, Physicians, Nursing Staff, Operating Room Personnel, Patients and families in carrying out the duties as outlined below. Provides...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/2140005436953315791?p=2&pos=31&rgn=0&cid=36&ckey=physician&jobAge=69&relb=70&brelb=10&scr=309.002029&bscr=44.143147&aq=4544073791720128415&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/2140005436953315791?p=2&pos=31&rgn=0&cid=36&ckey=physician&jobAge=70&relb=70&brelb=10&scr=308.943439&bscr=44.134777&aq=-5215247669577659451&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 2,
     "demo": false
@@ -1422,7 +1424,7 @@ const DEMO_JOBS = [
     ],
     "description": "...behalf of a leading healthcare organization in Al Qassim, Saudi Arabia, seeks an experienced Consultant Intensive Care / Critical Care Physician to join its clinical team. You will provide senior-level care to critically ill patients and lead ICU management. The role...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/6275732385104980687?p=2&pos=32&rgn=0&cid=36&ckey=physician&jobAge=21&relb=70&brelb=10&scr=302.93496799999997&bscr=43.276424&aq=4544073791720128415&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/6275732385104980687?p=2&pos=32&rgn=0&cid=36&ckey=physician&jobAge=22&relb=70&brelb=10&scr=302.70452800000004&bscr=43.243504&aq=-5215247669577659451&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -1454,7 +1456,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...America, Western Europe, Australia or New Zealand. USA: The American Board of Medical Specialties (ABMS) Canada: Royal College of Physicians and Surgeons Certificate (RCPS-C) UK and Ireland: GMC/CCST Specialist Register Australia and New Zealand: Fellowship from...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/386274901253463995?p=2&pos=34&rgn=0&cid=36&ckey=physician&jobAge=93&relb=70&brelb=10&scr=301.470561&bscr=43.067223&aq=4544073791720128415&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/386274901253463995?p=2&pos=34&rgn=0&cid=36&ckey=physician&jobAge=94&relb=70&brelb=10&scr=301.399532&bscr=43.057076&aq=-5215247669577659451&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -1486,7 +1488,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...America, Western Europe, Australia or New Zealand. USA: The American Board of Medical Specialties (ABMS) Canada: Royal College of Physicians and Surgeons Certificate (RCPS-C) UK and Ireland: GMC/CCST Specialist Register Australia and New Zealand: Fellowship from...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/7180899404172533118?p=2&pos=35&rgn=0&cid=36&ckey=physician&jobAge=21&relb=70&brelb=10&scr=298.655511&bscr=42.665073&aq=4544073791720128415&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/7180899404172533118?p=2&pos=35&rgn=0&cid=36&ckey=physician&jobAge=22&relb=70&brelb=10&scr=298.580828&bscr=42.654404&aq=-5215247669577659451&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -1518,7 +1520,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...America, Western Europe, Australia or New Zealand. USA: The American Board of Medical Specialties (ABMS) Canada: Royal College of Physicians and Surgeons Certificate (RCPS‑C) UK and Ireland: GMC/CCST Specialist Register Australia and New Zealand: Fellowship from...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-7799173352153123495?p=2&pos=36&rgn=0&cid=36&ckey=physician&jobAge=21&relb=70&brelb=10&scr=293.88594900000004&bscr=41.983707&aq=4544073791720128415&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/-7799173352153123495?p=2&pos=36&rgn=0&cid=36&ckey=physician&jobAge=22&relb=70&brelb=10&scr=293.835136&bscr=41.976448&aq=-5215247669577659451&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -1550,7 +1552,7 @@ const DEMO_JOBS = [
     ],
     "description": "...ambulance and equipment used for pre-hospital emergency medical care. Utilizes specialized communication equipment to consult with Physicians and /or notify hospitals of patients condition. Completes detailed documentation on patient care and transport. Attends...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/6465113798125537464?p=2&pos=37&rgn=0&cid=36&ckey=physician&jobAge=76&relb=50&brelb=10&scr=280.13217999999995&bscr=56.026436&aq=4544073791720128415&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/6465113798125537464?p=2&pos=37&rgn=0&cid=36&ckey=physician&jobAge=77&relb=50&brelb=10&scr=280.104&bscr=56.0208&aq=-5215247669577659451&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -1582,7 +1584,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...America, Western Europe, Australia or New Zealand. USA: The American Board of Medical Specialties (ABIM) Canada: Royal College of Physicians and Surgeons Certificate (FRCPS or CCFP- Rheumatology) UK and Ireland: GMC/CCST Specialist Register – Rheumatology Australia...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-2206177296690629213?p=2&pos=39&rgn=0&cid=36&ckey=physician&jobAge=93&relb=50&brelb=10&scr=272.447375&bscr=54.489475&aq=4544073791720128415&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/-2206177296690629213?p=2&pos=39&rgn=0&cid=36&ckey=physician&jobAge=94&relb=50&brelb=10&scr=272.383215&bscr=54.476643&aq=-5215247669577659451&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -1614,7 +1616,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...America, Western Europe, Australia or New Zealand. USA: The American Board of Medical Specialties (ABMS) Canada: Royal College of Physicians and Surgeons Certificate (RCPS-C) UK and Ireland: GMC/CCST Specialist Register Australia and New Zealand: Fellowship from...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/4387111018501715451?p=2&pos=40&rgn=0&cid=36&ckey=physician&jobAge=93&relb=50&brelb=10&scr=266.84683&bscr=53.369366&aq=4544073791720128415&elckey=-784772002120420919",
+    "applyUrl": "https://sa.jooble.org/away/4387111018501715451?p=2&pos=40&rgn=0&cid=36&ckey=physician&jobAge=94&relb=50&brelb=10&scr=266.76401&bscr=53.352802&aq=-5215247669577659451&elckey=5479684350958809800",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -1644,7 +1646,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "... Consultant Endocrinologist – Saudi Arabia Location: Saudi Arabia Employment Type: Full-time About the Opportunity We are recruiting experienced Consultant Endocrinologists for leading healthcare providers in Saudi Arabia. This is an excellent opportunity...",
     "source": "manatal.com",
-    "applyUrl": "https://sa.jooble.org/desc/-6035708598945306533?ckey=consultant+physician&rgn=0&pos=28&elckey=2972299835608561301&p=2&aq=-3968408048291697047&cid=36&jobAge=357&relb=100&brelb=100&bscr=1949.1581&scr=1949.1580999999999",
+    "applyUrl": "https://sa.jooble.org/desc/-6035708598945306533?ckey=consultant+physician&rgn=0&pos=28&elckey=2128388954738848204&p=2&aq=373322658593776541&cid=36&jobAge=358&relb=100&brelb=100&bscr=1948.7577&scr=1948.7577",
     "applyIsDirect": false,
     "postedDaysAgo": 14,
     "demo": false
@@ -1677,7 +1679,7 @@ const DEMO_JOBS = [
     ],
     "description": "...minimise injury risk and maximise competitive performance through an individualised, performance-focused approach. Act as Team Doctor at agreed Al Qadsiah events and competitions. Maintain the highest standards of evidence-based clinical practice while encouraging...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/5505159666754268904?p=1&pos=1&rgn=0&cid=36&ckey=doctor&jobAge=4&relb=70&brelb=10&scr=2521.29031&bscr=360.18433&aq=1311441322126571485&elckey=112194060587035528",
+    "applyUrl": "https://sa.jooble.org/away/5505159666754268904?p=1&pos=1&rgn=0&cid=36&ckey=doctor&jobAge=5&relb=70&brelb=10&scr=2521.1749499999996&bscr=360.16785&aq=4909696517819971808&elckey=6376650413666266247",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -1710,7 +1712,7 @@ const DEMO_JOBS = [
     ],
     "description": "...clinical consultation. Provide patient-centered care and ensure patient safety during procedures. Supervise and support junior doctors and residents. Participate in teaching, training, research, and quality-improvement activities. Follow evidence-based...",
     "source": "manatal.com",
-    "applyUrl": "https://sa.jooble.org/desc/-5406569933776790906?ckey=doctor&rgn=0&pos=8&elckey=112194060587035528&p=1&aq=1311441322126571485&cid=36&jobAge=117&relb=100&brelb=100&bscr=591.3026&scr=591.3026",
+    "applyUrl": "https://sa.jooble.org/desc/-5406569933776790906?ckey=doctor&rgn=0&pos=8&elckey=6376650413666266247&p=1&aq=4909696517819971808&cid=36&jobAge=118&relb=100&brelb=100&bscr=591.19135&scr=591.19135",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
     "demo": false
@@ -1742,7 +1744,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...training and development including assigned pharmacist interns as applicable. QUALIFICATIONS EDUCATION Bachelor’s degree in Doctor of Pharmacy Certified Pharmacist Specialist by the Saudi Commission for Health Specialties (SCFHS) EXPERIENCE Fresh...",
     "source": "careers.diaverum.com",
-    "applyUrl": "https://sa.jooble.org/desc/-8214412469186915885?ckey=doctor&rgn=0&pos=12&elckey=112194060587035528&p=1&aq=1311441322126571485&cid=36&jobAge=357&relb=100&brelb=100&bscr=537.1801&scr=537.1801",
+    "applyUrl": "https://sa.jooble.org/desc/-8214412469186915885?ckey=doctor&rgn=0&pos=12&elckey=6376650413666266247&p=1&aq=4909696517819971808&cid=36&jobAge=358&relb=100&brelb=100&bscr=537.06964&scr=537.06964",
     "applyIsDirect": false,
     "postedDaysAgo": 14,
     "demo": false
@@ -1772,7 +1774,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Consultant Vascular Surgery in Madinah- Saudi Arabia on a fixed term / permanent basis; working for our client via Workplace Doctors *** Location: Madinah- Saudi Arabia *** Speciality: Surgery – Vascular Surgeon *** Pay rate: Consultants Monthly salary: SAR 40,00...",
     "source": "workplacedoctors.co.uk",
-    "applyUrl": "https://sa.jooble.org/desc/-6544644165498766277?ckey=doctor&rgn=0&pos=17&elckey=112194060587035528&p=1&aq=1311441322126571485&cid=36&jobAge=11&relb=100&brelb=100&bscr=493.19568&scr=493.19568",
+    "applyUrl": "https://sa.jooble.org/desc/-6544644165498766277?ckey=doctor&rgn=0&pos=17&elckey=6376650413666266247&p=1&aq=4909696517819971808&cid=36&jobAge=12&relb=100&brelb=100&bscr=493.18286&scr=493.18286",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -1804,7 +1806,7 @@ const DEMO_JOBS = [
     ],
     "description": "...cases. Participate in multidisciplinary team meetings and contribute to clinical decision-making. Supervise and support junior doctors, residents, and other medical staff where appropriate. Contribute to teaching, training, and professional development activities...",
     "source": "manatal.com",
-    "applyUrl": "https://sa.jooble.org/desc/3860972928347882364?ckey=doctor&rgn=0&pos=21&elckey=112194060587035528&p=2&aq=-8121928343610572436&cid=36&jobAge=141&relb=100&brelb=100&bscr=434.6969&scr=434.6969",
+    "applyUrl": "https://sa.jooble.org/desc/3860972928347882364?ckey=doctor&rgn=0&pos=21&elckey=6376650413666266247&p=2&aq=6720681737258644903&cid=36&jobAge=142&relb=100&brelb=100&bscr=434.61008&scr=434.61008000000004",
     "applyIsDirect": false,
     "postedDaysAgo": 5,
     "demo": false
@@ -1837,7 +1839,7 @@ const DEMO_JOBS = [
     ],
     "description": "...This role combines clinical expertise with customer success responsibilities, serving as the vital link between our clinical users ( doctors and nurses) and our AI development efforts. The successful candidate will proactively engage with healthcare providers to gather...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-5144599683814545738?p=2&pos=24&rgn=0&cid=36&ckey=doctor&jobAge=69&relb=50&brelb=10&scr=285.6779&bscr=57.13558&aq=-8121928343610572436&elckey=112194060587035528",
+    "applyUrl": "https://sa.jooble.org/away/-5144599683814545738?p=2&pos=24&rgn=0&cid=36&ckey=doctor&jobAge=70&relb=50&brelb=10&scr=285.61262&bscr=57.122524&aq=6720681737258644903&elckey=6376650413666266247",
     "applyIsDirect": false,
     "postedDaysAgo": 2,
     "demo": false
@@ -1869,7 +1871,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...the development, review, and evaluation of standard operating procedures and study-specific Required skills and qualifications Doctor of medicine (MD) or MD/PhD, or equivalent, with training in oncology or hematology/oncology Board certification relevant to...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/2808517085032849557?p=2&pos=25&rgn=0&cid=36&ckey=doctor&jobAge=69&relb=50&brelb=10&scr=284.53708500000005&bscr=56.907417&aq=-8121928343610572436&elckey=112194060587035528",
+    "applyUrl": "https://sa.jooble.org/away/2808517085032849557?p=2&pos=25&rgn=0&cid=36&ckey=doctor&jobAge=70&relb=50&brelb=10&scr=284.451675&bscr=56.890335&aq=6720681737258644903&elckey=6376650413666266247",
     "applyIsDirect": false,
     "postedDaysAgo": 2,
     "demo": false
@@ -1901,7 +1903,7 @@ const DEMO_JOBS = [
     ],
     "description": "...origin or Saudi Arabia. Successful completion of written and practical Dental Examination administered by Dental Clinic Supervisory Personnel. Three years of post- doctorate education specific to periodontics and possibly a hospital internship. #J-18808-Ljbffr...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-269413067182328853?p=2&pos=26&rgn=0&cid=36&ckey=doctor&jobAge=93&relb=50&brelb=10&scr=283.265665&bscr=56.653133&aq=-8121928343610572436&elckey=112194060587035528",
+    "applyUrl": "https://sa.jooble.org/away/-269413067182328853?p=2&pos=26&rgn=0&cid=36&ckey=doctor&jobAge=94&relb=50&brelb=10&scr=283.17854&bscr=56.635708&aq=6720681737258644903&elckey=6376650413666266247",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -1931,7 +1933,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...(or equivalent) in a relevant discipline plus 10 years’ experience, OR Master of Science (or equivalent) in a relevant discipline plus 7 years’ experience OR Doctor of Philosophy (or equivalent) in a relevant discipline plus 5 years’ experience. #J-18808-Ljbffr...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-6974452793396100993?p=2&pos=31&rgn=0&cid=36&ckey=doctor&jobAge=21&relb=50&brelb=10&scr=249.84321500000001&bscr=49.968643&aq=-8121928343610572436&elckey=112194060587035528",
+    "applyUrl": "https://sa.jooble.org/away/-6974452793396100993?p=2&pos=31&rgn=0&cid=36&ckey=doctor&jobAge=22&relb=50&brelb=10&scr=249.81201000000001&bscr=49.962402&aq=6720681737258644903&elckey=6376650413666266247",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -1961,7 +1963,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...should: Have a proven track record in establishing and leading autism care centers or multi-site programs of excellence, Hold a doctoral degree (Ph.D., Psy.D., or M.D.) in a relevant field such as clinical psychology or neuroscience, with specialized training in...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/7727839023627318421?p=2&pos=34&rgn=0&cid=36&ckey=doctor&jobAge=117&relb=50&brelb=10&scr=237.4399&bscr=47.48798&aq=-8121928343610572436&elckey=112194060587035528",
+    "applyUrl": "https://sa.jooble.org/away/7727839023627318421?p=2&pos=34&rgn=0&cid=36&ckey=doctor&jobAge=118&relb=50&brelb=10&scr=237.36515&bscr=47.47303&aq=6720681737258644903&elckey=6376650413666266247",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
     "demo": false
@@ -1996,7 +1998,7 @@ const DEMO_JOBS = [
     ],
     "description": "...individual for a leadership position responsible for overseeing scientific and clinical activities in Riyadh. The role demands a Doctorate Degree (Ph.D.) in a health-related science, along with at least 10 years of post-qualification experience. The candidate will provide...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/4945137420602310337?p=2&pos=37&rgn=0&cid=36&ckey=doctor&jobAge=93&relb=50&brelb=10&scr=224.54323&bscr=44.908646&aq=-8121928343610572436&elckey=112194060587035528",
+    "applyUrl": "https://sa.jooble.org/away/4945137420602310337?p=2&pos=37&rgn=0&cid=36&ckey=doctor&jobAge=94&relb=50&brelb=10&scr=224.49030000000002&bscr=44.89806&aq=6720681737258644903&elckey=6376650413666266247",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -2031,7 +2033,7 @@ const DEMO_JOBS = [
     ],
     "description": "...Maverickmindsconnexion in Jeddah, Saudi Arabia, is looking for experienced Doctors to provide diagnosis and treatment in Pediatric Emergency. Ideal candidates should have a minimum of 1 year as Sr. Registrar and be licensed as a Specialist. Responsibilities include...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-7040896649656429465?p=2&pos=40&rgn=0&cid=36&ckey=doctor&jobAge=45&relb=50&brelb=10&scr=204.60450999999998&bscr=40.920902&aq=-8121928343610572436&elckey=112194060587035528",
+    "applyUrl": "https://sa.jooble.org/away/-7040896649656429465?p=2&pos=40&rgn=0&cid=36&ckey=doctor&jobAge=46&relb=50&brelb=10&scr=204.5365&bscr=40.9073&aq=6720681737258644903&elckey=6376650413666266247",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -2063,7 +2065,7 @@ const DEMO_JOBS = [
     ],
     "description": "...medical and other healthcare team members demonstrates advanced nursing knowledge and applies this knowledge to the assessment, diagnosis, delivery and design of nursing care and interventions in the Staff Nurse Labor & Delivery area. Function under a collaborative management...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/4599136886618377847?p=1&pos=5&rgn=0&cid=36&ckey=staff+nurse&jobAge=21&relb=70&brelb=10&scr=3470.58838&bscr=495.79834&aq=-2371733703673063561&elckey=8746620226881994465",
+    "applyUrl": "https://sa.jooble.org/away/4599136886618377847?p=1&pos=5&rgn=0&cid=36&ckey=staff+nurse&jobAge=22&relb=70&brelb=10&scr=3470.2510500000003&bscr=495.75015&aq=8038394510219797974&elckey=7902709346012281368",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -2095,7 +2097,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Join King Abdulaziz Medical City in Riyadh as Emergency Department Acute Care Staff Nurse Why Join KAMC? ✅ World-Class Facilities – Work in a cutting-edge medical center. ✅ Career Growth – Access professional development, research opportunities, and mentorship...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/7919604301876130505?p=1&pos=6&rgn=0&cid=36&ckey=staff+nurse&jobAge=45&relb=70&brelb=10&scr=3447.7823799999996&bscr=492.54034&aq=-2371733703673063561&elckey=8746620226881994465",
+    "applyUrl": "https://sa.jooble.org/away/7919604301876130505?p=1&pos=6&rgn=0&cid=36&ckey=staff+nurse&jobAge=46&relb=70&brelb=10&scr=3447.15735&bscr=492.45105&aq=8038394510219797974&elckey=7902709346012281368",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -2125,7 +2127,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Join King Abdulaziz Medical City in Riyadh as a Postpartum Staff Nurse in the Women’s Center! Why Join KAMC? World-Class Facilities – Work in a cutting-edge medical center. Career Growth – Access professional development, research opportunities, and mentorship programs...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/5092940066572927095?p=1&pos=7&rgn=0&cid=36&ckey=staff+nurse&jobAge=93&relb=70&brelb=10&scr=3164.58359&bscr=452.08337&aq=-2371733703673063561&elckey=8746620226881994465",
+    "applyUrl": "https://sa.jooble.org/away/5092940066572927095?p=1&pos=7&rgn=0&cid=36&ckey=staff+nurse&jobAge=94&relb=70&brelb=10&scr=3164.0781899999997&bscr=452.01117&aq=8038394510219797974&elckey=7902709346012281368",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -2155,7 +2157,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...International Hospitals Recruitment Inc. is seeking an Inpatient Staff Nurse for King Abdulaziz Medical City in Riyadh. This role offers a chance to work in world-class facilities with professional development opportunities, including mentorship programs. The ideal...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/3875698455111501957?p=1&pos=9&rgn=0&cid=36&ckey=staff+nurse&jobAge=93&relb=70&brelb=10&scr=2966.79712&bscr=423.82816&aq=-2371733703673063561&elckey=8746620226881994465",
+    "applyUrl": "https://sa.jooble.org/away/3875698455111501957?p=1&pos=9&rgn=0&cid=36&ckey=staff+nurse&jobAge=94&relb=70&brelb=10&scr=2966.32329&bscr=423.76047&aq=8038394510219797974&elckey=7902709346012281368",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -2188,7 +2190,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...QUALIFICATIONS - Licensed Nurse - Minimum of 1-year experience related to the applied position - No employment gap of more than 6 months - With Data flow and a valid Saudi license BENEFITS - Basic Salary of 4335SAR ( ~60,200 PHP) - Specialty Pay of 650 SAR...",
     "source": "jazzhr.com",
-    "applyUrl": "https://sa.jooble.org/desc/-811383398850598702?ckey=staff+nurse&rgn=0&pos=12&elckey=8746620226881994465&p=1&aq=-2371733703673063561&cid=36&jobAge=621&relb=100&brelb=100&bscr=2798.9832&scr=2798.9832",
+    "applyUrl": "https://sa.jooble.org/desc/-811383398850598702?ckey=staff+nurse&rgn=0&pos=12&elckey=7902709346012281368&p=1&aq=8038394510219797974&cid=36&jobAge=622&relb=100&brelb=100&bscr=2799.0098&scr=2799.0098",
     "applyIsDirect": false,
     "postedDaysAgo": 25,
     "demo": false
@@ -2222,7 +2224,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...International Hospitals Recruitment Inc. is seeking a skilled Staff Nurse for the ICU at King Abdullah Specialized Hospital. This role involves advanced nursing care and collaboration within a multidisciplinary team to ensure patient-centered care. The ideal candidate...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-4052405472272468326?p=1&pos=13&rgn=0&cid=36&ckey=staff+nurse&jobAge=93&relb=70&brelb=10&scr=2769.01058&bscr=395.57294&aq=-2371733703673063561&elckey=8746620226881994465",
+    "applyUrl": "https://sa.jooble.org/away/-4052405472272468326?p=1&pos=13&rgn=0&cid=36&ckey=staff+nurse&jobAge=94&relb=70&brelb=10&scr=2768.56839&bscr=395.50977&aq=8038394510219797974&elckey=7902709346012281368",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -2256,7 +2258,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...King Abdulaziz Medical City in Riyadh is recruiting a Cardiology Staff Nurse to deliver advanced cardiac care in a high‑volume facility. The role requires 2+ years post‑qualification experience, with at least 1 year in Cardiology, and a current RN license to practice locally...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/5502580051304336815?p=1&pos=14&rgn=0&cid=36&ckey=staff+nurse&jobAge=45&relb=70&brelb=10&scr=2729.7437999999997&bscr=389.9634&aq=-2371733703673063561&elckey=8746620226881994465",
+    "applyUrl": "https://sa.jooble.org/away/5502580051304336815?p=1&pos=14&rgn=0&cid=36&ckey=staff+nurse&jobAge=46&relb=70&brelb=10&scr=2729.2482&bscr=389.8926&aq=8038394510219797974&elckey=7902709346012281368",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -2291,7 +2293,7 @@ const DEMO_JOBS = [
     ],
     "description": "...inspiration. Patient safety in a dialysis clinic depends on strong nursing leadership at every shift. As our clinics across the Kingdom... ...nurses ready to take on supervisory responsibility, support staff and uphold clinical standards day to day. We are now looking...",
     "source": "careers.diaverum.com",
-    "applyUrl": "https://sa.jooble.org/desc/7691479912474609800?ckey=staff+nurse&rgn=0&pos=24&elckey=8746620226881994465&p=2&aq=-3607175559939286023&cid=36&jobAge=165&relb=100&brelb=100&bscr=2335.3403&scr=2335.3403",
+    "applyUrl": "https://sa.jooble.org/desc/7691479912474609800?ckey=staff+nurse&rgn=0&pos=23&elckey=7902709346012281368&p=2&aq=-847176127627874449&cid=36&jobAge=166&relb=100&brelb=100&bscr=2334.5034&scr=2334.5034",
     "applyIsDirect": false,
     "postedDaysAgo": 6,
     "demo": false
@@ -2325,7 +2327,7 @@ const DEMO_JOBS = [
     ],
     "description": "...patients and visitors. Coordinate closely with hospital management, nursing, medical, and support departments. Manage and evaluate... ...and development needs. Ensure appropriate management of female staff accommodation where required. Maintain effective...",
     "source": "manatal.com",
-    "applyUrl": "https://sa.jooble.org/desc/-257516392434288093?ckey=staff+nurse&rgn=0&pos=39&elckey=8746620226881994465&p=2&aq=-3607175559939286023&cid=36&jobAge=405&relb=100&brelb=100&bscr=786.48315&scr=786.48315",
+    "applyUrl": "https://sa.jooble.org/desc/-257516392434288093?ckey=staff+nurse&rgn=0&pos=39&elckey=7902709346012281368&p=2&aq=-847176127627874449&cid=36&jobAge=406&relb=100&brelb=100&bscr=786.3096&scr=786.3096",
     "applyIsDirect": false,
     "postedDaysAgo": 16,
     "demo": false
@@ -2355,7 +2357,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...vision and values of Saudi Arabian Ministry of National Guard – Health Affairs, lead, manage and oversee the activities of the assigned Nursing departments by assuming a 24-hour accountability; oversee clinical nursing performance and priority setting underpinned by the...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-6324513412360876051?p=1&pos=18&rgn=0&cid=36&ckey=nurse&jobAge=21&relb=70&brelb=10&scr=1787.3150400000002&bscr=255.33072&aq=-4771116861700706713&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/-6324513412360876051?p=1&pos=18&rgn=0&cid=36&ckey=nurse&jobAge=22&relb=70&brelb=10&scr=1787.1452199999999&bscr=255.30646&aq=-3443564163597609888&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -2385,7 +2387,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Requirements: Must hold a Master's Degree in Nursing or Related Must hold a Bachelor's degree in Nursing (online degrees are not accepted) Current nursing (RN) license Must have a minimum of eight years nursing experience, including three years current...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-2365254817141460027?p=1&pos=20&rgn=0&cid=36&ckey=nurse&jobAge=93&relb=70&brelb=10&scr=1672.29237&bscr=238.89891&aq=-4771116861700706713&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/-2365254817141460027?p=1&pos=20&rgn=0&cid=36&ckey=nurse&jobAge=94&relb=70&brelb=10&scr=1671.89568&bscr=238.84224&aq=-3443564163597609888&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -2417,7 +2419,7 @@ const DEMO_JOBS = [
     ],
     "description": "...Join King Abdulaziz Medical City in Riyadh as a Operating Room Clinical Nurse Director Why Join KAMC? ✅ World-Class Facilities – Work in a cutting-edge medical center. ✅ Career Growth – Access professional development, research opportunities, and mentorship programs...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/844889633892972785?p=2&pos=21&rgn=0&cid=36&ckey=nurse&jobAge=69&relb=70&brelb=10&scr=1532.87526&bscr=218.98218&aq=8355104273401130332&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/844889633892972785?p=2&pos=21&rgn=0&cid=36&ckey=nurse&jobAge=70&relb=70&brelb=10&scr=1533.03752&bscr=219.00536&aq=5716549228122620478&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 2,
     "demo": false
@@ -2451,7 +2453,7 @@ const DEMO_JOBS = [
     ],
     "description": "A leading healthcare recruitment agency seeks an Operating Room Clinical Nurse Director for King Abdulaziz Medical City in Riyadh. The role involves strategic leadership in nursing services, ensuring quality improvement and patient safety across surgical operations. Candidates...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/7544721196607285375?p=2&pos=22&rgn=0&cid=36&ckey=nurse&jobAge=69&relb=70&brelb=10&scr=1505.93618&bscr=215.13374&aq=8355104273401130332&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/7544721196607285375?p=2&pos=22&rgn=0&cid=36&ckey=nurse&jobAge=70&relb=70&brelb=10&scr=1505.65072&bscr=215.09296&aq=5716549228122620478&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 2,
     "demo": false
@@ -2481,7 +2483,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Summary Within the mission, vision and values of Nurse Educator Administration, in close collaboration with medical and other healthcare team members demonstrates advanced nursing knowledge and applies this knowledge to the assessment, diagnosis, delivery and design...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/6173057296819458209?p=2&pos=23&rgn=0&cid=36&ckey=nurse&jobAge=21&relb=50&brelb=10&scr=1316.6168&bscr=263.32336&aq=8355104273401130332&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/6173057296819458209?p=2&pos=23&rgn=0&cid=36&ckey=nurse&jobAge=22&relb=50&brelb=10&scr=1316.0904999999998&bscr=263.2181&aq=5716549228122620478&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -2511,7 +2513,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Select how often (in days) to receive an alert: The Emergency Nurse 3 provides advanced.-level nursing care in the assigned nursing unit and is responsible for supporting operational processes .- which includes but is not limited to maintaining high standards of patient...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/1162359862849732886?p=2&pos=24&rgn=0&cid=36&ckey=nurse&jobAge=69&relb=50&brelb=10&scr=1258.318&bscr=251.6636&aq=8355104273401130332&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/1162359862849732886?p=2&pos=24&rgn=0&cid=36&ckey=nurse&jobAge=70&relb=50&brelb=10&scr=1258.0795&bscr=251.6159&aq=5716549228122620478&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 2,
     "demo": false
@@ -2548,7 +2550,7 @@ const DEMO_JOBS = [
     ],
     "description": "...delivery of age appropriate patient care congruent with the mission, vision and values of the Organization. Responsible for ensuring nursing staff adhere to the Professional Code of Conduct and Scope of Practice of the regulatory body. Manages clinical and operational...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-1352596849130719761?p=2&pos=25&rgn=0&cid=36&ckey=nurse&jobAge=21&relb=50&brelb=10&scr=1187.96255&bscr=237.59251&aq=8355104273401130332&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/-1352596849130719761?p=2&pos=25&rgn=0&cid=36&ckey=nurse&jobAge=22&relb=50&brelb=10&scr=1187.75725&bscr=237.55145&aq=5716549228122620478&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -2580,7 +2582,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Summary Contributes to the provision of safe, patient and family focused quality care. In collaboration medical and nursing staff, is responsible for accountable for the assessment, planning and implementation and evaluation of care to specific patient populations....",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/3684372837836627018?p=2&pos=26&rgn=0&cid=36&ckey=nurse&jobAge=93&relb=50&brelb=10&scr=1170.8458&bscr=234.16916&aq=8355104273401130332&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/3684372837836627018?p=2&pos=26&rgn=0&cid=36&ckey=nurse&jobAge=94&relb=50&brelb=10&scr=1170.57015&bscr=234.11403&aq=5716549228122620478&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -2612,7 +2614,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Join King Abdulaziz Medical City in Riyadh as an Associate Executive Director in Nursing Services! Why Join KAMC? World-Class Facilities – Work in a cutting-edge medical center. Career Growth – Access professional development, research opportunities, and...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/5749373668771405358?p=2&pos=27&rgn=0&cid=36&ckey=nurse&jobAge=21&relb=50&brelb=10&scr=1170.1035&bscr=234.0207&aq=8355104273401130332&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/5749373668771405358?p=2&pos=27&rgn=0&cid=36&ckey=nurse&jobAge=22&relb=50&brelb=10&scr=1169.8110000000001&bscr=233.9622&aq=5716549228122620478&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -2642,7 +2644,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Join King Fahad Military Medical Complex as a Charge Nurse in the Medical / Surgical Unit Advanced Healthcare Setting – Work in a state‑of‑the‑art medical facility alongside a skilled multidisciplinary team. Career Growth – Access leadership opportunities, professional...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-1033358902152245040?p=2&pos=28&rgn=0&cid=36&ckey=nurse&jobAge=117&relb=50&brelb=10&scr=1162.74705&bscr=232.54941&aq=8355104273401130332&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/-1033358902152245040?p=2&pos=28&rgn=0&cid=36&ckey=nurse&jobAge=118&relb=50&brelb=10&scr=1162.5553&bscr=232.51106&aq=5716549228122620478&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
     "demo": false
@@ -2674,7 +2676,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...organ transplant; pancreatic transplant; organ harvest; other liver and general surgeries. Requirements: Bachelor's degree in Nursing (online/distance education programs cannot be considered) Current nursing (RN) license A minimum of six years recent...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-8844392485781112832?p=2&pos=29&rgn=0&cid=36&ckey=nurse&jobAge=93&relb=50&brelb=10&scr=1149.9391&bscr=229.98782&aq=8355104273401130332&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/-8844392485781112832?p=2&pos=29&rgn=0&cid=36&ckey=nurse&jobAge=94&relb=50&brelb=10&scr=1149.5738999999999&bscr=229.91478&aq=5716549228122620478&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -2707,7 +2709,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "A leading healthcare institution in Riyadh seeks an experienced Operating Room Staff Nurse. The ideal candidate should hold a Bachelor’s Degree in Nursing and possess a minimum of two years of clinical experience post-qualification, with at least one year in the operating...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-2929847688941281734?p=2&pos=30&rgn=0&cid=36&ckey=nurse&jobAge=93&relb=50&brelb=10&scr=1144.5255000000002&bscr=228.9051&aq=8355104273401130332&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/-2929847688941281734?p=2&pos=30&rgn=0&cid=36&ckey=nurse&jobAge=94&relb=50&brelb=10&scr=1144.5940500000002&bscr=228.91881&aq=5716549228122620478&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -2739,7 +2741,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Johns Hopkins Aramco Healthcare is seeking a Cardiac Care Nurse 3 to provide advanced nursing care in the cardiac unit. The role involves supporting operational processes, mentoring intermediate-level nurses, and collaborating with the multidisciplinary team to ensure...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/4703469550390495707?p=2&pos=32&rgn=0&cid=36&ckey=nurse&jobAge=69&relb=50&brelb=10&scr=1125.09065&bscr=225.01813&aq=8355104273401130332&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/4703469550390495707?p=2&pos=32&rgn=0&cid=36&ckey=nurse&jobAge=70&relb=50&brelb=10&scr=1124.8773999999999&bscr=224.97548&aq=5716549228122620478&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 2,
     "demo": false
@@ -2769,7 +2771,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Requirements: Bachelor's degree in Nursing (please note, online BSNs cannot be accepted) Current nursing (RN) license Must have a minimum of two years current experience as an RN in Level III NICU in a tertiary-care hospital The hospital can consider only FEMALE...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-8247188689042743423?p=2&pos=33&rgn=0&cid=36&ckey=nurse&jobAge=93&relb=50&brelb=10&scr=1109.6132&bscr=221.92264&aq=8355104273401130332&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/-8247188689042743423?p=2&pos=33&rgn=0&cid=36&ckey=nurse&jobAge=94&relb=50&brelb=10&scr=1109.76885&bscr=221.95377&aq=5716549228122620478&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -2801,7 +2803,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Join International Hospitals Recruitment Inc. as a Staff Nurse in the Coronary Care Unit at King Abdullah Specialized Hospital, located in Al-Qassim Province, Saudi Arabia. This role requires advanced nursing knowledge and offers career growth opportunities in a world-...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/3333128647154571107?p=2&pos=36&rgn=0&cid=36&ckey=nurse&jobAge=93&relb=50&brelb=10&scr=1068.2239&bscr=213.64478&aq=8355104273401130332&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/3333128647154571107?p=2&pos=36&rgn=0&cid=36&ckey=nurse&jobAge=94&relb=50&brelb=10&scr=1068.28775&bscr=213.65755&aq=5716549228122620478&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -2834,7 +2836,7 @@ const DEMO_JOBS = [
     ],
     "description": "...Saudi Gold Refinery is seeking an Occupational Health Nurse in Riyadh, Saudi Arabia. This role provides clinical care and health surveillance, ensuring employees' fitness for duty in a hazardous environment. The Occupational Health Nurse will manage emergency medical...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-938384594566091758?p=2&pos=37&rgn=0&cid=36&ckey=nurse&jobAge=93&relb=50&brelb=10&scr=1068.2239&bscr=213.64478&aq=8355104273401130332&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/-938384594566091758?p=2&pos=37&rgn=0&cid=36&ckey=nurse&jobAge=94&relb=50&brelb=10&scr=1068.28775&bscr=213.65755&aq=5716549228122620478&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -2869,7 +2871,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "A leading healthcare recruitment firm is seeking a skilled Neuro Sciences Critical Care Staff Nurse to join King Abdulaziz Medical City in Riyadh. The role involves advanced nursing knowledge and clinical competence in the Neuro Sciences ICU, collaboration with a multidisciplinary...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/6185790132539197256?p=2&pos=38&rgn=0&cid=36&ckey=nurse&jobAge=93&relb=50&brelb=10&scr=1068.2239&bscr=213.64478&aq=8355104273401130332&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/6185790132539197256?p=2&pos=38&rgn=0&cid=36&ckey=nurse&jobAge=94&relb=50&brelb=10&scr=1068.28775&bscr=213.65755&aq=5716549228122620478&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -2905,7 +2907,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...International Hospitals Recruitment Inc. is seeking an experienced Assistant Nurse Manager for the Neonatal Critical Care Unit in Saudi Arabia's Eastern Province. The ideal candidate will possess a Bachelor’s degree in Nursing, with a strong background in critical care...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-2033113997435969713?p=2&pos=39&rgn=0&cid=36&ckey=nurse&jobAge=93&relb=50&brelb=10&scr=1062.96875&bscr=212.59375&aq=8355104273401130332&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/-2033113997435969713?p=2&pos=39&rgn=0&cid=36&ckey=nurse&jobAge=94&relb=50&brelb=10&scr=1062.4774&bscr=212.49548&aq=5716549228122620478&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -2940,7 +2942,7 @@ const DEMO_JOBS = [
     ],
     "description": "...International Hospitals Recruitment Inc. is hiring for a nursing position in Riyadh, Saudi Arabia. The role involves providing patient care, planning and implementing care strategies, and collaborating with medical staff. Candidates must hold a BS Degree in Nursing,...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/5731260511585103921?p=2&pos=40&rgn=0&cid=36&ckey=nurse&jobAge=93&relb=50&brelb=10&scr=1049.4506&bscr=209.89012&aq=8355104273401130332&elckey=-4168599935340326191",
+    "applyUrl": "https://sa.jooble.org/away/5731260511585103921?p=2&pos=40&rgn=0&cid=36&ckey=nurse&jobAge=94&relb=50&brelb=10&scr=1049.2035&bscr=209.8407&aq=5716549228122620478&elckey=-5012510816210039288",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -2970,7 +2972,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Nationality Preference: Indian or Pakistani • Employment Type: Full time Candidate Requirements • Must hold a valid Saudi Pharmacist License (SCFHS) • Prior work experience in Saudi Arabia is required • Strong knowledge of pharmacy operations, prescriptions,...",
     "source": "gulfhirepoint.com",
-    "applyUrl": "https://sa.jooble.org/desc/7344814973021393825?ckey=pharmacist&rgn=0&pos=1&elckey=-1242644824894657139&p=1&aq=-6903886090864538345&cid=36&jobAge=21&relb=100&brelb=100&bscr=3791.4124&scr=3791.4123999999997",
+    "applyUrl": "https://sa.jooble.org/desc/7344814973021393825?ckey=pharmacist&rgn=0&pos=1&elckey=5021811528184573580&p=1&aq=-175235796041063801&cid=36&jobAge=22&relb=100&brelb=100&bscr=3791.2397&scr=3791.2397",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -3004,7 +3006,7 @@ const DEMO_JOBS = [
     ],
     "description": "...Diaverum AB in Jeddah, Saudi Arabia is seeking a Pharmacist to manage pharmaceutical care in the renal care setting. You will ensure drug therapy optimization, patient education, and collaboration with multidisciplinary teams to improve outcomes. The role requires...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-4109648841080654364?p=1&pos=4&rgn=0&cid=36&ckey=pharmacist&jobAge=45&relb=50&brelb=10&scr=1294.66185&bscr=258.93237&aq=-6903886090864538345&elckey=-1242644824894657139",
+    "applyUrl": "https://sa.jooble.org/away/-4109648841080654364?p=1&pos=4&rgn=0&cid=36&ckey=pharmacist&jobAge=46&relb=50&brelb=10&scr=1294.3505&bscr=258.8701&aq=-175235796041063801&elckey=5021811528184573580",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -3038,7 +3040,7 @@ const DEMO_JOBS = [
     ],
     "description": "...identification of potential sites for Pfizer-sponsored clinical trials. REQUIRED SKILL SET Technical Medical background ( pharmacist or MD) as applicable to the local country regulations More than 4 years’ experience in the medical affairs Demonstrate...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-7735067622965254763?p=1&pos=7&rgn=0&cid=36&ckey=pharmacist&jobAge=45&relb=70&brelb=10&scr=404.785822&bscr=57.826546&aq=-6903886090864538345&elckey=-1242644824894657139",
+    "applyUrl": "https://sa.jooble.org/away/-7735067622965254763?p=1&pos=7&rgn=0&cid=36&ckey=pharmacist&jobAge=46&relb=70&brelb=10&scr=404.703712&bscr=57.814816&aq=-175235796041063801&elckey=5021811528184573580",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -3068,7 +3070,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...of the front desk, handling interruptions and completing daily tasks. Play a support role for the hospital staff (Insurance, Pharmacists, Lab, and Radiology ..etc) and enable coaching and training on CareConnect Protocol / services to the clinc’s staff. Respect government...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-7622312507015227681?p=1&pos=9&rgn=0&cid=36&ckey=pharmacist&jobAge=45&relb=50&brelb=10&scr=281.405925&bscr=56.281185&aq=-6903886090864538345&elckey=-1242644824894657139",
+    "applyUrl": "https://sa.jooble.org/away/-7622312507015227681?p=1&pos=9&rgn=0&cid=36&ckey=pharmacist&jobAge=46&relb=50&brelb=10&scr=281.333635&bscr=56.266727&aq=-175235796041063801&elckey=5021811528184573580",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -3100,7 +3102,7 @@ const DEMO_JOBS = [
     ],
     "description": "...apps, and AI‑driven tools to stay updated with technological advancements and explore innovative solutions. Collaborating with pharmacists, healthcare providers, and insurance companies to ensure that IT solutions align with business needs and facilitate effective...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-3001374302680356562?p=1&pos=10&rgn=0&cid=36&ckey=pharmacist&jobAge=93&relb=50&brelb=10&scr=255.64497&bscr=51.128994&aq=-6903886090864538345&elckey=-1242644824894657139",
+    "applyUrl": "https://sa.jooble.org/away/-3001374302680356562?p=1&pos=10&rgn=0&cid=36&ckey=pharmacist&jobAge=94&relb=50&brelb=10&scr=255.56772&bscr=51.113544&aq=-175235796041063801&elckey=5021811528184573580",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -3132,7 +3134,7 @@ const DEMO_JOBS = [
     ],
     "description": "...errors, near misses and adverse drug events; identify trends and implement corrective and preventive actions. Collaborate with pharmacists, physicians and multidisciplinary teams to improve medication management processes and patient safety outcomes. Participate in...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-3876824500334234954?p=1&pos=11&rgn=0&cid=36&ckey=pharmacist&jobAge=21&relb=50&brelb=10&scr=205.77197999999999&bscr=41.154396&aq=-6903886090864538345&elckey=-1242644824894657139",
+    "applyUrl": "https://sa.jooble.org/away/-3876824500334234954?p=1&pos=11&rgn=0&cid=36&ckey=pharmacist&jobAge=22&relb=50&brelb=10&scr=205.7068&bscr=41.14136&aq=-175235796041063801&elckey=5021811528184573580",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -3168,7 +3170,7 @@ const DEMO_JOBS = [
     ],
     "description": "A healthcare facility in Saudi Arabia is looking for a qualified dentist specializing in periodontics. This role involves providing outpatient care, diagnosing and treating periodontal diseases, and conducting patient education. Ideal candidates must hold a Bachelor's degree...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/4787322392910210830?p=1&pos=3&rgn=0&cid=36&ckey=dentist&jobAge=93&relb=70&brelb=10&scr=396.001081&bscr=56.571583&aq=-7447064591584352712&elckey=8691799908487729232",
+    "applyUrl": "https://sa.jooble.org/away/4787322392910210830?p=1&pos=3&rgn=0&cid=36&ckey=dentist&jobAge=94&relb=70&brelb=10&scr=395.90796&bscr=56.55828&aq=-1080779421228562621&elckey=-3490487812142591665",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -3204,7 +3206,7 @@ const DEMO_JOBS = [
     ],
     "description": "A leading medical center in Riyadh is seeking a Laboratory Technology Specialist in Blood Bank. The role involves providing expertise in transfusion services and updating techniques for laboratory performance. Candidates should have a Master’s or Bachelor’s degree in Medical...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-3723495253478018825?p=1&pos=15&rgn=0&cid=36&ckey=medical+laboratory+technologist&jobAge=93&relb=50&brelb=10&scr=1486.07085&bscr=297.21417&aq=-7917499332476383048&elckey=-5896111860063057235",
+    "applyUrl": "https://sa.jooble.org/away/-3723495253478018825?p=1&pos=15&rgn=0&cid=36&ckey=medical+laboratory+technologist&jobAge=94&relb=50&brelb=10&scr=1485.8409&bscr=297.16818&aq=-3142435576744744342&elckey=-6740022740932770332",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -3239,7 +3241,7 @@ const DEMO_JOBS = [
     ],
     "description": "...Specialist. This role ensures continuous surveillance of clinic and laboratory data to identify and monitor healthcare-associated infections... .... Collaborate with appropriate Administrative and Medical Staff in the maintenance of patient care standards that relate...",
     "source": "careers.diaverum.com",
-    "applyUrl": "https://sa.jooble.org/desc/-5321648522484155975?ckey=medical+laboratory+technologist&rgn=0&pos=16&elckey=-5896111860063057235&p=1&aq=-7917499332476383048&cid=36&jobAge=477&relb=100&brelb=100&bscr=739.3043&scr=739.3043000000001",
+    "applyUrl": "https://sa.jooble.org/desc/-5321648522484155975?ckey=medical+laboratory+technologist&rgn=0&pos=16&elckey=-6740022740932770332&p=1&aq=-3142435576744744342&cid=36&jobAge=478&relb=100&brelb=100&bscr=739.1251&scr=739.1251",
     "applyIsDirect": false,
     "postedDaysAgo": 19,
     "demo": false
@@ -3272,43 +3274,9 @@ const DEMO_JOBS = [
     ],
     "description": "...clinical monitoring skills • Demonstrated understanding of medical/ therapeutic area knowledge and medical terminology • Demonstrated... ...and Environment: • Work is performed in an office/ laboratory/ clinical/and/or home office environment with exposure to electrical...",
     "source": "thermofisher.com",
-    "applyUrl": "https://sa.jooble.org/desc/7111383531100005179?ckey=medical+laboratory+technologist&rgn=0&pos=17&elckey=-5896111860063057235&p=1&aq=-7917499332476383048&cid=36&jobAge=429&relb=100&brelb=100&bscr=704.614&scr=704.614",
+    "applyUrl": "https://sa.jooble.org/desc/7111383531100005179?ckey=medical+laboratory+technologist&rgn=0&pos=17&elckey=-6740022740932770332&p=1&aq=-3142435576744744342&cid=36&jobAge=430&relb=100&brelb=100&bscr=704.45355&scr=704.45355",
     "applyIsDirect": false,
     "postedDaysAgo": 17,
-    "demo": false
-  },
-  {
-    "id": "jb-5190944325431687456",
-    "title": "BP Manager - Saudi and Lower Gulf Countries",
-    "profession": "Laboratory",
-    "specialty": "",
-    "employer": "Not specified",
-    "city": "Riyadh",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 0,
-    "expMax": 5,
-    "degreeReq": "BSc Medical Laboratory Sciences",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [],
-    "certs": [],
-    "requirements": [
-      "Siemens Healthineers is a leading global medical technology company with over 170 years of experience and 18,00..."
-    ],
-    "responsibilities": [
-      "...services in the areas of diagnostic and therapeutic imaging, laboratory diagnostics and molecular medicine, as well as digital health..."
-    ],
-    "description": "...healthcare together. Siemens Healthineers is a leading global medical technology company with over 170 years of experience and 18,00... ...services in the areas of diagnostic and therapeutic imaging, laboratory diagnostics and molecular medicine, as well as digital health...",
-    "source": "siemens.com",
-    "applyUrl": "https://sa.jooble.org/desc/-5190944325431687456?ckey=medical+laboratory+technologist&rgn=0&pos=19&elckey=-5896111860063057235&p=1&aq=-7917499332476383048&cid=36&jobAge=86&relb=100&brelb=100&bscr=685.64764&scr=685.6476399999999",
-    "applyIsDirect": false,
-    "postedDaysAgo": 3,
     "demo": false
   },
   {
@@ -3336,7 +3304,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...• Ensure that the mechanical equipment in the workshops and laboratories are suitable and adequate in number to complement the student... ...tickets free - Phone SIM card with monthly local call allowance - Medical coverage for emergencies and accidents - Free Internet...",
     "source": "breezy.hr",
-    "applyUrl": "https://sa.jooble.org/desc/-6789629451328863286?ckey=medical+laboratory+technologist&rgn=0&pos=24&elckey=-5896111860063057235&p=2&aq=1002675806257548796&cid=36&jobAge=717&relb=100&brelb=100&bscr=520.0709&scr=520.0709",
+    "applyUrl": "https://sa.jooble.org/desc/-6789629451328863286?ckey=medical+laboratory+technologist&rgn=0&pos=24&elckey=-6740022740932770332&p=2&aq=-6215933900448430764&cid=36&jobAge=718&relb=100&brelb=100&bscr=520.0709&scr=520.0709",
     "applyIsDirect": false,
     "postedDaysAgo": 29,
     "demo": false
@@ -3368,7 +3336,7 @@ const DEMO_JOBS = [
     ],
     "description": "...DESCRIPTION An excellent opportunity to join as a Consultant Obstetrics & Gynecology at one of the most prestigious and leading hospitals in (City), Saudi Arabia . JOB SUMMARY The Consultant Obstetrics & Gynecology will be responsible for providing...",
     "source": "manatal.com",
-    "applyUrl": "https://sa.jooble.org/desc/-5255219922078083274?ckey=hospital&rgn=0&pos=10&elckey=-8877387301928530380&p=1&aq=4048485517749021503&cid=36&jobAge=261&relb=100&brelb=100&bscr=2083.488&scr=2083.488",
+    "applyUrl": "https://sa.jooble.org/desc/-5255219922078083274?ckey=hospital&rgn=0&pos=10&elckey=8725445890911308139&p=1&aq=5683900631802242549&cid=36&jobAge=262&relb=100&brelb=100&bscr=2083.1284&scr=2083.1284",
     "applyIsDirect": false,
     "postedDaysAgo": 10,
     "demo": false
@@ -3402,7 +3370,7 @@ const DEMO_JOBS = [
     ],
     "description": "... International Hospitals Recruitment Inc. is seeking an Internal Medicine Consultant for King Abdullah Specialized Hospital in Qassim, Saudi Arabia. The role offers extensive responsibilities in managing various medical conditions and supervising junior staff, with opportunities...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-107118671392504775?p=1&pos=2&rgn=0&cid=36&ckey=internal+medicine&jobAge=93&relb=70&brelb=10&scr=3135.6955000000003&bscr=447.9565&aq=-5013527119234920409&elckey=7612863421668757658",
+    "applyUrl": "https://sa.jooble.org/away/-107118671392504775?p=1&pos=2&rgn=0&cid=36&ckey=internal+medicine&jobAge=94&relb=70&brelb=10&scr=3134.9584&bscr=447.8512&aq=-8329644594296839475&elckey=6768952540799044561",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -3438,9 +3406,39 @@ const DEMO_JOBS = [
     ],
     "description": "...endocrinologist to provide comprehensive medical care for adult patients in both in-person and telemedicine settings, with a focus on internal medicine and endocrine disorders. You will develop personalized treatment plans, conduct thorough assessments, collaborate with...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-9187672320488855854?p=1&pos=11&rgn=0&cid=36&ckey=internal+medicine&jobAge=52&relb=50&brelb=10&scr=2553.2524000000003&bscr=510.65048&aq=-5013527119234920409&elckey=7612863421668757658",
+    "applyUrl": "https://sa.jooble.org/away/-9187672320488855854?p=1&pos=11&rgn=0&cid=36&ckey=internal+medicine&jobAge=53&relb=50&brelb=10&scr=2553.03285&bscr=510.60657&aq=-8329644594296839475&elckey=6768952540799044561",
     "applyIsDirect": false,
     "postedDaysAgo": 2,
+    "demo": false
+  },
+  {
+    "id": "jb-4581115764417168811",
+    "title": "Head of Performance Medicine for Elite Sport",
+    "profession": "Other",
+    "specialty": "",
+    "employer": "Sporting Group International",
+    "city": "Other",
+    "salaryMin": 0,
+    "salaryMax": 0,
+    "expMin": 0,
+    "expMax": 5,
+    "degreeReq": "",
+    "scfhs": "not_specified",
+    "dataflow": "not_specified",
+    "saudiExp": "not_specified",
+    "gender": "Not specified",
+    "employment": "Full-time",
+    "contract": "",
+    "hours": "",
+    "skills": [],
+    "certs": [],
+    "requirements": [],
+    "responsibilities": [],
+    "description": "Al Qadsiah seeks a Medical Lead to head a multidisciplinary team of practitioners, establishing world-class medical standards and collaborating with coaches to minimise injury risk and maximise athlete health and availability. You will oversee medical services across...",
+    "source": "jobleads.com",
+    "applyUrl": "https://sa.jooble.org/away/-4581115764417168811?p=2&pos=31&rgn=0&cid=36&ckey=internal+medicine&jobAge=5&relb=70&brelb=10&scr=2025.47058&bscr=289.35294&aq=-3560836328989254851&elckey=6768952540799044561",
+    "applyIsDirect": false,
+    "postedDaysAgo": 0,
     "demo": false
   },
   {
@@ -3470,7 +3468,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Join Prince Iman Abdulrahman Al Faisal in Dammam as a Pediatric Hematology Oncology Consultant Why Join PIAF? World-Class Facilities – Work in a cutting-edge medical center. Career Growth – Access professional development, research opportunities, and mentorship...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/3174904963404486695?p=1&pos=3&rgn=0&cid=36&ckey=pediatrics&jobAge=21&relb=70&brelb=10&scr=2110.0344999999998&bscr=301.4335&aq=-4363518298425958711&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/3174904963404486695?p=1&pos=3&rgn=0&cid=36&ckey=pediatrics&jobAge=22&relb=70&brelb=10&scr=2109.67029&bscr=301.38147&aq=4306562539425773572&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -3500,7 +3498,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...medical license in: the United States, Canada, the UK, Western Europe, Australia or New Zealand National Board Certification in Pediatrics from the United States, Canada, the UK, Western Europe, Australia, or New Zealand A minimum of 10 years of experience as a...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-29359232648745282?p=1&pos=6&rgn=0&cid=36&ckey=pediatrics&jobAge=93&relb=50&brelb=10&scr=1548.94285&bscr=309.78857&aq=-4363518298425958711&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/-29359232648745282?p=1&pos=6&rgn=0&cid=36&ckey=pediatrics&jobAge=94&relb=50&brelb=10&scr=1548.57865&bscr=309.71573&aq=4306562539425773572&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -3534,7 +3532,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...The hospital has a 16-bed Pediatric Hematology/Oncology unit (5B). Requirements: Bachelor's degree in Nursing (please note, online BSNs cannot be accepted) Current nursing (RN) license Must have a minimum of two years current experience as an RN in Pediatric...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/2576813785323560449?p=1&pos=8&rgn=0&cid=36&ckey=pediatrics&jobAge=93&relb=50&brelb=10&scr=1439.5945&bscr=287.9189&aq=-4363518298425958711&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/2576813785323560449?p=1&pos=8&rgn=0&cid=36&ckey=pediatrics&jobAge=94&relb=50&brelb=10&scr=1439.3718000000001&bscr=287.87436&aq=4306562539425773572&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -3564,7 +3562,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Join King Abdullah Specialized Hospital in Qassim as a Pediatric Nephrology Consultant Why Join KASH? World-Class Facilities – Work in a cutting-edge medical center. Career Growth – Access professional development, research opportunities, and mentorship programs...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-5703965657535533545?p=1&pos=9&rgn=0&cid=36&ckey=pediatrics&jobAge=93&relb=50&brelb=10&scr=1403.5173&bscr=280.70346&aq=-4363518298425958711&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/-5703965657535533545?p=1&pos=9&rgn=0&cid=36&ckey=pediatrics&jobAge=94&relb=50&brelb=10&scr=1403.18725&bscr=280.63745&aq=4306562539425773572&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -3596,7 +3594,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...-qualification certification Qualification Source from: Western Europe, Australia or New Zealand USA: The American Board of Pediatric Hematology Oncology (ABP) Canada: Royal College of Physicians and Surgeons Certificate (FRCPS – Pediatric Hematology-Oncology )...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-6164646785777631938?p=1&pos=10&rgn=0&cid=36&ckey=pediatrics&jobAge=93&relb=50&brelb=10&scr=1385.89615&bscr=277.17923&aq=-4363518298425958711&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/-6164646785777631938?p=1&pos=10&rgn=0&cid=36&ckey=pediatrics&jobAge=94&relb=50&brelb=10&scr=1385.5703500000002&bscr=277.11407&aq=4306562539425773572&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -3630,7 +3628,7 @@ const DEMO_JOBS = [
     ],
     "description": "A leading medical institution in Medina is seeking a Chairperson for the Pediatric Hematology Oncology department. Responsibilities include supervising care, ensuring quality standards, and promoting educational activities and research. Candidates must have a basic medical...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/8513298315307955560?p=1&pos=11&rgn=0&cid=36&ckey=pediatrics&jobAge=69&relb=50&brelb=10&scr=1347.74565&bscr=269.54913&aq=-4363518298425958711&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/8513298315307955560?p=1&pos=11&rgn=0&cid=36&ckey=pediatrics&jobAge=70&relb=50&brelb=10&scr=1347.3526000000002&bscr=269.47052&aq=4306562539425773572&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 2,
     "demo": false
@@ -3666,7 +3664,7 @@ const DEMO_JOBS = [
     ],
     "description": "...International Hospitals Recruitment Inc. is seeking a qualified Pediatric Hematologist/Oncologist to provide specialized care for children diagnosed with cancer or blood disorders. The successful candidate will have a basic medical degree, post-qualification certifications...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-1900374368539792878?p=1&pos=13&rgn=0&cid=36&ckey=pediatrics&jobAge=93&relb=50&brelb=10&scr=1245.9784&bscr=249.19568&aq=-4363518298425958711&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/-1900374368539792878?p=1&pos=13&rgn=0&cid=36&ckey=pediatrics&jobAge=94&relb=50&brelb=10&scr=1245.6855&bscr=249.1371&aq=4306562539425773572&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -3698,7 +3696,7 @@ const DEMO_JOBS = [
     ],
     "description": "...Fakeeh Care Group in Madina is looking for a skilled Pediatric Consultant to perform clinical duties within defined privileges and develop patient care plans. The role requires effective communication with patients and families, along with organizational skills in high...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-1195729767850246840?p=1&pos=14&rgn=0&cid=36&ckey=pediatrics&jobAge=117&relb=50&brelb=10&scr=1241.81985&bscr=248.36397&aq=-4363518298425958711&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/-1195729767850246840?p=1&pos=14&rgn=0&cid=36&ckey=pediatrics&jobAge=118&relb=50&brelb=10&scr=1241.5188&bscr=248.30376&aq=4306562539425773572&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
     "demo": false
@@ -3732,7 +3730,7 @@ const DEMO_JOBS = [
     ],
     "description": "A renowned healthcare recruitment agency is looking for a Pediatric Operating Room Staff Nurse. The candidate will perform neurological assessments, manage patient care before and after neurosurgical procedures, and work in a collaborative environment. A Bachelor’s in Nursing...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/576593722565094864?p=1&pos=16&rgn=0&cid=36&ckey=pediatrics&jobAge=45&relb=50&brelb=10&scr=1201.5835499999998&bscr=240.31671&aq=-4363518298425958711&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/576593722565094864?p=1&pos=16&rgn=0&cid=36&ckey=pediatrics&jobAge=46&relb=50&brelb=10&scr=1201.36605&bscr=240.27321&aq=4306562539425773572&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -3767,7 +3765,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...International Hospitals Recruitment Inc. is seeking an experienced nurse for the Pediatric Cardiac ICU in Riyadh, Saudi Arabia. The ideal candidate must possess a Master’s Degree in Nursing, with at least 5 years of experience including 2 years in Pediatric Cardiac ICU...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-2112303698140622493?p=1&pos=17&rgn=0&cid=36&ckey=pediatrics&jobAge=93&relb=50&brelb=10&scr=1174.56535&bscr=234.91307&aq=-4363518298425958711&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/-2112303698140622493?p=1&pos=17&rgn=0&cid=36&ckey=pediatrics&jobAge=94&relb=50&brelb=10&scr=1174.36965&bscr=234.87393&aq=4306562539425773572&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -3801,7 +3799,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...International Hospitals Recruitment Inc. is seeking a Consultant Physician specialized in Pediatric Hematology Oncology in Medina, Saudi Arabia. This role requires a minimum of three years post-qualification experience and a focus on diagnosing and treating children with...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/6413212360778238433?p=1&pos=18&rgn=0&cid=36&ckey=pediatrics&jobAge=93&relb=50&brelb=10&scr=1174.56535&bscr=234.91307&aq=-4363518298425958711&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/6413212360778238433?p=1&pos=18&rgn=0&cid=36&ckey=pediatrics&jobAge=94&relb=50&brelb=10&scr=1174.36965&bscr=234.87393&aq=4306562539425773572&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -3831,7 +3829,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...International Hospitals Recruitment Inc. is seeking a General Pediatrics Consultant to join their team in Dammam. This role offers the opportunity to work in a cutting-edge medical center with competitive tax-free salary, relocation assistance, and comprehensive healthcare...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/4193681170002914785?p=1&pos=19&rgn=0&cid=36&ckey=pediatrics&jobAge=93&relb=50&brelb=10&scr=1174.56535&bscr=234.91307&aq=-4363518298425958711&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/4193681170002914785?p=1&pos=19&rgn=0&cid=36&ckey=pediatrics&jobAge=94&relb=50&brelb=10&scr=1174.36965&bscr=234.87393&aq=4306562539425773572&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -3863,7 +3861,7 @@ const DEMO_JOBS = [
     ],
     "description": "...International Hospitals Recruitment Inc. is seeking a Pediatric Nephrology Consultant for King Abdullah Specialized Hospital in Qassim. The role involves providing high-standard patient care, performing diagnostic and therapeutic procedures, and participating in quality...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/7078969139786773794?p=1&pos=20&rgn=0&cid=36&ckey=pediatrics&jobAge=93&relb=50&brelb=10&scr=1169.5978&bscr=233.91956&aq=-4363518298425958711&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/7078969139786773794?p=1&pos=20&rgn=0&cid=36&ckey=pediatrics&jobAge=94&relb=50&brelb=10&scr=1169.3228000000001&bscr=233.86456&aq=4306562539425773572&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -3898,7 +3896,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...nursing knowledge and applies this knowledge to the assessment, diagnosis, delivery and design of nursing care and interventions in the Pediatric Cardiac ICU (PCICU) area. Function under a collaborative management model where Medicine and Nursing jointly participate in...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-2156707640664099525?p=2&pos=21&rgn=0&cid=36&ckey=pediatrics&jobAge=93&relb=50&brelb=10&scr=1168.1048&bscr=233.62096&aq=-8733198440742273750&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/-2156707640664099525?p=2&pos=21&rgn=0&cid=36&ckey=pediatrics&jobAge=94&relb=50&brelb=10&scr=1167.8301999999999&bscr=233.56604&aq=448269432409258450&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -3934,7 +3932,7 @@ const DEMO_JOBS = [
     ],
     "description": "...have a minimum of 2 years of clinical experience, including 1 year specifically in acute care. Responsibilities include supporting pediatric cardiac patients, collaborating with multidisciplinary teams, and maintaining patient advocacy and safety. This role offers...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-5677189955850639168?p=2&pos=22&rgn=0&cid=36&ckey=pediatrics&jobAge=45&relb=50&brelb=10&scr=1163.62375&bscr=232.72475&aq=-8733198440742273750&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/-5677189955850639168?p=2&pos=22&rgn=0&cid=36&ckey=pediatrics&jobAge=46&relb=50&brelb=10&scr=1163.4131&bscr=232.68262&aq=448269432409258450&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -3970,7 +3968,7 @@ const DEMO_JOBS = [
     ],
     "description": "...International Hospitals Recruitment Inc. is seeking a Pediatric Critical Care Medicine Consultant in Riyadh. The role involves high-quality patient care, clinical responsibilities, and participation in research projects. Candidates must possess a medical degree and post...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-5447519057809358411?p=2&pos=23&rgn=0&cid=36&ckey=pediatrics&jobAge=117&relb=50&brelb=10&scr=1162.72&bscr=232.544&aq=-8733198440742273750&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/-5447519057809358411?p=2&pos=23&rgn=0&cid=36&ckey=pediatrics&jobAge=118&relb=50&brelb=10&scr=1162.4382&bscr=232.48764&aq=448269432409258450&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
     "demo": false
@@ -4003,7 +4001,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "A leading healthcare institution in Riyadh is seeking a skilled Surgical Inpatient Staff Nurse to demonstrate advanced nursing knowledge in a cutting-edge medical center. The role entails providing specialized cardiac nursing care, collaborating with a multidisciplinary...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-7582770670209181792?p=2&pos=24&rgn=0&cid=36&ckey=pediatrics&jobAge=45&relb=50&brelb=10&scr=1076.1442&bscr=215.22884&aq=-8733198440742273750&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/-7582770670209181792?p=2&pos=24&rgn=0&cid=36&ckey=pediatrics&jobAge=46&relb=50&brelb=10&scr=1075.86785&bscr=215.17357&aq=448269432409258450&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -4039,7 +4037,7 @@ const DEMO_JOBS = [
     ],
     "description": "A leading healthcare provider in Saudi Arabia seeks a Pediatric Critical Care Staff Nurse to deliver comprehensive patient-centered care in a modern medical environment. The candidate must hold a Bachelor's Degree in Nursing and possess significant clinical experience post...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-3427050698342608718?p=2&pos=26&rgn=0&cid=36&ckey=pediatrics&jobAge=93&relb=50&brelb=10&scr=1035.0982&bscr=207.01964&aq=-8733198440742273750&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/-3427050698342608718?p=2&pos=26&rgn=0&cid=36&ckey=pediatrics&jobAge=94&relb=50&brelb=10&scr=1034.894&bscr=206.9788&aq=448269432409258450&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -4071,7 +4069,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...babysitting services is highly desirable. Knowledge of child development, safeguarding, and child safety practices. Current Pediatric First Aid and CPR certification is highly desirable. Friendly, energetic, patient, and genuinely passionate about working with...",
     "source": "careers.rosewoodhotelgroup.com",
-    "applyUrl": "https://sa.jooble.org/desc/-5367462039316086447?ckey=pediatrics&rgn=0&pos=27&elckey=-727394822487063786&p=2&aq=-8733198440742273750&cid=36&jobAge=17&relb=100&brelb=100&bscr=607.69257&scr=607.69257",
+    "applyUrl": "https://sa.jooble.org/desc/-5367462039316086447?ckey=pediatrics&rgn=0&pos=27&elckey=5537061530592166933&p=2&aq=448269432409258450&cid=36&jobAge=18&relb=100&brelb=100&bscr=607.7134&scr=607.7134",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -4104,7 +4102,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Director - Critical Care is responsible for: Surgical Oncology ICU (L9), 28 beds MICU-C, 12 beds Adult CSICU, 10 beds Pediatric CSICU, 13 beds Cardiovascular Stepdown Unit (CVSD), 7 Pediatric beds and 5 Adult beds PICU, 20 beds Requirements: Must...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-3954519268816646056?p=2&pos=30&rgn=0&cid=36&ckey=pediatrics&jobAge=93&relb=70&brelb=10&scr=367.63384&bscr=52.51912&aq=-8733198440742273750&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/-3954519268816646056?p=2&pos=30&rgn=0&cid=36&ckey=pediatrics&jobAge=94&relb=70&brelb=10&scr=367.576958&bscr=52.510994&aq=448269432409258450&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -4136,7 +4134,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...HIPEC and IORT procedures Orthopedic Surgery Neurosurgery Gynecology L&D Urology ENT/Base of Skull/Oral Surgery Pediatric Surgery Ophthalmic Surgery Plastic Surgery The CVOR (four ORs) and the Organ Transplant OR (eight ORs) are separate....",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/829980902893489676?p=2&pos=33&rgn=0&cid=36&ckey=pediatrics&jobAge=93&relb=50&brelb=10&scr=303.492525&bscr=60.698505&aq=-8733198440742273750&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/829980902893489676?p=2&pos=33&rgn=0&cid=36&ckey=pediatrics&jobAge=94&relb=50&brelb=10&scr=303.44555&bscr=60.68911&aq=448269432409258450&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -4168,7 +4166,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...HIPEC and IORT procedures Orthopedic Surgery Neurosurgery Gynecology L&D Urology ENT/Base of Skull/Oral Surgery Pediatric Surgery Ophthalmic Surgery Plastic Surgery The CVOR (four ORs) and the Organ Transplant OR (eight ORs) are separate....",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/8374850734394143258?p=2&pos=38&rgn=0&cid=36&ckey=pediatrics&jobAge=93&relb=50&brelb=10&scr=229.49186500000002&bscr=45.898373&aq=-8733198440742273750&elckey=-727394822487063786",
+    "applyUrl": "https://sa.jooble.org/away/8374850734394143258?p=2&pos=38&rgn=0&cid=36&ckey=pediatrics&jobAge=94&relb=50&brelb=10&scr=229.43789999999998&bscr=45.88758&aq=448269432409258450&elckey=5537061530592166933",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -4200,7 +4198,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Consultant A&E Emergency Medicine - Paediatrics in Eastern Province- Saudi Arabia on a fixed term / permanent basis; working for our client via Workplace Doctors *** Location: Eastern Province- Saudi Arabia *** Speciality: A&E –General / Emergency Medicine Paediatric...",
     "source": "workplacedoctors.co.uk",
-    "applyUrl": "https://sa.jooble.org/desc/-4669212186698192631?ckey=emergency+medicine&rgn=0&pos=2&elckey=7288750376918872162&p=1&aq=-4508375761343926399&cid=36&jobAge=35&relb=100&brelb=100&bscr=4262.3115&scr=4262.3115",
+    "applyUrl": "https://sa.jooble.org/desc/-4669212186698192631?ckey=emergency+medicine&rgn=0&pos=2&elckey=6444839496049159065&p=1&aq=8161967722316504355&cid=36&jobAge=37&relb=100&brelb=100&bscr=4262.0654&scr=4262.0654",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -4234,7 +4232,7 @@ const DEMO_JOBS = [
     ],
     "description": "...Join International Hospitals Recruitment Inc. as an Emergency Medicine Consultant at King Abdulaziz Hospital Al-Ahsa. This role offers a chance to work in world-class facilities with extensive career growth opportunities. Your responsibilities will include overseeing...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/313014722369943978?p=1&pos=4&rgn=0&cid=36&ckey=emergency+medicine&jobAge=93&relb=70&brelb=10&scr=3296.4743000000003&bscr=470.9249&aq=-4508375761343926399&elckey=7288750376918872162",
+    "applyUrl": "https://sa.jooble.org/away/313014722369943978?p=1&pos=4&rgn=0&cid=36&ckey=emergency+medicine&jobAge=94&relb=70&brelb=10&scr=3295.6994&bscr=470.8142&aq=8161967722316504355&elckey=6444839496049159065",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -4264,7 +4262,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "The ER currently has 16 beds. Requirements: Bachelor's degree in Nursing (please note, online BSNs cannot be accepted) Current nursing (RN) license Must have a minimum of two years current experience as an RN in ER in a tertiary-care hospital The hospital...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-94199581067185827?p=1&pos=12&rgn=0&cid=36&ckey=emergency+medicine&jobAge=93&relb=50&brelb=10&scr=1551.0772499999998&bscr=310.21545&aq=-4508375761343926399&elckey=7288750376918872162",
+    "applyUrl": "https://sa.jooble.org/away/-94199581067185827?p=1&pos=12&rgn=0&cid=36&ckey=emergency+medicine&jobAge=94&relb=50&brelb=10&scr=1550.7126&bscr=310.14252&aq=8161967722316504355&elckey=6444839496049159065",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -4297,7 +4295,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "A leading cosmetic clinic in Jeddah is looking for an experienced Dermatologist (MBBS, MD – DVL) to manage dermatological conditions and perform aesthetic procedures. The ideal candidate should have 2 to 4 years of experience, be proficient with a Saudi MOH License, and...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-1122281463441368658?p=1&pos=5&rgn=0&cid=36&ckey=dermatology&jobAge=93&relb=70&brelb=10&scr=376.346586&bscr=53.763798&aq=7859120371745655382&elckey=-3635013840838017393",
+    "applyUrl": "https://sa.jooble.org/away/-1122281463441368658?p=1&pos=5&rgn=0&cid=36&ckey=dermatology&jobAge=94&relb=70&brelb=10&scr=376.235076&bscr=53.747868&aq=-747805921549341367&elckey=2629442512241213326",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -4327,7 +4325,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Join King Abdullah Specialized Hospital in Qassim as an Obstetrics and Gynecology Consultant! Why Join KASH? World-Class Facilities – Work in a cutting-edge medical center. Career Growth – Access professional development, research opportunities, and mentorship programs...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-5396834785921363527?p=1&pos=3&rgn=0&cid=36&ckey=obstetrics+gynecology&jobAge=93&relb=50&brelb=10&scr=3018.68315&bscr=603.73663&aq=5500104913670821697&elckey=2067342540714526183",
+    "applyUrl": "https://sa.jooble.org/away/-5396834785921363527?p=1&pos=3&rgn=0&cid=36&ckey=obstetrics+gynecology&jobAge=94&relb=50&brelb=10&scr=3017.9735&bscr=603.5947&aq=2798874594905398682&elckey=8331798893793756902",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -4357,7 +4355,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Riyadh Care Hospital seeks a Senior Registrar in Gynecology and Obstetrics to provide comprehensive patient care (outpatient and inpatient) with high professional standards in line with JCIA, hospital by-laws and MOH regulations. The role covers minor and major gynecologic...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/505058922438290733?p=1&pos=5&rgn=0&cid=36&ckey=obstetrics+gynecology&jobAge=28&relb=50&brelb=10&scr=2721.889&bscr=544.3778&aq=5500104913670821697&elckey=2067342540714526183",
+    "applyUrl": "https://sa.jooble.org/away/505058922438290733?p=1&pos=5&rgn=0&cid=36&ckey=obstetrics+gynecology&jobAge=29&relb=50&brelb=10&scr=2721.702&bscr=544.3404&aq=2798874594905398682&elckey=8331798893793756902",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -4391,7 +4389,7 @@ const DEMO_JOBS = [
     ],
     "description": "...in Saudi Arabia. The role targets specialists with strong clinical exposure in women’s health, with added expertise in cosmetic gynecology, aesthetic services, or urogynecology. The candidate must hold a Western Board Certification or equivalent Western qualification...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-7434568774236829808?p=1&pos=7&rgn=0&cid=36&ckey=obstetrics+gynecology&jobAge=45&relb=50&brelb=10&scr=1326.7310000000002&bscr=265.3462&aq=5500104913670821697&elckey=2067342540714526183",
+    "applyUrl": "https://sa.jooble.org/away/-7434568774236829808?p=1&pos=7&rgn=0&cid=36&ckey=obstetrics+gynecology&jobAge=46&relb=50&brelb=10&scr=1326.3903999999998&bscr=265.27808&aq=2798874594905398682&elckey=8331798893793756902",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -4421,7 +4419,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Join International Hospitals Recruitment Inc. in Saudi Arabia as an Obstetrics and Gynecology Consultant. This role involves providing expert care and managing complex obstetric and gynecologic conditions, including high-risk pregnancies and advanced surgical procedures...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/3251013255636539140?p=1&pos=11&rgn=0&cid=36&ckey=obstetrics+gynecology&jobAge=93&relb=50&brelb=10&scr=528.649675&bscr=105.729935&aq=5500104913670821697&elckey=2067342540714526183",
+    "applyUrl": "https://sa.jooble.org/away/3251013255636539140?p=1&pos=11&rgn=0&cid=36&ckey=obstetrics+gynecology&jobAge=94&relb=50&brelb=10&scr=528.49465&bscr=105.69893&aq=2798874594905398682&elckey=8331798893793756902",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -4455,7 +4453,7 @@ const DEMO_JOBS = [
     ],
     "description": "...International Hospitals Recruitment Inc. is seeking an experienced Obstetrics and Gynecology Consultant for King Abdulaziz Hospital Al-Ahsa in Saudi Arabia. The role involves providing specialized care and performing advanced procedures in obstetrics and gynecology while...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/7688640862922297317?p=1&pos=15&rgn=0&cid=36&ckey=obstetrics+gynecology&jobAge=93&relb=50&brelb=10&scr=440.7674&bscr=88.15348&aq=5500104913670821697&elckey=2067342540714526183",
+    "applyUrl": "https://sa.jooble.org/away/7688640862922297317?p=1&pos=15&rgn=0&cid=36&ckey=obstetrics+gynecology&jobAge=94&relb=50&brelb=10&scr=440.6638&bscr=88.13276&aq=2798874594905398682&elckey=8331798893793756902",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -4490,7 +4488,7 @@ const DEMO_JOBS = [
     ],
     "description": "...in the Neonatal ICU, Intermediate Care Nursery (ICN), Special Care Baby Unit (SCBU), Postnatal Wards, Labor & Delivery (L&D) and Obstetrics Triage Assessment and Management Unit (OTAMU). The duration and frequency of this service is dictated by the needs and the regulations...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-8402225368551590491?p=1&pos=17&rgn=0&cid=36&ckey=obstetrics+gynecology&jobAge=21&relb=50&brelb=10&scr=349.16775&bscr=69.83355&aq=5500104913670821697&elckey=2067342540714526183",
+    "applyUrl": "https://sa.jooble.org/away/-8402225368551590491?p=1&pos=17&rgn=0&cid=36&ckey=obstetrics+gynecology&jobAge=22&relb=50&brelb=10&scr=349.10747499999997&bscr=69.821495&aq=2798874594905398682&elckey=8331798893793756902",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -4522,7 +4520,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Join King Fahad Military Medical Complex as a Charge Nurse in the Neonatal ICU Unit Why Join KFMMC? Advanced Healthcare Setting – Work in a state-of-the-art medical facility alongside a skilled multidisciplinary team. Career Growth – Access leadership opportunities...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/8322556590661689681?p=1&pos=4&rgn=0&cid=36&ckey=icu+nurse&jobAge=117&relb=50&brelb=10&scr=2658.6783000000005&bscr=531.73566&aq=-2912829808315807050&elckey=7801959683147246074",
+    "applyUrl": "https://sa.jooble.org/away/8322556590661689681?p=1&pos=4&rgn=0&cid=36&ckey=icu+nurse&jobAge=118&relb=50&brelb=10&scr=2658.034&bscr=531.6068&aq=1585893998378009726&elckey=6958048802277532977",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
     "demo": false
@@ -4554,7 +4552,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Join King Abdullah Specialized Hospital as a Staff Nurse in ICU! Why Join KASH? World-Class Facilities – Work in a cutting-edge medical center. Career Growth – Access professional development, research opportunities, and mentorship programs. Competitive Benefits...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-5605109571625000675?p=1&pos=5&rgn=0&cid=36&ckey=icu+nurse&jobAge=93&relb=50&brelb=10&scr=2638.8475&bscr=527.7695&aq=-2912829808315807050&elckey=7801959683147246074",
+    "applyUrl": "https://sa.jooble.org/away/-5605109571625000675?p=1&pos=5&rgn=0&cid=36&ckey=icu+nurse&jobAge=94&relb=50&brelb=10&scr=2638.227&bscr=527.6454&aq=1585893998378009726&elckey=6958048802277532977",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -4588,7 +4586,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...King Fahad Military Medical Complex is seeking a Charge Nurse for the Neonatal ICU Unit. You will apply advanced nursing knowledge to patient assessment, care planning, and intervention in a leadership role overseeing nursing staff and ensuring high-quality patient care...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/2558881179138736493?p=2&pos=28&rgn=0&cid=36&ckey=icu+nurse&jobAge=117&relb=50&brelb=10&scr=2065.3053499999996&bscr=413.06107&aq=-4352100499701107656&elckey=7801959683147246074",
+    "applyUrl": "https://sa.jooble.org/away/2558881179138736493?p=2&pos=28&rgn=0&cid=36&ckey=icu+nurse&jobAge=118&relb=50&brelb=10&scr=2064.805&bscr=412.961&aq=3542174444971587046&elckey=6958048802277532977",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
     "demo": false
@@ -4623,7 +4621,7 @@ const DEMO_JOBS = [
     ],
     "description": "...surgical procedures and critical care settings with emphasis on patient safety and quality outcomes. The position involves preoperative assessment, intraoperative management, and postoperative recovery, including critical care support in ICU units. #J-18808-Ljbffr...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-4374716259098250507?p=2&pos=31&rgn=0&cid=36&ckey=icu+nurse&jobAge=69&relb=70&brelb=10&scr=1706.82568&bscr=243.83224&aq=-4352100499701107656&elckey=7801959683147246074",
+    "applyUrl": "https://sa.jooble.org/away/-4374716259098250507?p=2&pos=31&rgn=0&cid=36&ckey=icu+nurse&jobAge=70&relb=70&brelb=10&scr=1706.50291&bscr=243.78613&aq=3542174444971587046&elckey=6958048802277532977",
     "applyIsDirect": false,
     "postedDaysAgo": 2,
     "demo": false
@@ -4656,7 +4654,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Overview JOB INFORMATION Job Title: ICU Registrar Job Summary As a registrar in the intensive care unit at one of the leading hospital in Saudi Arabia, your role would involve providing critical care to patients under the mentorship of senior intensivists. You...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/8890323054430310261?p=2&pos=35&rgn=0&cid=36&ckey=icu+nurse&jobAge=21&relb=50&brelb=10&scr=1492.5621&bscr=298.51242&aq=-4352100499701107656&elckey=7801959683147246074",
+    "applyUrl": "https://sa.jooble.org/away/8890323054430310261?p=2&pos=35&rgn=0&cid=36&ckey=icu+nurse&jobAge=22&relb=50&brelb=10&scr=1492.1896499999998&bscr=298.43793&aq=3542174444971587046&elckey=6958048802277532977",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -4692,7 +4690,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...medical and other healthcare team members demonstrates advanced nursing knowledge and applies this knowledge to the assessment, diagnosis... ...a Senior Charge Nurse position, or equivalent Strong MedSurg ICU background experience is a must License ~ Current and in...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-8387600389748293021?p=2&pos=36&rgn=0&cid=36&ckey=icu+nurse&jobAge=93&relb=50&brelb=10&scr=1272.91435&bscr=254.58287&aq=-4352100499701107656&elckey=7801959683147246074",
+    "applyUrl": "https://sa.jooble.org/away/-8387600389748293021?p=2&pos=36&rgn=0&cid=36&ckey=icu+nurse&jobAge=94&relb=50&brelb=10&scr=1272.6152&bscr=254.52304&aq=3542174444971587046&elckey=6958048802277532977",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -4728,7 +4726,7 @@ const DEMO_JOBS = [
     ],
     "description": "...residence Job Duties and Responsibilities Lead, coordinate and manage the operations and activities of the Mental Health Emergency Room by assuming 24‑hour accountability. Oversee clinical nursing performance and patient flow, ensuring timely triage,...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-8651398674344036020?p=1&pos=13&rgn=0&cid=36&ckey=emergency+room+doctor&jobAge=117&relb=50&brelb=10&scr=2409.52575&bscr=481.90515&aq=7729807412461507130&elckey=4054506780224792985",
+    "applyUrl": "https://sa.jooble.org/away/-8651398674344036020?p=1&pos=13&rgn=0&cid=36&ckey=emergency+room+doctor&jobAge=118&relb=50&brelb=10&scr=2408.942&bscr=481.7884&aq=2937351775806853872&elckey=3210595899355079888",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
     "demo": false
@@ -4762,7 +4760,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Medical degree such as MBBS, MBChB or equivalent from a recognized institution. Recognized postgraduate qualification in Internal Medicine. Recognized postgraduate qualification/training in Endocrinology / Endocrinology and Diabetes / Diabetes & Metabolism, as...",
     "source": "zoho.com",
-    "applyUrl": "https://sa.jooble.org/desc/-3225598805589241641?ckey=family+medicine&rgn=0&pos=14&elckey=-1042232197000297852&p=1&aq=1543489818662974701&cid=36&jobAge=333&relb=100&brelb=100&bscr=522.8743&scr=522.8743",
+    "applyUrl": "https://sa.jooble.org/desc/-3225598805589241641?ckey=family+medicine&rgn=0&pos=14&elckey=-1886143077870010949&p=1&aq=8942897515869947858&cid=36&jobAge=334&relb=100&brelb=100&bscr=522.77124&scr=522.77124",
     "applyIsDirect": false,
     "postedDaysAgo": 13,
     "demo": false
@@ -4792,7 +4790,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...coordination and technical alignment. Prepare, review, and approve architectural drawings in accordance with established protocols... ...Depending on your employment status, AECOM benefits may include medical, dental, vision, life, AD&D, disability benefits, paid time off...",
     "source": "smartrecruiters.com",
-    "applyUrl": "https://sa.jooble.org/desc/6284861589145541007?ckey=medical+approval&rgn=0&pos=19&elckey=-7676426810764565897&p=1&aq=6431783858765314488&cid=36&jobAge=165&relb=100&brelb=100&bscr=619.9997&scr=619.9997",
+    "applyUrl": "https://sa.jooble.org/desc/6284861589145541007?ckey=medical+approval&rgn=0&pos=19&elckey=-8520337691634278994&p=1&aq=-7269332931905288937&cid=36&jobAge=166&relb=100&brelb=100&bscr=619.91583&scr=619.91583",
     "applyIsDirect": false,
     "postedDaysAgo": 6,
     "demo": false
@@ -4824,7 +4822,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...be doing Drive growth with and through partners Generate approved partner deal registrations, jointly owned with Partner Managers... ...Federal Employment Laws, view posters linked below: Family and Medical Leave Act (FMLA) Poster; Pay Transparency Nondiscrimination...",
     "source": "boards.greenhouse.io",
-    "applyUrl": "https://sa.jooble.org/desc/2663076741816452186?ckey=medical+approval&rgn=0&pos=22&elckey=-7676426810764565897&p=2&aq=-4564665611903836318&cid=36&jobAge=12&relb=100&brelb=100&bscr=585.1576&scr=585.1576",
+    "applyUrl": "https://sa.jooble.org/desc/2663076741816452186?ckey=medical+approval&rgn=0&pos=22&elckey=-8520337691634278994&p=2&aq=621620432245854138&cid=36&jobAge=14&relb=100&brelb=100&bscr=585.05927&scr=585.05927",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -4856,7 +4854,7 @@ const DEMO_JOBS = [
     ],
     "description": "...equipment, procuring necessary materials with Facilities Manager approval to maintain operational readiness. Delivers technical... ...Depending on your employment status, AECOM benefits may include medical, dental, vision, life, AD&D, disability benefits, paid time off...",
     "source": "smartrecruiters.com",
-    "applyUrl": "https://sa.jooble.org/desc/-1203544474822607569?ckey=medical+approval&rgn=0&pos=26&elckey=-7676426810764565897&p=2&aq=-4564665611903836318&cid=36&jobAge=141&relb=100&brelb=100&bscr=577.8466&scr=577.8466",
+    "applyUrl": "https://sa.jooble.org/desc/-1203544474822607569?ckey=medical+approval&rgn=0&pos=26&elckey=-8520337691634278994&p=2&aq=621620432245854138&cid=36&jobAge=142&relb=100&brelb=100&bscr=577.6911&scr=577.6911",
     "applyIsDirect": false,
     "postedDaysAgo": 5,
     "demo": false
@@ -4888,7 +4886,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...with regulatory authorities and support external inspections, approvals and compliance reviews. Monitor permits, licenses, certifications... ...drills and exercises for credible scenarios, including fire, medical emergency, chemical spill, utility failure, severe weather and...",
     "source": "ismartrecruit.com",
-    "applyUrl": "https://sa.jooble.org/desc/-1380319672268614675?ckey=medical+approval&rgn=0&pos=27&elckey=-7676426810764565897&p=2&aq=-4564665611903836318&cid=36&jobAge=597&relb=100&brelb=100&bscr=572.16986&scr=572.16986",
+    "applyUrl": "https://sa.jooble.org/desc/-1380319672268614675?ckey=medical+approval&rgn=0&pos=27&elckey=-8520337691634278994&p=2&aq=621620432245854138&cid=36&jobAge=598&relb=100&brelb=100&bscr=572.0108&scr=572.0108",
     "applyIsDirect": false,
     "postedDaysAgo": 24,
     "demo": false
@@ -4918,7 +4916,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...flow, equipment readiness, production start-up, and first-off approval activities. Monitor production output, downtime, scrap, quality... ...a comprehensive and competitive benefits package including medical, dental, and vision insurance; life and disability coverage; paid...",
     "source": "boards.greenhouse.io",
-    "applyUrl": "https://sa.jooble.org/desc/-6630669551718391500?ckey=medical+approval&rgn=0&pos=28&elckey=-7676426810764565897&p=2&aq=-4564665611903836318&cid=36&jobAge=324&relb=100&brelb=100&bscr=566.43665&scr=566.43665",
+    "applyUrl": "https://sa.jooble.org/desc/-6630669551718391500?ckey=medical+approval&rgn=0&pos=28&elckey=-8520337691634278994&p=2&aq=621620432245854138&cid=36&jobAge=326&relb=100&brelb=100&bscr=566.2483&scr=566.2483",
     "applyIsDirect": false,
     "postedDaysAgo": 13,
     "demo": false
@@ -4948,7 +4946,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...verified documentation. Transfer materials between projects as per approved IPT requests. Transfer materials between plants as per... ...and contributions. Health & Wellness: Comprehensive medical insurance for you. Learning Opportunities: Access to training...",
     "source": "comeet.co",
-    "applyUrl": "https://sa.jooble.org/desc/-5519754455351028676?ckey=medical+approval&rgn=0&pos=29&elckey=-7676426810764565897&p=2&aq=-4564665611903836318&cid=36&jobAge=381&relb=100&brelb=100&bscr=561.6769&scr=561.6769",
+    "applyUrl": "https://sa.jooble.org/desc/-5519754455351028676?ckey=medical+approval&rgn=0&pos=29&elckey=-8520337691634278994&p=2&aq=621620432245854138&cid=36&jobAge=382&relb=100&brelb=100&bscr=561.0957&scr=561.0957",
     "applyIsDirect": false,
     "postedDaysAgo": 15,
     "demo": false
@@ -4978,7 +4976,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...to verify accuracy against completed works, contract terms, and approved quantities. Support the evaluation of change orders,... ...ancestry, sex (including pregnancy, childbirth, breastfeeding, or medical conditions related to pregnancy, childbirth, or breastfeeding),...",
     "source": "boards.greenhouse.io",
-    "applyUrl": "https://sa.jooble.org/desc/6266921814606548378?ckey=medical+approval&rgn=0&pos=30&elckey=-7676426810764565897&p=2&aq=-4564665611903836318&cid=36&jobAge=108&relb=100&brelb=100&bscr=550.16504&scr=550.16504",
+    "applyUrl": "https://sa.jooble.org/desc/6266921814606548378?ckey=medical+approval&rgn=0&pos=30&elckey=-8520337691634278994&p=2&aq=621620432245854138&cid=36&jobAge=110&relb=100&brelb=100&bscr=549.65375&scr=549.65375",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
     "demo": false
@@ -5010,7 +5008,7 @@ const DEMO_JOBS = [
     ],
     "description": "...Performance Testing, and Integrated Systems Testing. Review and approve commissioning procedures, test scripts, method statements, and... ..., sex (including pregnancy, childbirth, breastfeeding, or medical conditions related to pregnancy, childbirth, or breastfeeding),...",
     "source": "boards.greenhouse.io",
-    "applyUrl": "https://sa.jooble.org/desc/1857786023049108549?ckey=medical+approval&rgn=0&pos=31&elckey=-7676426810764565897&p=2&aq=-4564665611903836318&cid=36&jobAge=108&relb=100&brelb=100&bscr=549.4561&scr=549.4561",
+    "applyUrl": "https://sa.jooble.org/desc/1857786023049108549?ckey=medical+approval&rgn=0&pos=31&elckey=-8520337691634278994&p=2&aq=621620432245854138&cid=36&jobAge=110&relb=100&brelb=100&bscr=549.3208&scr=549.3208",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
     "demo": false
@@ -5040,7 +5038,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...supporting documentation. Track commissioning submissions, approvals, comments, and outstanding documentation. Monitor commissioning... ..., sex (including pregnancy, childbirth, breastfeeding, or medical conditions related to pregnancy, childbirth, or breastfeeding),...",
     "source": "boards.greenhouse.io",
-    "applyUrl": "https://sa.jooble.org/desc/-6678247115794110232?ckey=medical+approval&rgn=0&pos=32&elckey=-7676426810764565897&p=2&aq=-4564665611903836318&cid=36&jobAge=108&relb=100&brelb=100&bscr=535.13226&scr=535.13226",
+    "applyUrl": "https://sa.jooble.org/desc/-6678247115794110232?ckey=medical+approval&rgn=0&pos=32&elckey=-8520337691634278994&p=2&aq=621620432245854138&cid=36&jobAge=110&relb=100&brelb=100&bscr=534.986&scr=534.986",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
     "demo": false
@@ -5073,7 +5071,7 @@ const DEMO_JOBS = [
     ],
     "description": "...environment Participate in all clinic audits and implement approved action plans Ensure clinic compliance with required Diaverum... ...product consumption Inventory management of supplies and medications Maintenance of equipment and utilities including housekeeping...",
     "source": "careers.diaverum.com",
-    "applyUrl": "https://sa.jooble.org/desc/-8467229103693229619?ckey=medical+approval&rgn=0&pos=34&elckey=-7676426810764565897&p=2&aq=-4564665611903836318&cid=36&jobAge=477&relb=100&brelb=100&bscr=532.6271&scr=532.6271",
+    "applyUrl": "https://sa.jooble.org/desc/-8467229103693229619?ckey=medical+approval&rgn=0&pos=34&elckey=-8520337691634278994&p=2&aq=621620432245854138&cid=36&jobAge=478&relb=100&brelb=100&bscr=532.4214&scr=532.4214",
     "applyIsDirect": false,
     "postedDaysAgo": 19,
     "demo": false
@@ -5105,7 +5103,7 @@ const DEMO_JOBS = [
     ],
     "description": "...monitor the company's retrocession arrangements across Life & Medical and Non-Life portfolios. Prepare renewal analysis, retrocession... ...Monitor underwriting and portfolio performance against the approved Business Plan across lines of business, regions and business units...",
     "source": "manatal.com",
-    "applyUrl": "https://sa.jooble.org/desc/-4675735369318431571?ckey=medical+approval&rgn=0&pos=39&elckey=-7676426810764565897&p=2&aq=-4564665611903836318&cid=36&jobAge=501&relb=100&brelb=100&bscr=500.64728&scr=500.64728",
+    "applyUrl": "https://sa.jooble.org/desc/-4675735369318431571?ckey=medical+approval&rgn=0&pos=39&elckey=-8520337691634278994&p=2&aq=621620432245854138&cid=36&jobAge=502&relb=100&brelb=100&bscr=500.45032&scr=500.45032",
     "applyIsDirect": false,
     "postedDaysAgo": 20,
     "demo": false
@@ -5137,7 +5135,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...advised to Class and Flag State and that Port Authorities are also informed prior to port entry.... .... Master is overall in charge of medical care on board. However, he can delegate a... ...fitness standards, vaccinations, and company pre- employment screening requirements....",
     "source": "teamtailor.com",
-    "applyUrl": "https://sa.jooble.org/desc/-5095359636557579787?ckey=pre-authorization+medical&rgn=0&pos=24&elckey=-4080008032657892587&p=2&aq=3311187723855247629&cid=36&jobAge=188&relb=100&brelb=100&bscr=913.9735&scr=913.9735",
+    "applyUrl": "https://sa.jooble.org/desc/-5095359636557579787?ckey=pre-authorization+medical&rgn=0&pos=24&elckey=-4923918913527605684&p=2&aq=7818262139273294353&cid=36&jobAge=190&relb=100&brelb=100&bscr=914.15674&scr=914.15674",
     "applyIsDirect": false,
     "postedDaysAgo": 7,
     "demo": false
@@ -5169,7 +5167,7 @@ const DEMO_JOBS = [
     ],
     "description": "...rates, and well pressure. Performing pre- job inspections, function testing, and basic... ...activities Comprehensive private medical care options Safety net of life insurance... ...benefits Applicants must have work authorization in [the Kingdom of Saudi Arabia The...",
     "source": "careers.bakerhughes.com",
-    "applyUrl": "https://sa.jooble.org/desc/5793080837120444914?ckey=pre-authorization+medical&rgn=0&pos=25&elckey=-4080008032657892587&p=2&aq=3311187723855247629&cid=36&jobAge=549&relb=100&brelb=100&bscr=858.02875&scr=858.02875",
+    "applyUrl": "https://sa.jooble.org/desc/5793080837120444914?ckey=pre-authorization+medical&rgn=0&pos=25&elckey=-4923918913527605684&p=2&aq=7818262139273294353&cid=36&jobAge=550&relb=100&brelb=100&bscr=857.80237&scr=857.8023699999999",
     "applyIsDirect": false,
     "postedDaysAgo": 22,
     "demo": false
@@ -5202,7 +5200,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...with GACA regulations and company policies Exercise command authority and responsibility for all flight operations and crew members onboard... ...or convertible) Current A320 Type Rating Valid Class 1 Medical Certificate (GACA / EASA / FAA equivalent) Minimum English...",
     "source": "bestpilotjobs.com",
-    "applyUrl": "https://sa.jooble.org/desc/-2615857596603327370?ckey=pre-authorization+medical&rgn=0&pos=29&elckey=-4080008032657892587&p=2&aq=3311187723855247629&cid=36&jobAge=169&relb=100&brelb=100&bscr=709.48505&scr=709.48505",
+    "applyUrl": "https://sa.jooble.org/desc/-2615857596603327370?ckey=pre-authorization+medical&rgn=0&pos=28&elckey=-4923918913527605684&p=2&aq=7818262139273294353&cid=36&jobAge=170&relb=100&brelb=100&bscr=709.3888&scr=709.3888",
     "applyIsDirect": false,
     "postedDaysAgo": 6,
     "demo": false
@@ -5232,7 +5230,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...professionally, and with ownership. Ensure guest preferences, medical information, and special requests are accurately communicated... ...be disclosed to anyone outside the company unless otherwise authorized. Maintain confidentiality of all company, guest, and associate...",
     "source": "careers.rosewoodhotelgroup.com",
-    "applyUrl": "https://sa.jooble.org/desc/5138054554527167122?ckey=pre-authorization+medical&rgn=0&pos=34&elckey=-4080008032657892587&p=2&aq=3311187723855247629&cid=36&jobAge=17&relb=100&brelb=100&bscr=662.374&scr=662.3740000000001",
+    "applyUrl": "https://sa.jooble.org/desc/5138054554527167122?ckey=pre-authorization+medical&rgn=0&pos=32&elckey=-4923918913527605684&p=2&aq=7818262139273294353&cid=36&jobAge=18&relb=100&brelb=100&bscr=662.3499&scr=662.3499",
     "applyIsDirect": false,
     "postedDaysAgo": 0,
     "demo": false
@@ -5262,9 +5260,41 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...Business, Harper’s Bazaar, Construction Week, and Grazia . Pre- Production / Post-Production Requirements: • Video production... ...rewarded by competitive remuneration, attractive bonus structure, medical insurance and a generous leave entitlement scheme that sees...",
     "source": "teamtailor.com",
-    "applyUrl": "https://sa.jooble.org/desc/-7087450312590992522?ckey=pre-authorization+medical&rgn=0&pos=37&elckey=-4080008032657892587&p=2&aq=3311187723855247629&cid=36&jobAge=188&relb=100&brelb=100&bscr=650.10815&scr=650.10815",
+    "applyUrl": "https://sa.jooble.org/desc/-7087450312590992522?ckey=pre-authorization+medical&rgn=0&pos=35&elckey=-4923918913527605684&p=2&aq=7818262139273294353&cid=36&jobAge=190&relb=100&brelb=100&bscr=650.01465&scr=650.01465",
     "applyIsDirect": false,
     "postedDaysAgo": 7,
+    "demo": false
+  },
+  {
+    "id": "jb-5733562969409098222",
+    "title": "Senior Marine Pilot",
+    "profession": "Other",
+    "specialty": "",
+    "employer": "Smit Lamnalco",
+    "city": "Other",
+    "salaryMin": 0,
+    "salaryMax": 0,
+    "expMin": 0,
+    "expMax": 5,
+    "degreeReq": "",
+    "scfhs": "not_specified",
+    "dataflow": "not_specified",
+    "saudiExp": "not_specified",
+    "gender": "Not specified",
+    "employment": "Full-time",
+    "contract": "",
+    "hours": "",
+    "skills": [],
+    "certs": [],
+    "requirements": [
+      "...Mariner Class 1 (Unlimited) Certificate of Competency, valid medical fitness certification, and completion of IMO Resolution A.960..."
+    ],
+    "responsibilities": [],
+    "description": "...Maintain effective communication and coordination with VTS, port authorities, terminal operators, and vessel bridge teams throughout... ...Mariner Class 1 (Unlimited) Certificate of Competency, valid medical fitness certification, and completion of IMO Resolution A.960...",
+    "source": "smartrecruiters.com",
+    "applyUrl": "https://sa.jooble.org/desc/-5733562969409098222?ckey=pre-authorization+medical&rgn=0&pos=40&elckey=-4923918913527605684&p=2&aq=7818262139273294353&cid=36&jobAge=70&relb=100&brelb=100&bscr=648.2869&scr=648.2869",
+    "applyIsDirect": false,
+    "postedDaysAgo": 2,
     "demo": false
   },
   {
@@ -5294,7 +5324,7 @@ const DEMO_JOBS = [
     ],
     "description": "...Job Overview This role is at the heart of Cigna's claims processing operation in the Middle East. Claims are received from both members... ...strong interpersonal skills, and preferably an appreciation of medical terms. Responsibilities Take receipt of submitted claim...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-8634695113901501233?p=1&pos=6&rgn=0&cid=36&ckey=medical+claims+reviewer&jobAge=28&relb=70&brelb=10&scr=2652.41914&bscr=378.91702&aq=-6903739818154634223&elckey=3556560587539033123",
+    "applyUrl": "https://sa.jooble.org/away/-8634695113901501233?p=1&pos=6&rgn=0&cid=36&ckey=medical+claims+reviewer&jobAge=29&relb=70&brelb=10&scr=2652.237&bscr=378.891&aq=4161162834926108123&elckey=2712649706669320026",
     "applyIsDirect": false,
     "postedDaysAgo": 1,
     "demo": false
@@ -5324,7 +5354,7 @@ const DEMO_JOBS = [
     "responsibilities": [],
     "description": "...the best insurance coverage. They also follow up on insurance claims and ensure compliance with regulations and policies, with the aim... ...the appropriate type of insurance coverage. Preparing and reviewing insurance documents and contracts. Providing insurance consultations...",
     "source": "jobleads.com",
-    "applyUrl": "https://sa.jooble.org/away/-5369488431226976171?p=1&pos=8&rgn=0&cid=36&ckey=medical+claims+reviewer&jobAge=93&relb=70&brelb=10&scr=2424.29684&bscr=346.32812&aq=-6903739818154634223&elckey=3556560587539033123",
+    "applyUrl": "https://sa.jooble.org/away/-5369488431226976171?p=1&pos=8&rgn=0&cid=36&ckey=medical+claims+reviewer&jobAge=94&relb=70&brelb=10&scr=2423.6265200000003&bscr=346.23236&aq=4161162834926108123&elckey=2712649706669320026",
     "applyIsDirect": false,
     "postedDaysAgo": 3,
     "demo": false
@@ -5356,12 +5386,12 @@ const DEMO_JOBS = [
     ],
     "description": "...lead the cost-control team, perform final reviews and sign-offs of cost reports and... ...variations, change orders, and contractor claims. Evaluate the cost impact of design changes... ...pregnancy, childbirth, breastfeeding, or medical conditions related to pregnancy, childbirth...",
     "source": "boards.greenhouse.io",
-    "applyUrl": "https://sa.jooble.org/desc/-8646814204646368665?ckey=medical+claims+reviewer&rgn=0&pos=23&elckey=3556560587539033123&p=2&aq=-1014128749282173900&cid=36&jobAge=108&relb=100&brelb=100&bscr=837.61743&scr=837.61743",
+    "applyUrl": "https://sa.jooble.org/desc/-8646814204646368665?ckey=medical+claims+reviewer&rgn=0&pos=23&elckey=2712649706669320026&p=2&aq=-8158615832720300724&cid=36&jobAge=110&relb=100&brelb=100&bscr=837.5277&scr=837.5277000000001",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
     "demo": false
   }
-];;;;;;;;;;;;;;
+];;;;;;;;;;;;;;;
 
 const SAMPLE_CV_TEXT = `Dr. Ahmed Al-Rashidi
 General Practitioner
