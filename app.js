@@ -413,7 +413,8 @@
     saveJSON(accountKey(currentUser.email), {
       profile: state.profile, cvText: state.cvText, saved: state.saved,
       filters: state.filters, notifsReadIds: state.notifsReadIds,
-      events: state.events, alertOptIn: state.alertOptIn
+      events: state.events, alertOptIn: state.alertOptIn,
+      atsHistory: state.atsHistory || []
     });
   }
 
@@ -425,6 +426,7 @@
     state.filters = data.filters || state.filters;
     state.notifsReadIds = data.notifsReadIds || [];
     state.events = data.events || [];
+    state.atsHistory = data.atsHistory || [];
     state.alertOptIn = data.alertOptIn !== false;
   }
 
@@ -434,6 +436,7 @@
     state.saved = {};
     state.notifsReadIds = [];
     state.events = [];
+    state.atsHistory = [];
     state.alertOptIn = true;
     embState.cvVec = null;
     embState.ready = false;
@@ -458,7 +461,8 @@
     return {
       profile: state.profile, cvText: state.cvText, saved: state.saved,
       filters: state.filters, notifsReadIds: state.notifsReadIds,
-      events: state.events, alertOptIn: state.alertOptIn
+      events: state.events, alertOptIn: state.alertOptIn,
+      atsHistory: state.atsHistory || []
     };
   }
 
@@ -562,6 +566,7 @@
     saved: {},
     notifsReadIds: [],
     events: [],
+    atsHistory: [],
     alertOptIn: true
   };
 
@@ -1046,7 +1051,7 @@
     const bulletScore = bullets >= 5 ? 10 : (bullets >= 1 ? 5 : 0);
     cats.push({ label: 'Bullet-point formatting', score: bulletScore, max: 10 });
     if (bullets >= 5) strong.push('Responsibilities use bullet points (' + bullets + ' found) — easy for recruiters and parsers to scan.');
-    if (bullets === 0) W('medium', 'No bullet points detected', 'Convert responsibility paragraphs into bullets starting with "- ". Bullets parse far better in ATS systems.');
+    if (bullets === 0) W('medium', 'No bullet points detected', 'Convert responsibility paragraphs into bullets starting with "- ". Bullets parse far better in ATS systems. Example: "- Managed 40+ OPD patients/day in a busy primary-care clinic."');
 
     const dateScore = dateRanges >= 2 ? 10 : (dateRanges === 1 ? 6 : 0);
     cats.push({ label: 'Dates on roles', score: dateScore, max: 10 });
@@ -1058,7 +1063,10 @@
     const kwScore = sk >= 8 ? 15 : (sk >= 5 ? 11 : (sk >= 3 ? 7 : (sk >= 1 ? 3 : 0)));
     cats.push({ label: 'Clinical keywords (' + sk + ' found)', score: kwScore, max: 15 });
     if (sk >= 5) strong.push(sk + ' clinical keywords detected (' + skillsFound.slice(0, 4).join(', ') + '…) — good ATS keyword coverage.');
-    if (sk < 3) W('high', 'Very few clinical keywords (' + sk + ')', 'Mirror the vocabulary of the job postings you target: list concrete skills like OPD, triage, chronic disease management.');
+    if (sk < 3) {
+      const miss = marketKeywords().filter((k) => !k.has).slice(0, 5).map((k) => k.s);
+      W('high', 'Very few clinical keywords (' + sk + ')', 'Mirror the vocabulary of live postings: list concrete skills such as ' + (miss.length ? miss.join(', ') : 'OPD, triage, chronic disease management') + '.');
+    }
 
     const qScore = quants >= 3 ? 10 : (quants >= 1 ? 6 : 0);
     cats.push({ label: 'Quantified achievements', score: qScore, max: 10 });
@@ -1098,8 +1106,15 @@
     }
     const a = analyzeCv(state.cvText, state.profile);
     const pair = atsLabel(a.score);
+    const hist = state.atsHistory || [];
+    const prevScore = hist.length > 1 ? hist[hist.length - 2].score : null;
+    const delta = prevScore === null ? null : a.score - prevScore;
     const mark = { high: ['mk-bad', '✕'], medium: ['mk-warn', '!'], low: ['mk-info', 'i'], ok: ['mk-ok', '✓'] };
-    const saudiTips = Engine.improvementTips(state.profile, state.cvText);
+    const _sig = (s) => (s || '').toLowerCase().split(/[^a-z]+/).filter((w) => w.length > 4).map((w) => w.slice(0, 7));
+    const _weakWords = new Set();
+    a.weak.forEach((w) => _sig(w.title).forEach((x) => _weakWords.add(x)));
+    const saudiTips = Engine.improvementTips(state.profile, state.cvText)
+      .filter((x) => !_sig(x.title).some((w) => _weakWords.has(w)));
 
     let h = '<section class="section"><div class="container">' +
       '<div class="dash-head"><div><h2 style="margin:0">' + t('anTitle') + '</h2>' +
@@ -1107,7 +1122,9 @@
       '<button class="btn btn-outline" onclick="App.go(\'upload\')">' + t('updateCv') + '</button></div>' +
       '<div class="grid grid-2">' +
       '<div class="card"><div class="flex between"><h3 style="margin:0">' + t('atsScore') + '</h3>' +
-      '<div class="ring-wrap">' + ring(a.score, pair[1]) + '<span class="badge badge-' + pair[1] + '">' + pair[0] + '</span></div></div>' +
+      '<div class="ring-wrap">' + ring(a.score, pair[1]) + '<span class="badge badge-' + pair[1] + '">' + pair[0] + '</span>' +
+      (delta === null ? '' : '<span class="badge ' + (delta >= 0 ? 'badge-green' : 'badge-red') + '" title="vs your previous analysis">' + prevScore + ' &rarr; ' + a.score + ' (' + (delta >= 0 ? '+' : '') + delta + ')</span>') +
+      '</div></div>' +
       '<div class="progress mt"><div style="width:' + a.score + '%"></div></div>' +
       '<h4 class="mt-lg">' + t('catBreakdown') + '</h4>' +
       a.cats.map(catRow).join('') + '</div>' +
@@ -1126,16 +1143,72 @@
           }).join('') + '</ul>'
         : '<p class="muted">' + t('weakNone') + '</p>') +
       '</div>' +
+      quickFixesCard() +
       '<div class="card mt-lg"><h3>' + t('checklist') + '</h3>' +
       '<p class="muted">' + t('checklistX') + '</p>' +
       '<ul class="analysis-list">' + saudiTips.map((x) => {
         const m = mark[x.sev] || mark.low;
         return '<li><span class="mk ' + m[0] + '">' + m[1] + '</span><span><b>' + esc(x.title) + '</b><br><span class="muted">' + esc(x.detail) + '</span></span></li>';
       }).join('') + '</ul></div>' +
+      topMatchesCard() +
+      marketCard() +
       '<div class="card mt-lg" style="background:#f0faf8;border-color:#c7e8e2"><h3>' + t('howScore') + '</h3>' +
       '<p class="muted" style="margin:0">' + t('howScoreX') + '</p></div>' +
       '</div></section>';
     return h;
+  }
+
+
+  /* ---------- analysis page extras (v22) ---------- */
+  function quickFixesCard() {
+    const p = state.profile;
+    const opt = (cur, vals) => vals.map((o) => '<option value="' + o + '"' + (cur === o ? ' selected' : '') + '>' + (o || '—') + '</option>').join('');
+    return '<div class="card mt-lg"><h3>Quick fixes</h3>' +
+      '<p class="muted">Fix what the parser missed — these write straight to your profile, so match scores update immediately.</p>' +
+      '<div class="grid grid-2">' +
+      '<div class="field"><label>Full name</label><input class="input" id="qfName" value="' + esc(p.fullName) + '"></div>' +
+      '<div class="field"><label>Phone (with country code)</label><input class="input" id="qfPhone" value="' + esc(p.phone) + '"></div>' +
+      '<div class="field"><label>SCFHS registration</label><select class="input" id="qfScfhs">' + opt(p.scfhsRegistration, ['', 'Yes', 'In progress', 'No']) + '</select></div>' +
+      '<div class="field"><label>DataFlow verification</label><select class="input" id="qfDataflow">' + opt(p.dataflow, ['', 'Completed', 'In progress', 'Not started']) + '</select></div>' +
+      '</div>' +
+      '<button class="btn btn-primary btn-sm" onclick="App.saveQuickFixes()">Save fixes &amp; re-score</button></div>';
+  }
+
+  function marketKeywords() {
+    const p = state.profile;
+    const pool = DEMOJOBS.filter((j) => !p.profession || j.profession === p.profession);
+    const freq = {};
+    pool.forEach((j) => (j.skills || []).forEach((s) => { freq[s] = (freq[s] || 0) + 1; }));
+    const have = new Set((p.skills || []).map((s) => String(s).toLowerCase()));
+    return Object.keys(freq).map((s) => ({ s, n: freq[s], has: have.has(s.toLowerCase()) }))
+      .sort((a, b) => b.n - a.n).slice(0, 10);
+  }
+
+  function marketCard() {
+    const mk = marketKeywords();
+    if (!mk.length) return '';
+    const have = mk.filter((k) => k.has).length;
+    return '<div class="card mt-lg"><h3>What employers ask for</h3>' +
+      '<p class="muted">Most-demanded skills across live ' + esc(state.profile.profession ? T_PROF(state.profile.profession) : 'healthcare') +
+      ' postings — your CV covers <b>' + have + ' of ' + mk.length + '</b>.</p>' +
+      '<div class="flex wrap">' + mk.map((k) => '<span class="badge ' + (k.has ? 'badge-green' : 'badge-gray') + '">' +
+      (k.has ? '✓ ' : '+ ') + esc(k.s) + ' · ' + k.n + '</span>').join('') + '</div>' +
+      (have < mk.length
+        ? '<p class="muted" style="margin:10px 0 0;font-size:.85rem">Add the “+” skills you genuinely have to your CV, then re-analyze — each one raises your keyword coverage and your match scores.</p>'
+        : '') +
+      '</div>';
+  }
+
+  function topMatchesCard() {
+    const top = topMatches(3);
+    if (!top.length) return '';
+    return '<div class="card mt-lg"><div class="flex between"><h3 style="margin:0">Your top matches right now</h3>' +
+      '<button class="btn btn-outline btn-sm" onclick="App.go(\'jobs\')">' + t('browseJobs') + '</button></div>' +
+      top.map(({ job, res }) => '<div class="list-row"><span><b>' + esc(job.title) + '</b> <span class="muted">' +
+        esc(job.employer) + ' · ' + esc(T_CITY(job.city)) + '</span></span>' +
+        '<span class="flex">' + matchBadge(res.final) +
+        ' <button class="btn btn-primary btn-sm" onclick="App.openJob(\'' + job.id + '\')">' + t('viewAnalysis') + '</button></span></div>').join('') +
+      '</div>';
   }
 
   /* ---------- nav / footer ---------- */
@@ -1144,8 +1217,8 @@
   }
 
   function unreadNotifs() {
-    if (!currentUser) return [];
-    return topMatches(3).filter(({ job }) => state.notifsReadIds.indexOf(job.id) === -1);
+    if (!currentUser || !state.cvText) return [];
+    return topMatches(3).filter(({ job, res }) => res.final >= 60 && state.notifsReadIds.indexOf(job.id) === -1);
   }
 
   function notifsView() {
@@ -1158,7 +1231,7 @@
         '<div class="notif-item" style="cursor:pointer" onclick="App.closeMenus();App.openAuth(\'signup\')"><b>' + t('notifGuest2') + '</b></div>';
       return h;
     }
-    const top = topMatches(3);
+    const top = state.cvText ? topMatches(3).filter(({ res }) => res.final >= 60) : [];
     if (!top.length) {
       h += '<div class="notif-item muted">' + t('notifEmpty') + '</div>';
     } else {
@@ -1938,6 +2011,17 @@
       render();
       toast('Preferences saved.', 'ok');
     },
+    saveQuickFixes() {
+      const v = (id) => { const el = $(id); return el ? el.value.trim() : ''; };
+      const name = v('qfName'), phone = v('qfPhone');
+      if (name) state.profile.fullName = name;
+      if (phone) state.profile.phone = phone;
+      state.profile.scfhsRegistration = v('qfScfhs');
+      state.profile.dataflow = v('qfDataflow');
+      save();
+      render();
+      toast('Saved — match scores updated.', 'ok');
+    },
     clearActivity() {
       state.events = [];
       save();
@@ -2003,10 +2087,15 @@
         if (prevCities && prevCities.length) state.profile.preferredCities = prevCities;
         if (prevSalary) state.profile.preferredSalary = prevSalary;
         state.cvText = text;
+        const _res = analyzeCv(text, state.profile);
+        if (!state.atsHistory) state.atsHistory = [];
+        const _prev = state.atsHistory.length ? state.atsHistory[state.atsHistory.length - 1].score : null;
+        state.atsHistory.push({ t: Date.now(), score: _res.score });
+        if (state.atsHistory.length > 10) state.atsHistory = state.atsHistory.slice(-10);
         embState.cvVec = null;
         embState.ready = false;
         save();
-        toast('CV analyzed — see your full ATS report on the CV Analysis page.', 'ok');
+        toast('CV analyzed — ATS score ' + _res.score + (_prev === null ? '' : ' (' + (_res.score - _prev >= 0 ? '+' : '') + (_res.score - _prev) + ')') + '. Full report on the CV Analysis page.', 'ok');
         App.go('analysis');
         warmupSemantic(false);
       } catch (err) {
