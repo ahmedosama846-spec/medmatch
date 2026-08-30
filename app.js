@@ -1,5 +1,5 @@
 /* ============================================================
-   MedMatch — app.js (UI layer, v18)
+   MedMatch — app.js (UI layer, v19)
    Renders the whole app into #app.
    Depends on globals from data.js  (DEMO_JOBS, CITIES, PROFESSIONS,
    EMPLOYMENT_TYPES, JOB_SOURCES, SAMPLE_CV_TEXT, SKILLS_VOCAB) and
@@ -7,12 +7,10 @@
    matchLabel, parseNLQuery, improvementTips, completeness,
    profileStrength, fmtNum). No fetch() — works over file:// .
 
-   v18: CLOUD ACCOUNTS (optional). Set SUPABASE_URL and
-   SUPABASE_ANON_KEY below and accounts become real: magic-link
-   email sign-in (no passwords), and the whole profile (CV, saved
-   jobs, preferences, activity) syncs across devices via Supabase
-   Postgres with row-level security. Leave the constants empty and
-   the app keeps working with browser-local accounts only.
+   v19: EMAIL ALERTS opt-in. Preferences gains a weekly-alerts
+   toggle (cloud accounts); the flag syncs with the profile and the
+   Monday alerts workflow emails new matches to opted-in users.
+   v18: cloud accounts — Supabase magic links + cross-device sync.
    v17: guest teaser — locked employer/salary/apply for guests.
    v16: feedback loop — activity log + learned boost + GoatCounter.
    v15: auth gate — personal features require sign-in.
@@ -37,8 +35,9 @@
         GitHub Pages address (e.g. https://user.github.io/medmatch/)
      4. Settings → API → paste the Project URL and anon public key here.
      ============================================================ */
-const SUPABASE_URL = 'https://qglgpckjspltwetctzgv.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_TJIQpJIhPxkKDmH8YgIoVw_zuCNxzel';
+  const SUPABASE_URL = 'https://qglgpckjspltwetctzgv.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_TJIQpJIhPxkKDmH8YgIoVw_zuCNxzel';
+
   /* ============================================================
      OPTIONAL: anonymous aggregate analytics (GoatCounter).
      Events sent contain ONLY job metadata — never CV text, names,
@@ -143,7 +142,7 @@ const SUPABASE_ANON_KEY = 'sb_publishable_TJIQpJIhPxkKDmH8YgIoVw_zuCNxzel';
     saveJSON(accountKey(currentUser.email), {
       profile: state.profile, cvText: state.cvText, saved: state.saved,
       filters: state.filters, notifsReadIds: state.notifsReadIds,
-      events: state.events
+      events: state.events, alertOptIn: state.alertOptIn
     });
   }
 
@@ -155,6 +154,7 @@ const SUPABASE_ANON_KEY = 'sb_publishable_TJIQpJIhPxkKDmH8YgIoVw_zuCNxzel';
     state.filters = data.filters || state.filters;
     state.notifsReadIds = data.notifsReadIds || [];
     state.events = data.events || [];
+    state.alertOptIn = data.alertOptIn !== false;
   }
 
   function wipeState() {
@@ -163,6 +163,7 @@ const SUPABASE_ANON_KEY = 'sb_publishable_TJIQpJIhPxkKDmH8YgIoVw_zuCNxzel';
     state.saved = {};
     state.notifsReadIds = [];
     state.events = [];
+    state.alertOptIn = true;
     embState.cvVec = null;
     embState.ready = false;
   }
@@ -186,7 +187,7 @@ const SUPABASE_ANON_KEY = 'sb_publishable_TJIQpJIhPxkKDmH8YgIoVw_zuCNxzel';
     return {
       profile: state.profile, cvText: state.cvText, saved: state.saved,
       filters: state.filters, notifsReadIds: state.notifsReadIds,
-      events: state.events
+      events: state.events, alertOptIn: state.alertOptIn
     };
   }
 
@@ -291,7 +292,8 @@ const SUPABASE_ANON_KEY = 'sb_publishable_TJIQpJIhPxkKDmH8YgIoVw_zuCNxzel';
     filters: { profession: '', city: '', employment: '', minSalary: '', nl: '' },
     saved: {},
     notifsReadIds: [],
-    events: [] // { t, type, id, prof, city } — the feedback loop
+    events: [],        // { t, type, id, prof, city } — the feedback loop
+    alertOptIn: true   // weekly email alerts (cloud accounts)
   };
 
   /* restore: local-mode session (cloud restores async via initCloud) */
@@ -1018,7 +1020,7 @@ const SUPABASE_ANON_KEY = 'sb_publishable_TJIQpJIhPxkKDmH8YgIoVw_zuCNxzel';
       (cloud ? '📬 Email me a sign-in link' : (isUp ? 'Create account' : 'Sign in')) + '</button>' +
       '<p class="muted mt" style="font-size:.78rem;margin:10px 0 0">' +
       (cloud
-        ? 'No password needed — we email you a magic link. Your CV, saved jobs and preferences sync securely across your devices (row-level security; only you can read your data).'
+        ? 'No password needed — we email you a magic link. Your CV, saved jobs and preferences sync securely across your devices (row-level security; only you can read your data). Includes a weekly job-match email — turn it off anytime in Dashboard → Preferences.'
         : 'Accounts are stored only in this browser (no server). Each account has its own CV, saved jobs and preferences. Nothing personal is stored or shown without an account.') +
       '</p></div></div>';
   }
@@ -1225,6 +1227,10 @@ const SUPABASE_ANON_KEY = 'sb_publishable_TJIQpJIhPxkKDmH8YgIoVw_zuCNxzel';
       '<div class="field"><label>Preferred cities</label><div class="checks" id="prefCities">' + chips + '</div></div>' +
       '<div class="field"><label>Expected salary (SAR / month)</label>' +
       '<input class="input" type="number" min="0" id="prefSalary" placeholder="e.g. 14000" value="' + esc(p.preferredSalary || '') + '"></div>' +
+      (cloudEnabled()
+        ? '<div class="field"><label>Email alerts</label>' +
+          '<label class="check-chip"><input type="checkbox" id="prefAlerts"' + (state.alertOptIn ? ' checked' : '') + '> Email me new matches weekly</label></div>'
+        : '') +
       '<button class="btn btn-primary btn-sm" onclick="App.savePrefs()">Save preferences</button></div>';
   }
 
@@ -1701,9 +1707,11 @@ const SUPABASE_ANON_KEY = 'sb_publishable_TJIQpJIhPxkKDmH8YgIoVw_zuCNxzel';
       const sal = ($('#prefSalary') || {}).value || '';
       state.profile.preferredCities = cities;
       state.profile.preferredSalary = sal.trim();
+      const al = $('#prefAlerts');
+      if (al) state.alertOptIn = al.checked;
       save();
       render();
-      toast('Preferences saved — Location and Salary now score personally.', 'ok');
+      toast('Preferences saved.', 'ok');
     },
     clearActivity() {
       state.events = [];
