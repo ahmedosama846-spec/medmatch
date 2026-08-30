@@ -1174,7 +1174,7 @@
     '#cvEditor{min-height:340px;line-height:1.55;font-size:.88rem}';
 
   function highlightCvText(text) {
-    const vocab = (typeof SKILLSVOCAB !== 'undefined' ? SKILLSVOCAB : []);
+    const vocab = (typeof SKILLS_VOCAB !== 'undefined' ? SKILLS_VOCAB : []);
     const kwRe = vocab.length ? new RegExp('\\b(' + vocab.map(escRe).join('|') + ')\\b', 'gi') : null;
     const quantRe = /\d+%|\d+\s*(patients?|cases|procedures|beds|visits)\b|\bper (day|week)\b/i;
     let fix = 0, good = 0, kw = 0;
@@ -1227,8 +1227,9 @@
   }
 
   function marketKeywords() {
+    const jobs = (typeof DEMO_JOBS !== 'undefined') ? DEMO_JOBS : [];
     const p = state.profile;
-    const pool = DEMOJOBS.filter((j) => !p.profession || j.profession === p.profession);
+    const pool = jobs.filter((j) => !p.profession || j.profession === p.profession);
     const freq = {};
     pool.forEach((j) => (j.skills || []).forEach((s) => { freq[s] = (freq[s] || 0) + 1; }));
     const have = new Set((p.skills || []).map((s) => String(s).toLowerCase()));
