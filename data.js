@@ -1,4 +1,4 @@
-/* Last link-check: 2026-08-24 — removed 2 dead posting(s). */
+/* Last link-check: 2026-08-30 — removed 1 dead posting(s). */
 /* MedMatch Saudi — static data & demo dataset.
    All jobs below are SYNTHETIC DEMO DATA. Employers are fictional and records
    are flagged demo:true. Replace with live ingestion from permitted APIs/feeds. */
@@ -5670,44 +5670,6 @@ const DEMO_JOBS = [
     "applyUrl": "https://sa.jobrapido.com/jobpreview/9076013596567142400",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
-    "demo": false
-  },
-  {
-    "id": "jsWFhsTVpCNXRkNnFOXy1mWUFB",
-    "title": "SENIOR PHARMACIST.",
-    "profession": "Pharmacist",
-    "specialty": "ENT",
-    "employer": "Johns Hopkins Aramco Healthcare",
-    "city": "Other",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 5,
-    "expMax": 10,
-    "degreeReq": "",
-    "scfhs": "preferred",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Medication Review",
-      "Compounding",
-      "Audit"
-    ],
-    "certs": [],
-    "requirements": [
-      "Addendum Title No Supplemental Work/Experience/Education Information N/AAddendum Description N/A"
-    ],
-    "responsibilities": [
-      "Duties, responsibilities and activities may change at any time with or without notice."
-    ],
-    "description": "Job Title SENIOR PHARMACIST. Job Family Function COOJob Code 30009188 Reports to Job Pharmacy Manager Job Description Summary The Senior Pharmacist is responsible for the safe and effective dispensation and medication management within any assigned JHAH premises . Performs comprehensive assessments, analysis, and recommendations of specific disease management or drug therapy in collaboration with patient care team members or based on approved disease/pharmacotherapy management protocols and per JHAH policies and clinical guidelines. Accountable for on.-going evaluation and documentation of all",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://bebee.com/sa/jobs/senior-pharmacist-johns-hopkins-aramco-healthcare-dhahran--fj-2315432621",
-    "applyIsDirect": false,
-    "postedDaysAgo": 7,
     "demo": false
   },
   {
