@@ -1,15 +1,15 @@
 /* ============================================================
-   MedMatch — app.js (UI layer, v19)
+   MedMatch — app.js (UI layer, v20)
    Renders the whole app into #app.
    Depends on globals from data.js  (DEMO_JOBS, CITIES, PROFESSIONS,
    EMPLOYMENT_TYPES, JOB_SOURCES, SAMPLE_CV_TEXT, SKILLS_VOCAB) and
-   on the Engine API from engine.js (extractFromText, scoreJob,
-   matchLabel, parseNLQuery, improvementTips, completeness,
-   profileStrength, fmtNum). No fetch() — works over file:// .
+   on the Engine API from engine.js + engine_fix.js hardening.
+   No fetch() — works over file:// .
 
-   v19: EMAIL ALERTS opt-in. Preferences gains a weekly-alerts
-   toggle (cloud accounts); the flag syncs with the profile and the
-   Monday alerts workflow emails new matches to opted-in users.
+   v20: PRIVACY. privacy.html linked in the footer and auth modal;
+   Dashboard gains a "Privacy & your data" card with a working
+   Delete-my-data action (erases the cloud row + local cache).
+   v19: email alerts opt-in toggle.
    v18: cloud accounts — Supabase magic links + cross-device sync.
    v17: guest teaser — locked employer/salary/apply for guests.
    v16: feedback loop — activity log + learned boost + GoatCounter.
@@ -20,20 +20,7 @@
   'use strict';
 
   /* ============================================================
-     OPTIONAL: cloud accounts + cross-device sync (Supabase).
-     1. Create a free project at https://supabase.com
-     2. SQL Editor → run:
-          create table user_data (
-            id uuid primary key references auth.users on delete cascade,
-            data jsonb,
-            updated_at timestamptz default now()
-          );
-          alter table user_data enable row level security;
-          create policy "own row" on user_data
-            for all using (auth.uid() = id) with check (auth.uid() = id);
-     3. Authentication → URL Configuration → set Site URL to your
-        GitHub Pages address (e.g. https://user.github.io/medmatch/)
-     4. Settings → API → paste the Project URL and anon public key here.
+     Cloud accounts + cross-device sync (Supabase).
      ============================================================ */
   const SUPABASE_URL = 'https://qglgpckjspltwetctzgv.supabase.co';
   const SUPABASE_ANON_KEY = 'sb_publishable_TJIQpJIhPxkKDmH8YgIoVw_zuCNxzel';
@@ -50,7 +37,7 @@
     document.getElementById('app').innerHTML =
       '<div class="container section"><div class="card"><h2>Missing files</h2>' +
       '<p><code>data.js</code> or <code>engine.js</code> failed to load. ' +
-      'Make sure <b>index.html, styles.css, data.js, engine.js and app.js</b> ' +
+      'Make sure <b>index.html, styles.css, data.js, engine.js, engine_fix.js and app.js</b> ' +
       'are all in the same folder, then reopen index.html.</p></div></div>';
     return;
   }
@@ -994,7 +981,8 @@
       '<li><a href="#" onclick="App.go(\'analysis\');return false;">CV Analysis</a></li>' +
       '<li><a href="#" onclick="App.go(\'dashboard\');return false;">Dashboard</a></li></ul></div>' +
       '<div><h5>Licensing</h5><ul><li>SCFHS classification</li><li>DataFlow verification</li><li>Prometric / SMLE</li></ul></div>' +
-      '<div><h5>Data</h5><ul><li>' + JOB_SOURCES.length + ' sources</li><li>' + DEMO_JOBS.length + ' jobs loaded</li></ul></div>' +
+      '<div><h5>Legal</h5><ul><li><a href="privacy.html">Privacy Policy</a></li></ul>' +
+      '<h5 style="margin-top:12px">Data</h5><ul><li>' + JOB_SOURCES.length + ' sources</li><li>' + DEMO_JOBS.length + ' jobs loaded</li></ul></div>' +
       '</div><p style="margin:0">© 2026 MedMatch. Job listings belong to their original sources.</p></div></footer>';
   }
 
@@ -1022,7 +1010,8 @@
       (cloud
         ? 'No password needed — we email you a magic link. Your CV, saved jobs and preferences sync securely across your devices (row-level security; only you can read your data). Includes a weekly job-match email — turn it off anytime in Dashboard → Preferences.'
         : 'Accounts are stored only in this browser (no server). Each account has its own CV, saved jobs and preferences. Nothing personal is stored or shown without an account.') +
-      '</p></div></div>';
+      ' By continuing you agree to our <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>' +
+      '</div></div>';
   }
 
   /* ---------- auth gate ---------- */
@@ -1270,6 +1259,21 @@
     return h;
   }
 
+  /* ---------- privacy & data card ---------- */
+  function privacyCard() {
+    return '<div class="card mt-lg"><h3>🔐 Privacy &amp; your data</h3>' +
+      '<div class="list-row"><span class="muted">Storage</span><span>' +
+      (currentUser && currentUser.cloud
+        ? 'Your account (Supabase, row-level security) + a cache in this browser'
+        : 'This browser only') + '</span></div>' +
+      '<div class="list-row"><span class="muted">Email alerts</span><span>' + (state.alertOptIn ? 'On — weekly digest' : 'Off') + '</span></div>' +
+      '<div class="list-row"><span class="muted">Shared with employers</span><span>Never — you apply on the employer\'s own site</span></div>' +
+      '<div class="flex mt wrap">' +
+      '<a class="btn btn-outline btn-sm" href="privacy.html" target="_blank" rel="noopener">Read the Privacy Policy</a>' +
+      '<button class="btn btn-danger btn-sm" onclick="App.deleteAccount()">Delete my data &amp; sign out</button></div>' +
+      '<p class="muted mt" style="font-size:.78rem;margin:8px 0 0">Deletion erases your CV, profile, saved jobs, preferences and activity — immediately, from both the cloud and this device.</p></div>';
+  }
+
   function dashboardView() {
     const p = state.profile;
     const displayName = p.fullName || (currentUser && currentUser.name) || '';
@@ -1359,6 +1363,8 @@
         '<td>' + esc(s.type) + '</td><td>' + esc(s.lastSync) + '</td><td>' + s.imported + '</td>' +
         '<td><span class="badge ' + (s.active ? 'badge-green' : 'badge-gray') + '">' + (s.active ? 'Active' : 'Paused') + '</span></td></tr>').join('') +
       '</tbody></table></div><p class="muted mt" style="font-size:.8rem">Live sources sync automatically every Monday via GitHub Actions.</p></div>';
+
+    h += privacyCard();
 
     h += '</div></section>';
     return h;
@@ -1626,6 +1632,30 @@
       App.closeModal();
       App.go('home');
       toast('Signed out — your data stays safe in your account.', 'info');
+    },
+    async deleteAccount() {
+      if (!currentUser) return;
+      if (!confirm('Delete ALL your MedMatch data — CV, profile, saved jobs, preferences, activity — and sign out?\n\nThis cannot be undone.')) return;
+      const email = currentUser.email;
+      const wasCloud = !!currentUser.cloud;
+      try {
+        if (wasCloud && sb) {
+          const { data } = await sb.auth.getUser();
+          if (data && data.user) {
+            await sb.from('user_data').delete().eq('id', data.user.id);
+          }
+        }
+      } catch (e) { console.warn('cloud delete:', e); /* still wipe locally */ }
+      try { localStorage.removeItem(accountKey(email)); } catch (e) { /* ignore */ }
+      try { localStorage.removeItem(SES_KEY); } catch (e) { /* ignore */ }
+      currentUser = null;
+      handledUid = null;
+      if (wasCloud && sb) { sb.auth.signOut().catch(() => {}); }
+      wipeState();
+      App.closeMenus();
+      App.closeModal();
+      App.go('home');
+      toast('Your data has been deleted — cloud and this device.', 'ok');
     },
     setFilter(key, value) {
       state.filters[key] = value;
