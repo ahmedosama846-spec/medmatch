@@ -123,7 +123,7 @@ def page_shell(title, meta_desc, canonical, ld, body):
 <footer class="footer"><div class="container"><p style="margin:0">© 2026 MedMatch · <a href="../privacy.html" style="color:#7fb5ae">Privacy</a> · Listing aggregated from its original source; verify details with the employer.</p></div></footer>
 </body>
 </html>
-"""
+""" % (esc(title), esc(meta_desc), canonical, esc(title), esc(meta_desc), canonical, ld_tag, body)
 
 
 def job_page(j):
