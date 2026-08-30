@@ -1160,7 +1160,7 @@
   }
 
 
-  /* ---------- CV review: original file, document preview, edit-in-place, export (v26) ---------- */
+  /* ---------- CV review: original file, document preview, edit-in-place, hover fixes, export (v27) ---------- */
   let cvEditMode = false, cvTpl = 'classic', cvMarks = true, cvView = 'auto', pdfStashText = '';
 
   const CV_TPLS = { classic: 'Classic', modern: 'Modern', executive: 'Executive', compact: 'Compact', elegant: 'Elegant' };
@@ -1191,7 +1191,7 @@
     '.cv-doc .d-sec{margin-top:14px}' +
     '.cv-doc .d-sec>h4{font-size:.78rem;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #d8e0e8;margin:0 0 6px;padding-bottom:3px}' +
     '.cv-doc ul{margin:0;padding-inline-start:18px}' +
-    '.cv-doc li{margin:2px 0}' +
+    '.cv-doc li{margin:2px 0;position:relative}' +
     '.tpl-modern .cv-doc{font-family:inherit}' +
     '.tpl-modern .cv-doc .d-name{color:var(--teal-d);text-align:left}' +
     '.tpl-modern .cv-doc .d-sub{text-align:left}' +
@@ -1211,8 +1211,11 @@
     '.tpl-elegant .cv-doc .d-sec>h4{color:#8a6d2f;border-bottom:1px solid #d9c48f;letter-spacing:3px}' +
     '.cv-edit{outline:2px dashed var(--teal);outline-offset:4px;max-height:none}' +
     '.cv-doc mark.cv-kw{background:#e0f2f0;color:var(--teal-d);border-radius:3px;padding:0 2px}' +
-    '.cv-doc li.cv-fix{background:#fdf3e3}' +
-    '.cv-doc li.cv-good{background:#eafaf3}';
+    '.cv-doc li.cv-fix{background:#fdf3e3;cursor:help}' +
+    '.cv-doc li.cv-fix:hover{outline:1px dashed var(--amber)}' +
+    '.cv-doc li.cv-good{background:#eafaf3}' +
+    '.cv-fix-btn{display:none;position:absolute;inset-inline-end:4px;top:1px;font-size:.68rem;padding:2px 10px;border:0;border-radius:20px;background:var(--amber);color:#4a3200;cursor:pointer;font-weight:700}' +
+    '.cv-doc li.cv-fix:hover .cv-fix-btn{display:inline-block}';
 
   function cvExportCss(tpl) {
     let css = 'body{max-width:820px;margin:24px auto;padding:0 16px;color:#1c2733;line-height:1.5;font-family:Georgia,serif}' +
@@ -1228,8 +1231,9 @@
 
   const CV_HEADINGS = ['PROFESSIONAL SUMMARY', 'SUMMARY', 'PROFILE', 'WORK EXPERIENCE', 'PROFESSIONAL EXPERIENCE',
     'CLINICAL EXPERIENCE', 'EXPERIENCE', 'EMPLOYMENT HISTORY', 'EDUCATION', 'LICENSES & CERTIFICATIONS',
-    'LICENSES AND CERTIFICATIONS', 'LICENSES', 'CERTIFICATIONS', 'LICENSING', 'CLINICAL SKILLS', 'SKILLS',
-    'COMPETENCIES', 'LANGUAGES', 'REFERENCES', 'AWARDS', 'PUBLICATIONS', 'TRAINING', 'COURSES', 'MEMBERSHIPS'];
+    'LICENSES AND CERTIFICATIONS', 'LICENSES', 'CERTIFICATIONS', 'LICENSING', 'CORE COMPETENCIES', 'KEY COMPETENCIES',
+    'AREAS OF EXPERTISE', 'CLINICAL SKILLS', 'KEY SKILLS', 'SKILLS', 'COMPETENCIES',
+    'LANGUAGES', 'REFERENCES', 'AWARDS', 'PUBLICATIONS', 'TRAINING', 'COURSES', 'MEMBERSHIPS'];
 
   function structureCv(text) {
     const heads = CV_HEADINGS.map(escRe).join('|');
@@ -1252,10 +1256,27 @@
     return { head, secs };
   }
 
+  function splitLongItem(txt) {
+    const out = [];
+    (txt.match(/[^.;]+[.;]?/g) || [txt]).forEach((s) => {
+      const t = s.replace(/[.;]\s*$/, '').trim();
+      if (!t) return;
+      if (t.split(/\s+/).length > 22 && t.indexOf(' — ') !== -1) {
+        t.split(' — ').forEach((q) => { const u = q.trim(); if (u) out.push(u); });
+      } else out.push(t);
+    });
+    const merged = [];
+    out.forEach((p) => {
+      if (merged.length && p.split(/\s+/).length < 5) merged[merged.length - 1] += '. ' + p;
+      else merged.push(p);
+    });
+    return merged.slice(0, 4);
+  }
+
   function cvDocHtml(st, withMarks) {
     const vocab = (typeof SKILLS_VOCAB !== 'undefined' ? SKILLS_VOCAB : []);
     const kwRe = (withMarks && vocab.length) ? new RegExp('\\b(' + vocab.map(escRe).join('|') + ')\\b', 'gi') : null;
-    const quantRe = /\d+\s*%|\d+\s*\+?\s*(\w+\s+){0,2}(patients?|cases|procedures|beds|visits)\b|\b\d+\s*per (day|week)\b/i;
+    const quantRe = /\d+\s*%|\d+\s*\+?\s*(\w+\s+){0,2}(patients?|cases|procedures|beds|visits|years?|months?)\b|\b\d+\s*per (day|week)\b/i;
     let fix = 0, good = 0, kw = 0;
     const itemHtml = (txt) => {
       let h = esc(txt);
@@ -1268,13 +1289,50 @@
       if (txt.split(/\s+/).filter(Boolean).length >= 25) { fix++; return 'cv-fix'; }
       return '';
     };
-    const head = st.head.map((ln, i) => i === 0
+    let nameI = st.head.findIndex((ln) => !/@|\d|\|/.test(ln) && ln.split(/\s+/).filter(Boolean).length <= 6 && ln.length <= 60);
+    if (nameI === -1) nameI = 0;
+    const head = st.head.map((ln, i) => i === nameI
       ? '<h2 class="d-name">' + esc(ln) + '</h2>'
       : '<p class="d-sub">' + esc(ln) + '</p>').join('');
-    const secs = st.secs.map((s) => '<div class="d-sec"><h4>' + esc(s.title) + '</h4><ul>' +
-      s.items.map((it) => { const c = itemCls(it); return '<li' + (c ? ' class="' + c + '"' : '') + '>' + itemHtml(it) + '</li>'; }).join('') +
-      '</ul></div>').join('');
+    const secs = st.secs.map((s, si) => '<div class="d-sec"><h4>' + esc(s.title) + '</h4><ul>' +
+      s.items.map((it, ii) => {
+        const c = itemCls(it);
+        const w = it.split(/\s+/).filter(Boolean).length;
+        const tip = c === 'cv-fix'
+          ? ' title="Long item (' + w + ' words). Suggestion: split into 2-3 short bullets — hover and click the Split button."'
+          : (c === 'cv-good' ? ' title="Quantified achievement — recruiters and ATS systems love numbers. Keep it."' : '');
+        const btn = (withMarks && c === 'cv-fix')
+          ? '<button class="cv-fix-btn" onclick="App.autoSplit(' + si + ', ' + ii + ');return false;">Split into bullets</button>'
+          : '';
+        return '<li' + (c ? ' class="' + c + '"' : '') + tip + '>' + itemHtml(it) + btn + '</li>';
+      }).join('') + '</ul></div>').join('');
     return { html: '<div class="cv-doc">' + head + secs + '</div>', fix, good, kw };
+  }
+
+  function applyCvText(text, label) {
+    const ext = Engine.extractFromText(text);
+    const prevCities = state.profile.preferredCities;
+    const prevSalary = state.profile.preferredSalary;
+    const prevName = state.profile.fullName, prevPhone = state.profile.phone;
+    state.profile = flattenExtraction(ext);
+    if (prevCities && prevCities.length) state.profile.preferredCities = prevCities;
+    if (prevSalary) state.profile.preferredSalary = prevSalary;
+    if (!state.profile.fullName && prevName) state.profile.fullName = prevName;
+    if (!state.profile.phone && prevPhone) state.profile.phone = prevPhone;
+    state.cvText = text;
+    cvFileClear();
+    const r2 = analyzeCv(text, state.profile);
+    if (!state.atsHistory) state.atsHistory = [];
+    const prev = state.atsHistory.length > 1 ? state.atsHistory[state.atsHistory.length - 1].score : null;
+    state.atsHistory.push({ t: Date.now(), score: r2.score });
+    if (state.atsHistory.length > 10) state.atsHistory = state.atsHistory.slice(-10);
+    embState.cvVec = null;
+    embState.ready = false;
+    cvEditMode = false;
+    save();
+    render();
+    toast(label + ' — ATS score ' + r2.score + (prev === null ? '' : ' (' + (r2.score - prev >= 0 ? '+' : '') + (r2.score - prev) + ')'), 'ok');
+    warmupSemantic(false);
   }
 
   function cvToolbar(file, view) {
@@ -1317,7 +1375,7 @@
       const doc = cvDocHtml(st, cvMarks);
       body = cvToolbar(file, view) +
         (cvMarks ? '<div class="flex wrap" style="gap:12px;margin-bottom:8px">' +
-          '<span class="muted" style="font-size:.8rem"><span style="color:var(--amber)">■</span> ' + doc.fix + ' long item' + (doc.fix === 1 ? '' : 's') + ' — split or shorten</span>' +
+          '<span class="muted" style="font-size:.8rem"><span style="color:var(--amber)">■</span> ' + doc.fix + ' long item' + (doc.fix === 1 ? '' : 's') + ' — hover one and click <b>Split into bullets</b> to auto-fix</span>' +
           '<span class="muted" style="font-size:.8rem"><span style="color:var(--green)">■</span> ' + doc.good + ' quantified — keep these</span>' +
           '<span class="muted" style="font-size:.8rem"><span style="color:var(--teal-d)">■</span> ' + doc.kw + ' clinical keyword hits</span></div>' : '') +
         '<div class="doc-wrap tpl-' + cvTpl + '">' + doc.html + '</div>';
@@ -2219,6 +2277,21 @@
       const el = $('#cvEditCount');
       if (el) el.textContent = String(val || '').trim().split(/\s+/).filter(Boolean).length + ' words';
     },
+    autoSplit(si, ii) {
+      const st = structureCv(state.cvText);
+      const sec = st.secs[si], item = sec && sec.items[ii];
+      if (!item) return;
+      const parts = splitLongItem(item);
+      if (parts.length < 2) { toast('No clean split point in this one — use Edit in place instead.', 'info'); return; }
+      const at = state.cvText.indexOf(item);
+      if (at === -1) { toast('Could not locate that text — use Edit in place.', 'info'); return; }
+      const next = state.cvText.slice(0, at) + parts.join('\n- ') + state.cvText.slice(at + item.length);
+      try {
+        applyCvText(next, 'Split into ' + parts.length + ' bullets');
+      } catch (err) {
+        toast('Fix failed: ' + err.message, 'err');
+      }
+    },
     downloadOriginal() {
       const f = cvFileGet();
       if (!f) { toast('No original file stored for this CV.', 'info'); return; }
@@ -2263,29 +2336,7 @@
       const text = el ? el.innerText.replace(/\u00a0/g, ' ').split('\n').map((s) => s.trim()).filter(Boolean).join('\n') : '';
       if (!text) { toast('The editor is empty — paste your CV text or cancel.', 'err'); return; }
       try {
-        const ext = Engine.extractFromText(text);
-        const prevCities = state.profile.preferredCities;
-        const prevSalary = state.profile.preferredSalary;
-        const prevName = state.profile.fullName, prevPhone = state.profile.phone;
-        state.profile = flattenExtraction(ext);
-        if (prevCities && prevCities.length) state.profile.preferredCities = prevCities;
-        if (prevSalary) state.profile.preferredSalary = prevSalary;
-        if (!state.profile.fullName && prevName) state.profile.fullName = prevName;
-        if (!state.profile.phone && prevPhone) state.profile.phone = prevPhone;
-        state.cvText = text;
-        cvFileClear();
-        const r2 = analyzeCv(text, state.profile);
-        if (!state.atsHistory) state.atsHistory = [];
-        const prev = state.atsHistory.length ? state.atsHistory[state.atsHistory.length - 1].score : null;
-        state.atsHistory.push({ t: Date.now(), score: r2.score });
-        if (state.atsHistory.length > 10) state.atsHistory = state.atsHistory.slice(-10);
-        embState.cvVec = null;
-        embState.ready = false;
-        cvEditMode = false;
-        save();
-        render();
-        toast('CV updated — ATS score ' + r2.score + (prev === null ? '' : ' (' + (r2.score - prev >= 0 ? '+' : '') + (r2.score - prev) + ')'), 'ok');
-        warmupSemantic(false);
+        applyCvText(text, 'CV updated');
       } catch (err) {
         toast('Extraction failed: ' + err.message, 'err');
       }
