@@ -1133,6 +1133,7 @@
         ? '<ul class="analysis-list">' + a.strong.map((s) => '<li><span class="mk mk-ok">✓</span><span>' + esc(s) + '</span></li>').join('') + '</ul>'
         : '<p class="muted">' + t('strongNone') + '</p>') +
       '</div></div>' +
+      cvReviewCard(a) +
       '<div class="card mt-lg"><h3>' + t('weakPts') + '</h3>' +
       (a.weak.length
         ? '<ul class="analysis-list">' + a.weak.map((w) => {
@@ -1160,6 +1161,57 @@
 
 
   /* ---------- analysis page extras (v22) ---------- */
+
+  /* ---------- CV review: marked-up viewer + inline editor (v23) ---------- */
+  let cvEditMode = false;
+
+  const CV_STYLE =
+    '.cv-view{max-height:420px;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:.86rem;line-height:1.55}' +
+    '.cv-line{white-space:pre-wrap;min-height:1.25em;padding:1px 6px;border-inline-start:3px solid transparent}' +
+    '.cv-line.cv-fix{background:#fdf3e3;border-inline-start-color:var(--amber)}' +
+    '.cv-line.cv-good{background:#eafaf3;border-inline-start-color:var(--green)}' +
+    'mark.cv-kw{background:#e0f2f0;color:var(--teal-d);border-radius:3px;padding:0 2px}' +
+    '#cvEditor{min-height:340px;line-height:1.55;font-size:.88rem}';
+
+  function highlightCvText(text) {
+    const vocab = (typeof SKILLSVOCAB !== 'undefined' ? SKILLSVOCAB : []);
+    const kwRe = vocab.length ? new RegExp('\\b(' + vocab.map(escRe).join('|') + ')\\b', 'gi') : null;
+    const quantRe = /\d+%|\d+\s*(patients?|cases|procedures|beds|visits)\b|\bper (day|week)\b/i;
+    let fix = 0, good = 0, kw = 0;
+    const html = String(text).split('\n').map((ln) => {
+      let h = esc(ln);
+      if (kwRe) h = h.replace(kwRe, (m) => { kw++; return '<mark class="cv-kw">' + m + '</mark>'; });
+      const words = ln.trim().split(/\s+/).filter(Boolean).length;
+      const isBullet = /^\s*[-•*]/.test(ln);
+      let cls = '';
+      if (quantRe.test(ln)) { good++; cls = ' cv-good'; }
+      else if (words >= 15 && !isBullet) { fix++; cls = ' cv-fix'; }
+      if (!ln.trim()) h = '&nbsp;';
+      return '<div class="cv-line' + cls + '">' + h + '</div>';
+    }).join('');
+    return { html, fix, good, kw };
+  }
+
+  function cvReviewCard(a) {
+    let body;
+    if (cvEditMode) {
+      body = '<p class="muted">Edit your CV below, then save — the report, your profile and every match score update instantly.</p>' +
+        '<textarea class="input" id="cvEditor" oninput="App.updateCvCount(this.value)">' + esc(state.cvText) + '</textarea>' +
+        '<div class="flex between mt wrap"><span class="muted" id="cvEditCount">' + a.words + ' words</span>' +
+        '<span class="flex"><button class="btn btn-primary btn-sm" onclick="App.saveCvEdit()">Save &amp; re-analyze</button>' +
+        '<button class="btn btn-ghost btn-sm" onclick="App.toggleCvEdit(false)">Cancel</button></span></div>';
+    } else {
+      const mkd = highlightCvText(state.cvText);
+      body = '<div class="flex wrap" style="gap:12px;margin-bottom:8px">' +
+        '<span class="muted" style="font-size:.8rem"><span style="color:var(--amber)">■</span> ' + mkd.fix + ' long paragraph' + (mkd.fix === 1 ? '' : 's') + ' — convert to bullets</span>' +
+        '<span class="muted" style="font-size:.8rem"><span style="color:var(--green)">■</span> ' + mkd.good + ' quantified line' + (mkd.good === 1 ? '' : 's') + ' — keep these</span>' +
+        '<span class="muted" style="font-size:.8rem"><span style="color:var(--teal-d)">■</span> ' + mkd.kw + ' clinical keyword hit' + (mkd.kw === 1 ? '' : 's') + '</span></div>' +
+        '<div class="cv-view">' + mkd.html + '</div>' +
+        '<div class="flex mt"><button class="btn btn-outline btn-sm" onclick="App.toggleCvEdit()">Edit CV &amp; re-analyze</button></div>';
+    }
+    return '<style>' + CV_STYLE + '</style><div class="card mt-lg"><div class="flex between"><h3 style="margin:0">CV review — marked copy</h3></div>' + body + '</div>';
+  }
+
   function quickFixesCard() {
     const p = state.profile;
     const opt = (cur, vals) => vals.map((o) => '<option value="' + o + '"' + (cur === o ? ' selected' : '') + '>' + (o || '—') + '</option>').join('');
@@ -2010,6 +2062,46 @@
       save();
       render();
       toast('Preferences saved.', 'ok');
+    },
+    toggleCvEdit(on) {
+      cvEditMode = on !== false;
+      render();
+      if (cvEditMode) setTimeout(() => { const el = $('#cvEditor'); if (el) el.focus(); }, 50);
+    },
+    updateCvCount(val) {
+      const el = $('#cvEditCount');
+      if (el) el.textContent = String(val || '').trim().split(/\s+/).filter(Boolean).length + ' words';
+    },
+    saveCvEdit() {
+      const ta = $('#cvEditor');
+      const text = ta ? ta.value.trim() : '';
+      if (!text) { toast('The editor is empty — paste your CV text or cancel.', 'err'); return; }
+      try {
+        const ext = Engine.extractFromText(text);
+        const prevCities = state.profile.preferredCities;
+        const prevSalary = state.profile.preferredSalary;
+        const prevName = state.profile.fullName, prevPhone = state.profile.phone;
+        state.profile = flattenExtraction(ext);
+        if (prevCities && prevCities.length) state.profile.preferredCities = prevCities;
+        if (prevSalary) state.profile.preferredSalary = prevSalary;
+        if (!state.profile.fullName && prevName) state.profile.fullName = prevName;
+        if (!state.profile.phone && prevPhone) state.profile.phone = prevPhone;
+        state.cvText = text;
+        const r2 = analyzeCv(text, state.profile);
+        if (!state.atsHistory) state.atsHistory = [];
+        const prev = state.atsHistory.length ? state.atsHistory[state.atsHistory.length - 1].score : null;
+        state.atsHistory.push({ t: Date.now(), score: r2.score });
+        if (state.atsHistory.length > 10) state.atsHistory = state.atsHistory.slice(-10);
+        embState.cvVec = null;
+        embState.ready = false;
+        cvEditMode = false;
+        save();
+        render();
+        toast('CV updated — ATS score ' + r2.score + (prev === null ? '' : ' (' + (r2.score - prev >= 0 ? '+' : '') + (r2.score - prev) + ')'), 'ok');
+        warmupSemantic(false);
+      } catch (err) {
+        toast('Extraction failed: ' + err.message, 'err');
+      }
     },
     saveQuickFixes() {
       const v = (id) => { const el = $(id); return el ? el.value.trim() : ''; };
