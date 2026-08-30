@@ -47,11 +47,14 @@ jobs:
         run: |
           python collector.py
           python filter_jobs.py
-
+        run: |
+          python collector.py
+          python filter_jobs.py
+          python build_pages.py
       - name: Commit updated data.js + embeddings.js (if changed)
         run: |
           git config user.name "medmatch-bot"
           git config user.email "actions@github.com"
-          git add data.js embeddings.js
+          git add data.js embeddings.js jobs sitemap.xml robots.txt
           git diff --cached --quiet && echo "No changes" || git commit -m "chore: refresh jobs + embeddings (scheduled run)"
           git push
