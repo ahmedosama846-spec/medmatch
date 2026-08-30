@@ -47,9 +47,6 @@ jobs:
         run: |
           python collector.py
           python filter_jobs.py
-        run: |
-          python collector.py
-          python filter_jobs.py
           python build_pages.py
       - name: Commit updated data.js + embeddings.js (if changed)
         run: |
