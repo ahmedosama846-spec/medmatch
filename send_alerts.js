@@ -2,10 +2,10 @@
 /* ============================================================
    MedMatch — weekly personalized job alerts (GitHub Actions).
 
-   Runs the REAL matching engine (engine.js) against every cloud
-   user's stored profile, picks new strong matches they haven't
-   been emailed about, and sends one digest per user via Brevo
-   (free tier: 300 emails/day).
+   Runs the REAL matching engine (engine.js + engine_fix.js hardening)
+   against every cloud user's stored profile, picks new strong
+   matches they haven't been emailed about, and sends one digest per
+   user via Brevo (free tier: 300 emails/day).
 
    Secrets needed (repo → Settings → Secrets → Actions):
      SUPABASE_URL          e.g. https://xyz.supabase.co
@@ -32,10 +32,16 @@ if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY || !BREVO_API_KEY || !ALERT_FROM) {
   process.exit(1);
 }
 
-/* ---------- load data.js + engine.js into a shared VM context ---------- */
+/* ---------- load data.js + engine.js + engine_fix.js into a shared VM context ---------- */
 const ctx = vm.createContext({ console: console, window: {} });
 vm.runInContext(fs.readFileSync('data.js', 'utf8'), ctx, { filename: 'data.js' });
 vm.runInContext(fs.readFileSync('engine.js', 'utf8'), ctx, { filename: 'engine.js' });
+try {
+  vm.runInContext(fs.readFileSync('engine_fix.js', 'utf8'), ctx, { filename: 'engine_fix.js' });
+  console.log('engine_fix.js loaded — scoring hardening active.');
+} catch (e) {
+  console.warn('engine_fix.js not loaded (%s) — scoring with raw engine.', e.message);
+}
 const DEMO_JOBS = vm.runInContext('typeof DEMO_JOBS !== "undefined" ? DEMO_JOBS : window.DEMO_JOBS', ctx);
 const Engine = vm.runInContext('typeof Engine !== "undefined" ? Engine : window.Engine', ctx);
 if (!DEMO_JOBS || !Engine) {

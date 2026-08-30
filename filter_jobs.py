@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 """
-MedMatch — clinical-jobs gate.
+MedMatch — clinical-jobs gate (v2).
 
-This is a healthcare board: non-clinical postings (hotel operators,
-drivers, cashiers…) that slip past the collector get dropped here.
-Runs AFTER the collector in the weekly sync, and also cleans the
-jobs already sitting in data.js.
+This is a healthcare board: non-clinical postings (sales territory
+leads, veterinarians, hotel operators, postdocs…) get dropped here.
+Runs AFTER the collector/scraper in the weekly pipelines, and also
+cleans the jobs already sitting in data.js.
 
 Rule per job:
-  1. title matches the junk blacklist          -> DROP
-  2. title/profession/description looks clinical (EN + AR) -> KEEP
-  3. collector already classified it to a known profession -> KEEP
-  4. otherwise                                 -> DROP
+  1. title matches the junk blacklist                       -> DROP
+  2. title or description contains a clinical term (EN+AR)  -> KEEP
+  3. otherwise                                              -> DROP
+
+Note: the profession field is deliberately NOT evidence — the
+collector defaults it, so a mis-tag would otherwise justify itself.
 
 Usage:
     python filter_jobs.py             # filter + rewrite data.js
@@ -34,23 +36,21 @@ JUNK_RE = re.compile(
     r"telephon|call\s*cent|concierge|swiss service|waiter|waitress|\bchef\b|\bcook\b"
     r"|driver|chauffeur|cashier|housekeep|security guard|barista|valet|bell\s?(hop|boy)"
     r"|storekeep|warehouse|cleaner|janitor|gardener|electrician|plumber"
-    r"|سائق|نادل|طباخ|كاشير|عامل نظافة|حارس|لحام|كهربائي|سباك", re.I)
+    r"|territory|\bsales\b|account (manager|executive)|business development"
+    r"|livestock|veterinar|postdoctoral|research fellow"
+    r"|مبيعات|تسويق|سائق|نادل|طباخ|كاشير|عامل نظافة|حارس|لحام|كهربائي|سباك", re.I)
 
 CLINICAL_RE = re.compile(
-    r"doctor|physician|medical officer|general practitioner|طبيب|ممارس|مقيم|استشاري|consultant"
-    r"|specialist|أخصائي|nurs|تمريض|ممرض|pharmac|صيدل|dent|أسنان|physio|علاج طبيعي"
-    r"|radiolog|أشعة|laborator|مختبر|\blab\b|technician|technologist|فني|midwi|قابل"
-    r"|anesth|تخدير|paramedic|إسعاف|optometr|بصريات|nutrition|تغذية|dietitian"
+    r"doctor|physician|medical officer|general practitioner|طبيب|ممارس|مقيم|resident|house officer"
+    r"|استشاري|consultant|specialist|أخصائي|nurs|تمريض|ممرض|pharmac|صيدل|dent|أسنان"
+    r"|physio|علاج طبيعي|radiolog|أشعة|laborator|مختبر|\blab\b|technician|technologist|فني"
+    r"|midwi|قابل|anesth|تخدير|paramedic|إسعاف|optometr|بصريات|nutrition|تغذية|dietitian"
     r"|psycholog|نفسي|therap|علاج|speech|نطق|occupational|health|صحة|صحي|medical|طبي"
     r"|clinic|عيادة|hospital|مستشفى|surgeon|جراح|cardio|قلب|pediatric|أطفال"
     r"|oncolog|سرطان|dermat|جلدية|ophthalm|عيون|orthoped|عظام|gynec|نساء|urolog|مسالك"
-    r"|nephro|كلى|gastro|neurol|أعصاب|psychiat|\bicu\b|\ber\b|emergency medicine"
+    r"|nephro|كلى|gastro|neurol|أعصاب|psychiat|\bicu\b|\ber\b|emergency|طوارئ"
     r"|intensive care|عناية|epidemiolog|وبائ|public health|صحة عامة"
     r"|infection control|مكافحة عدوى|vaccin|تطعيم|لقاح", re.I)
-
-KNOWN_PROFESSIONS = {"general practitioner", "specialist", "consultant", "dentist",
-                     "nurse", "pharmacist", "physiotherapist", "radiologist",
-                     "laboratory", "healthcare administrator"}
 
 
 def read_const(src, name):
@@ -72,15 +72,10 @@ def write_const(src, name, arr):
 
 def verdict(job):
     title = job.get("title") or ""
-    prof = (job.get("profession") or "").strip().lower()
-    blob = title + " " + (job.get("profession") or "") + " " + (job.get("description") or "")
     if JUNK_RE.search(title):
         return False
-    if CLINICAL_RE.search(blob):
-        return True
-    if prof in KNOWN_PROFESSIONS:
-        return True
-    return False
+    blob = title + " " + (job.get("description") or "")
+    return bool(CLINICAL_RE.search(blob))
 
 
 def main():
