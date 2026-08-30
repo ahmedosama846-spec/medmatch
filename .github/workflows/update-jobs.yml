@@ -44,7 +44,9 @@ jobs:
         env:
           JOOBLE_KEY: ${{ secrets.JOOBLE_KEY }}
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
-        run: python collector.py --pages 1
+                run: |
+          python collector.py
+          python filter_jobs.py
 
       - name: Commit updated data.js + embeddings.js (if changed)
         run: |
