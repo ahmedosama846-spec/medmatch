@@ -1160,58 +1160,109 @@
   }
 
 
-  /* ---------- analysis page extras (v22) ---------- */
-
-  /* ---------- CV review: marked-up viewer + inline editor (v23) ---------- */
-  let cvEditMode = false;
+  /* ---------- CV review: document preview, edit-in-place, export (v24) ---------- */
+  let cvEditMode = false, cvTpl = 'classic', cvMarks = true;
 
   const CV_STYLE =
-    '.cv-view{max-height:420px;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:.86rem;line-height:1.55}' +
-    '.cv-line{white-space:pre-wrap;min-height:1.25em;padding:1px 6px;border-inline-start:3px solid transparent}' +
-    '.cv-line.cv-fix{background:#fdf3e3;border-inline-start-color:var(--amber)}' +
-    '.cv-line.cv-good{background:#eafaf3;border-inline-start-color:var(--green)}' +
-    'mark.cv-kw{background:#e0f2f0;color:var(--teal-d);border-radius:3px;padding:0 2px}' +
-    '#cvEditor{min-height:340px;line-height:1.55;font-size:.88rem}';
+    '.doc-wrap{background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px 30px;max-height:560px;overflow:auto}' +
+    '.cv-doc{font-family:Georgia,serif;color:#1c2733;font-size:.92rem;line-height:1.5}' +
+    '.cv-doc .d-name{font-size:1.5rem;font-weight:700;text-align:center;margin:0}' +
+    '.cv-doc .d-sub{text-align:center;color:var(--muted);font-size:.8rem;margin:2px 0 0}' +
+    '.cv-doc .d-sec{margin-top:14px}' +
+    '.cv-doc .d-sec>h4{font-size:.78rem;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #d8e0e8;margin:0 0 6px;padding-bottom:3px}' +
+    '.cv-doc ul{margin:0;padding-inline-start:18px}' +
+    '.cv-doc li{margin:2px 0}' +
+    '.tpl-modern .cv-doc{font-family:inherit}' +
+    '.tpl-modern .cv-doc .d-name{color:var(--teal-d);text-align:left}' +
+    '.tpl-modern .cv-doc .d-sub{text-align:left}' +
+    '.tpl-modern .cv-doc .d-sec>h4{color:var(--teal-d);border-bottom:2px solid var(--teal)}' +
+    '.cv-edit{outline:2px dashed var(--teal);outline-offset:4px;max-height:none}' +
+    '.cv-doc mark.cv-kw{background:#e0f2f0;color:var(--teal-d);border-radius:3px;padding:0 2px}' +
+    '.cv-doc li.cv-fix{background:#fdf3e3}' +
+    '.cv-doc li.cv-good{background:#eafaf3}';
 
-  function highlightCvText(text) {
+  const CV_HEADINGS = ['PROFESSIONAL SUMMARY', 'SUMMARY', 'PROFILE', 'WORK EXPERIENCE', 'PROFESSIONAL EXPERIENCE',
+    'CLINICAL EXPERIENCE', 'EXPERIENCE', 'EMPLOYMENT HISTORY', 'EDUCATION', 'LICENSES & CERTIFICATIONS',
+    'LICENSES AND CERTIFICATIONS', 'LICENSES', 'CERTIFICATIONS', 'LICENSING', 'CLINICAL SKILLS', 'SKILLS',
+    'COMPETENCIES', 'LANGUAGES', 'REFERENCES', 'AWARDS', 'PUBLICATIONS', 'TRAINING', 'COURSES', 'MEMBERSHIPS'];
+
+  function structureCv(text) {
+    const heads = CV_HEADINGS.map(escRe).join('|');
+    const reCaps = new RegExp('\\b(' + heads + ')\\b');
+    const isHeadAny = new RegExp('^(' + heads + ')$', 'i');
+    const isHeadCaps = new RegExp('^(' + heads + ')$');
+    const head = [], secs = [];
+    let cur = null;
+    String(text).replace(/\r/g, '').split('\n').forEach((raw) => {
+      const ln0 = raw.trim();
+      if (!ln0) return;
+      if (isHeadAny.test(ln0)) { cur = { title: ln0.toUpperCase(), body: [] }; secs.push(cur); return; }
+      ln0.replace(reCaps, (m) => '\n' + m + '\n').split('\n').map((s) => s.trim()).filter(Boolean).forEach((pt) => {
+        if (isHeadCaps.test(pt)) { cur = { title: pt, body: [] }; secs.push(cur); }
+        else if (cur) cur.body.push(pt);
+        else head.push(pt);
+      });
+    });
+    secs.forEach((s) => { s.items = s.body.join(' ').split('•').map((x) => x.trim()).filter(Boolean); });
+    return { head, secs };
+  }
+
+  function cvDocHtml(st, withMarks) {
     const vocab = (typeof SKILLS_VOCAB !== 'undefined' ? SKILLS_VOCAB : []);
-    const kwRe = vocab.length ? new RegExp('\\b(' + vocab.map(escRe).join('|') + ')\\b', 'gi') : null;
+    const kwRe = (withMarks && vocab.length) ? new RegExp('\\b(' + vocab.map(escRe).join('|') + ')\\b', 'gi') : null;
     const quantRe = /\d+%|\d+\s*(patients?|cases|procedures|beds|visits)\b|\bper (day|week)\b/i;
     let fix = 0, good = 0, kw = 0;
-    const html = String(text).split('\n').map((ln) => {
-      let h = esc(ln);
+    const itemHtml = (txt) => {
+      let h = esc(txt);
       if (kwRe) h = h.replace(kwRe, (m) => { kw++; return '<mark class="cv-kw">' + m + '</mark>'; });
-      const words = ln.trim().split(/\s+/).filter(Boolean).length;
-      const isBullet = /^\s*[-•*]/.test(ln);
-      let cls = '';
-      if (quantRe.test(ln)) { good++; cls = ' cv-good'; }
-      else if (words >= 15 && !isBullet) { fix++; cls = ' cv-fix'; }
-      if (!ln.trim()) h = '&nbsp;';
-      return '<div class="cv-line' + cls + '">' + h + '</div>';
-    }).join('');
-    return { html, fix, good, kw };
+      return h;
+    };
+    const itemCls = (txt) => {
+      if (!withMarks) return '';
+      if (quantRe.test(txt)) { good++; return 'cv-good'; }
+      if (txt.split(/\s+/).filter(Boolean).length >= 25) { fix++; return 'cv-fix'; }
+      return '';
+    };
+    const head = st.head.map((ln, i) => i === 0
+      ? '<h2 class="d-name">' + esc(ln) + '</h2>'
+      : '<p class="d-sub">' + esc(ln) + '</p>').join('');
+    const secs = st.secs.map((s) => '<div class="d-sec"><h4>' + esc(s.title) + '</h4><ul>' +
+      s.items.map((it) => '<li' + (itemCls(it) ? ' class="' + itemCls(it) + '"' : '') + '>' + itemHtml(it) + '</li>').join('') +
+      '</ul></div>').join('');
+    return { html: '<div class="cv-doc">' + head + secs + '</div>', fix, good, kw };
   }
 
   function cvReviewCard(a) {
+    const st = structureCv(state.cvText);
+    const doc = cvDocHtml(st, cvMarks && !cvEditMode);
     let body;
     if (cvEditMode) {
-      body = '<p class="muted">Edit your CV below, then save — the report, your profile and every match score update instantly.</p>' +
-        '<textarea class="input" id="cvEditor" oninput="App.updateCvCount(this.value)">' + esc(state.cvText) + '</textarea>' +
+      body = '<p class="muted">Click into the document and edit it directly, then save — the report, your profile and every match score update instantly.</p>' +
+        '<div class="doc-wrap tpl-' + cvTpl + ' cv-edit" id="cvEditor" contenteditable="true" spellcheck="false" oninput="App.updateCvCount(this.innerText)">' + doc.html + '</div>' +
         '<div class="flex between mt wrap"><span class="muted" id="cvEditCount">' + a.words + ' words</span>' +
-        '<span class="flex"><button class="btn btn-primary btn-sm" onclick="App.saveCvEdit()">Save &amp; re-analyze</button>' +
+        '<span class="flex wrap"><button class="btn btn-primary btn-sm" onclick="App.saveCvEdit()">Save &amp; re-analyze</button>' +
         '<button class="btn btn-ghost btn-sm" onclick="App.toggleCvEdit(false)">Cancel</button></span></div>';
     } else {
-      const mkd = highlightCvText(state.cvText);
-      body = '<div class="flex wrap" style="gap:12px;margin-bottom:8px">' +
-        '<span class="muted" style="font-size:.8rem"><span style="color:var(--amber)">■</span> ' + mkd.fix + ' long paragraph' + (mkd.fix === 1 ? '' : 's') + ' — convert to bullets</span>' +
-        '<span class="muted" style="font-size:.8rem"><span style="color:var(--green)">■</span> ' + mkd.good + ' quantified line' + (mkd.good === 1 ? '' : 's') + ' — keep these</span>' +
-        '<span class="muted" style="font-size:.8rem"><span style="color:var(--teal-d)">■</span> ' + mkd.kw + ' clinical keyword hit' + (mkd.kw === 1 ? '' : 's') + '</span></div>' +
-        '<div class="cv-view">' + mkd.html + '</div>' +
-        '<div class="flex mt"><button class="btn btn-outline btn-sm" onclick="App.toggleCvEdit()">Edit CV &amp; re-analyze</button></div>';
+      body = '<div class="flex wrap" style="gap:8px;align-items:center;margin-bottom:10px">' +
+        '<select class="input" style="width:auto;padding:6px 10px" onchange="App.setCvTpl(this.value)">' +
+        '<option value="classic"' + (cvTpl === 'classic' ? ' selected' : '') + '>Classic template</option>' +
+        '<option value="modern"' + (cvTpl === 'modern' ? ' selected' : '') + '>Modern template</option></select>' +
+        '<label class="check-chip"><input type="checkbox"' + (cvMarks ? ' checked' : '') + ' onchange="App.toggleCvMarks(this.checked)"> Mark issues</label>' +
+        '<button class="btn btn-outline btn-sm" onclick="App.toggleCvEdit()">Edit in place</button>' +
+        '<span style="flex:1"></span>' +
+        '<button class="btn btn-ghost btn-sm" onclick="App.downloadCv(\'txt\')">.txt</button>' +
+        '<button class="btn btn-ghost btn-sm" onclick="App.downloadCv(\'html\')">.html</button>' +
+        '<button class="btn btn-ghost btn-sm" onclick="App.downloadCv(\'pdf\')">PDF / print</button></div>' +
+        (cvMarks ? '<div class="flex wrap" style="gap:12px;margin-bottom:8px">' +
+          '<span class="muted" style="font-size:.8rem"><span style="color:var(--amber)">■</span> ' + doc.fix + ' long item' + (doc.fix === 1 ? '' : 's') + ' — split or shorten</span>' +
+          '<span class="muted" style="font-size:.8rem"><span style="color:var(--green)">■</span> ' + doc.good + ' quantified — keep these</span>' +
+          '<span class="muted" style="font-size:.8rem"><span style="color:var(--teal-d)">■</span> ' + doc.kw + ' clinical keyword hits</span></div>' : '') +
+        '<div class="doc-wrap tpl-' + cvTpl + '">' + doc.html + '</div>';
     }
-    return '<style>' + CV_STYLE + '</style><div class="card mt-lg"><div class="flex between"><h3 style="margin:0">CV review — marked copy</h3></div>' + body + '</div>';
+    return '<style>' + CV_STYLE + '</style><div class="card mt-lg"><div class="flex between"><h3 style="margin:0">CV review</h3></div>' + body + '</div>';
   }
 
+  /* ---------- analysis page extras (v22) ---------- */
   function quickFixesCard() {
     const p = state.profile;
     const opt = (cur, vals) => vals.map((o) => '<option value="' + o + '"' + (cur === o ? ' selected' : '') + '>' + (o || '—') + '</option>').join('');
@@ -2064,18 +2115,73 @@
       render();
       toast('Preferences saved.', 'ok');
     },
+    saveQuickFixes() {
+      const v = (id) => { const el = $(id); return el ? el.value.trim() : ''; };
+      const name = v('qfName'), phone = v('qfPhone');
+      if (name) state.profile.fullName = name;
+      if (phone) state.profile.phone = phone;
+      state.profile.scfhsRegistration = v('qfScfhs');
+      state.profile.dataflow = v('qfDataflow');
+      save();
+      render();
+      toast('Saved — match scores updated.', 'ok');
+    },
     toggleCvEdit(on) {
       cvEditMode = on !== false;
       render();
       if (cvEditMode) setTimeout(() => { const el = $('#cvEditor'); if (el) el.focus(); }, 50);
     },
+    setCvTpl(v) {
+      cvTpl = v === 'modern' ? 'modern' : 'classic';
+      render();
+    },
+    toggleCvMarks(on) {
+      cvMarks = !!on;
+      render();
+    },
     updateCvCount(val) {
       const el = $('#cvEditCount');
       if (el) el.textContent = String(val || '').trim().split(/\s+/).filter(Boolean).length + ' words';
     },
+    downloadCv(kind) {
+      const st = structureCv(state.cvText);
+      const doc = cvDocHtml(st, false);
+      const name = (state.profile.fullName || 'MedMatch-CV').replace(/[^\w\- ]+/g, '').trim().replace(/\s+/g, '-') || 'MedMatch-CV';
+      if (kind === 'txt') {
+        const b = new Blob([state.cvText], { type: 'text/plain;charset=utf-8' });
+        const u = URL.createObjectURL(b);
+        const aEl = document.createElement('a');
+        aEl.href = u; aEl.download = name + '.txt';
+        document.body.appendChild(aEl); aEl.click(); aEl.remove();
+        setTimeout(() => URL.revokeObjectURL(u), 4000);
+        return;
+      }
+      const full = '<!doctype html><html><head><meta charset="utf-8"><title>' + esc(name) + '</title><style>' +
+        'body{font-family:Georgia,serif;max-width:820px;margin:24px auto;padding:0 16px;color:#1c2733;line-height:1.5}' +
+        '.d-name{font-size:26px;text-align:center;margin:0}.d-sub{text-align:center;color:#5a6b7c;font-size:13px;margin:2px 0}' +
+        '.d-sec{margin-top:16px}.d-sec>h4{font-size:12px;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #ccd6e0;margin:0 0 6px;padding-bottom:3px}' +
+        'ul{margin:0;padding-left:20px}li{margin:3px 0}' +
+        (cvTpl === 'modern' ? 'body{font-family:Arial,Helvetica,sans-serif}.d-name{color:#0f766e;text-align:left}.d-sub{text-align:left}.d-sec>h4{color:#0f766e;border-bottom:2px solid #14b8a6}' : '') +
+        '@media print{body{margin:0}}</style></head><body>' + doc.html + '</body></html>';
+      if (kind === 'pdf') {
+        const w = window.open('', '_blank');
+        if (!w) { toast('Popup blocked — allow popups to export PDF, or use the .html download.', 'err'); return; }
+        w.document.write(full);
+        w.document.close();
+        w.focus();
+        setTimeout(() => { try { w.print(); } catch (e) { /* ignore */ } }, 400);
+        return;
+      }
+      const b2 = new Blob([full], { type: 'text/html;charset=utf-8' });
+      const u2 = URL.createObjectURL(b2);
+      const a2 = document.createElement('a');
+      a2.href = u2; a2.download = name + '.html';
+      document.body.appendChild(a2); a2.click(); a2.remove();
+      setTimeout(() => URL.revokeObjectURL(u2), 4000);
+    },
     saveCvEdit() {
-      const ta = $('#cvEditor');
-      const text = ta ? ta.value.trim() : '';
+      const el = $('#cvEditor');
+      const text = el ? el.innerText.replace(/\u00a0/g, ' ').split('\n').map((s) => s.trim()).filter(Boolean).join('\n') : '';
       if (!text) { toast('The editor is empty — paste your CV text or cancel.', 'err'); return; }
       try {
         const ext = Engine.extractFromText(text);
@@ -2103,17 +2209,6 @@
       } catch (err) {
         toast('Extraction failed: ' + err.message, 'err');
       }
-    },
-    saveQuickFixes() {
-      const v = (id) => { const el = $(id); return el ? el.value.trim() : ''; };
-      const name = v('qfName'), phone = v('qfPhone');
-      if (name) state.profile.fullName = name;
-      if (phone) state.profile.phone = phone;
-      state.profile.scfhsRegistration = v('qfScfhs');
-      state.profile.dataflow = v('qfDataflow');
-      save();
-      render();
-      toast('Saved — match scores updated.', 'ok');
     },
     clearActivity() {
       state.events = [];
