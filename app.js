@@ -1161,7 +1161,7 @@
   }
 
 
-  /* ---------- CV review + AI (DeepSeek via Supabase Edge Function) (v28) ---------- */
+  /* ---------- CV review + AI (DeepSeek via Supabase Edge Function) (v29) ---------- */
   let cvEditMode = false, cvTpl = 'classic', cvMarks = true, cvView = 'auto', pdfStashText = '';
   let aiBusy = false, aiFixes = [];
 
@@ -1189,7 +1189,14 @@
     if (!sb || !currentUser || !currentUser.cloud) return { error: 'AI features need a cloud sign-in (magic link).' };
     try {
       const r = await sb.functions.invoke('cv-ai', { body: { mode, text, context } });
-      if (r.error) return { error: r.error.message || 'AI call failed' };
+      if (r.error) {
+        let msg = r.error.message || 'AI call failed';
+        try {
+          const body = await r.error.context.json();
+          if (body && body.error) msg = body.error;
+        } catch (e) { /* keep generic message */ }
+        return { error: msg };
+      }
       return r.data || { error: 'Empty AI response' };
     } catch (e) { return { error: e.message || 'AI unavailable' }; }
   }
