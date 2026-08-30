@@ -1,0 +1,25 @@
+# MedMatch — weekly personalized job alerts.
+# Runs Mondays 08:00 UTC (11:00 Riyadh) — after the job sync, cluster
+# scrape and embeddings rebuild, so alerts carry the freshest jobs.
+name: Weekly job alerts
+
+on:
+  schedule:
+    - cron: "0 8 * * 1"   # Mondays 08:00 UTC = 11:00 Riyadh
+  workflow_dispatch:
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Send personalized alerts
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          ALERT_FROM: ${{ secrets.ALERT_FROM }}
+          SITE_URL: https://ahmedosama846-spec.github.io/medmatch/
+        run: node send_alerts.js
