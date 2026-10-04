@@ -1,4 +1,4 @@
-/* Last link-check: 2026-08-30 — removed 1 dead posting(s). */
+/* Last link-check: 2026-10-04 — removed 4 dead posting(s). */
 /* MedMatch Saudi — static data & demo dataset.
    All jobs below are SYNTHETIC DEMO DATA. Employers are fictional and records
    are flagged demo:true. Replace with live ingestion from permitted APIs/feeds. */
@@ -7042,43 +7042,6 @@ const DEMO_JOBS = [
     "demo": false
   },
   {
-    "id": "jsY0hkTVdoWlNtSGZJeFpxdkFB",
-    "title": "Medical Domain Expert (Physician)",
-    "profession": "General Practitioner",
-    "specialty": "ENT",
-    "employer": "Lemon R",
-    "city": "Riyadh",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 2,
-    "expMax": 7,
-    "degreeReq": "",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Contract",
-    "contract": "",
-    "hours": "",
-    "skills": [],
-    "certs": [],
-    "requirements": [
-      "Qualifications • Degree in Medicine, Nursing, Pharmacy, Biomedical Sciences, or a related healthcare field.",
-      "2+ years of professional experience in clinical practice, healthcare, medical research, or a related function."
-    ],
-    "responsibilities": [
-      "The client combines a scalable platform and managed services to deliver trusted datasets for leading AI programmes and enterprise customers.",
-      "Type: Contractor / Freelancer Responsibilities • Review, evaluate, and improve AI/LLM-generated content related to medicine and healthcare.",
-      "Assess AI outputs for medical accuracy, clinical reasoning, relevance, and consistency."
-    ],
-    "description": "We are hiring for our client, the big player and leader in the artificial intelligence (annotation) sector. You will be informed about the client once you get shortlisted. The client is a global leader in providing high-quality training data and data-platform solutions that power enterprise AI — from text/audio labeling to large-scale image/video annotation and LLM customisation. The client combines a scalable platform and managed services to deliver trusted datasets for leading AI programmes and enterprise customers. Should you be eager to apply your domain-specific knowledge within the cutti",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://lemonr.careers-page.com/jobs/abe73806-a099-4158-b551-1a0cc45d73f9?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
-    "applyIsDirect": false,
-    "postedDaysAgo": 3,
-    "demo": false
-  },
-  {
     "id": "jseGM3ck9GU2xOeHpPUnYtQUFB",
     "title": "ER General Physician: Fast-Paced Care & Video Consults",
     "profession": "General Practitioner",
@@ -9598,46 +9561,6 @@ const DEMO_JOBS = [
     "demo": false
   },
   {
-    "id": "jseGx0LWs4Qi1BYmFUWV9CaUFB",
-    "title": "ASSOCIATE CATH LAB TECHNOLOGIST Al Hasa",
-    "profession": "Laboratory",
-    "specialty": "ENT",
-    "employer": "Johns Hopkins Aramco Healthcare",
-    "city": "Other",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 1,
-    "expMax": 6,
-    "degreeReq": "BSc Medical Laboratory Sciences",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Quality Control"
-    ],
-    "certs": [],
-    "requirements": [
-      "This full-time position is based in Al Qatif and requires 0-1 years of experience.",
-      "Experience and Qualifications ********;\">Candidates for this role should possess 0-1 years of experience in a relevant field."
-    ],
-    "responsibilities": [
-      "The role involves assisting interventional cardiologists in diagnostic and interventional procedures using advanced fluoroscopy equipment to diagnose heart problems in patients.",
-      "Key Responsibilities • Operate and maintain fluoroscopy and hemodynamic equipment.",
-      "Perform physiological assessment and imaging modalities including FFR, IFR, IVUS, and OCT.",
-      "Scrub and circulate during diagnostic and coronary intervention, electrophysiology studies, and structural heart procedures."
-    ],
-    "description": "About the Role ;\">Johns Hopkins Aramco Healthcare is seeking an Associate Cath Lab Technologist to join their team in Al Hasa. This full-time position is based in Al Qatif and requires 0-1 years of experience. The role involves assisting interventional cardiologists in diagnostic and interventional procedures using advanced fluoroscopy equipment to diagnose heart problems in patients. Key Responsibilities • Operate and maintain fluoroscopy and hemodynamic equipment. • Perform physiological assessment and imaging modalities including FFR, IFR, IVUS, and OCT. • Demonstrate understanding of cardi",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sabbar.com/en/jobs/c-al-qatif-r-associate-cath-lab-technologist-al-hasa/id-82d45284-f4c8-4429-ac11-90f61d932636",
-    "applyIsDirect": false,
-    "postedDaysAgo": 2,
-    "demo": false
-  },
-  {
     "id": "jsT2kxdlZ2SUMtYThGaVFuWkFB",
     "title": "Medical Laboratory Technician",
     "profession": "Laboratory",
@@ -9814,36 +9737,6 @@ const DEMO_JOBS = [
     "applyUrl": "https://bebee.com/sa/jobs/lab-specialist-al-moosa-specialist-hospital--ss-sa-1wnf954",
     "applyIsDirect": false,
     "postedDaysAgo": 21,
-    "demo": false
-  },
-  {
-    "id": "jsY21COEhuRWppa05sWnY2UEFB",
-    "title": "Medical Laboratory Scientist",
-    "profession": "Laboratory",
-    "specialty": "ENT",
-    "employer": "شركة نبض بلس الطبية",
-    "city": "Riyadh",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 0,
-    "expMax": 5,
-    "degreeReq": "",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [],
-    "certs": [],
-    "requirements": [],
-    "responsibilities": [],
-    "description": "نبذة عن الدور ;\">تبحث شركة نبض بلس الطبية عن أخصائي مختبرات طبية للانضمام إلى فريقها في الرياض. يتولى شاغل هذه الوظيفة قيادة الفحوصات المخبرية المتقدمة والإشراف على الفريق الفني، مع ضمان دقة نتائج التحاليل الطبية وفق أعلى معايير الجودة. هذا الدور بدوام كامل ويتطلب خبرة تتراوح بين سنتين وخمس سنوات. المهام والمسؤوليات الرئيسية • إجراء التحاليل والفحوصات المخبرية الدقيقة والمعقدة للعينات البيولوجية. • تقديم الإشراف الفني للعاملين بالمختبر وتوفير الدعم والتوجيه اللازم. • مراقبة جودة النتائج المخبرية والتأكد من مطابقتها للمعايير المعتمدة، بالإضافة إلى التحقق من صلاحية المواد الطبية والتشخيصية. • تط",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sabbar.com/en/jobs/c-riyadh-r-%D8%A3%D8%AE%D8%B5%D8%A7%D8%A6%D9%8A-%D9%85%D8%AE%D8%AA%D8%A8%D8%B1%D8%A7%D8%AA-%D8%B7%D8%A8%D9%8A%D8%A9/id-e06cbe98-50d1-427c-ab1c-a0126d123996",
-    "applyIsDirect": false,
-    "postedDaysAgo": 16,
     "demo": false
   },
   {
@@ -11374,47 +11267,6 @@ const DEMO_JOBS = [
     "applyUrl": "https://sa.jobrapido.com/jobpreview/3464597386498670592",
     "applyIsDirect": false,
     "postedDaysAgo": 16,
-    "demo": false
-  },
-  {
-    "id": "jsVlExZ3JPMEY2V21MWFdORkFB",
-    "title": "Obstetrics and Gynecology Consultants",
-    "profession": "Consultant",
-    "specialty": "Emergency Medicine",
-    "employer": "Job Care",
-    "city": "Riyadh",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 5,
-    "expMax": 10,
-    "degreeReq": "",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Emergency Medicine"
-    ],
-    "certs": [],
-    "requirements": [
-      "This is a full-time position requiring 2-5 years of experience in the field, with a salary range of $3,000",
-      "Required Qualifications and Experience • A Saudi classification is mandatory for all applicants.",
-      "Minimum of 2-5 years of experience as an Obstetrics and Gynecology Consultant."
-    ],
-    "responsibilities": [
-      "Key Responsibilities • Provide specialized consultation and care in Obstetrics and Gynecology.",
-      "Manage patient cases related to obstetrics and gynecology.",
-      "Collaborate with multidisciplinary teams to ensure comprehensive patient care.",
-      "The position requires a commitment to providing high-quality patient care in a dynamic hospital setting."
-    ],
-    "description": "About the Role ;\">Job Care, a leading healthcare recruitment company, is announcing an opportunity for Obstetrics and Gynecology Consultants to work in top hospitals in Riyadh, Saudi Arabia. This is a full-time position requiring 2-5 years of experience in the field, with a salary range of $3,000 - $4,000. Key Responsibilities • Provide specialized consultation and care in Obstetrics and Gynecology. • Manage patient cases related to obstetrics and gynecology. • Collaborate with multidisciplinary teams to ensure comprehensive patient care. Required Qualifications and Experience • A Saudi classi",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sabbar.com/ar/jobs/c-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-r-obstetrics-and-gynecology-consultants/id-b8fb8185-8972-4a08-9ec6-12c05751c311",
-    "applyIsDirect": false,
-    "postedDaysAgo": 26,
     "demo": false
   },
   {
