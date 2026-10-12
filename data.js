@@ -87,7 +87,7 @@ const JOB_SOURCES = [
     "url": "https://www.health.sa/en/careers",
     "type": "Employer portals",
     "api": "HTML/JSON scrape",
-    "lastSync": "2026-10-05 11:56",
+    "lastSync": "2026-10-12 12:32",
     "imported": 0,
     "active": false
   }
@@ -13409,7 +13409,7 @@ const DEMO_JOBS = [
     ],
     "certs": [],
     "requirements": [
-      "Education / Professional Qualifications: • Education Degree (Required): Bachelor’s degree in medicine (MBBS/MD), Pharm D, Biology, microbiology, Chemistry, or equivalent medical\clinical qualification.",
+      "Education / Professional Qualifications: • Education Degree (Required): Bachelor’s degree in medicine (MBBS/MD), Pharm D, Biology, microbiology, Chemistry, or equivalent medicalclinical qualification.",
       "License: (optional) Valid Saudi Commission for Health Specialties (SCFHS) classification/registration, where applicable to the professional qualification.",
       "Professional Certification (Optional): Certification or formal training in medical coding, health insurance, claims management, or Revenue Cycle Management is preferred."
     ],
