@@ -1,4 +1,4 @@
-/* Last link-check: 2026-10-11 — removed 4 dead posting(s). */
+/* Last link-check: 2026-10-18 — removed 3 dead posting(s). */
 /* MedMatch Saudi — static data & demo dataset.
    All jobs below are SYNTHETIC DEMO DATA. Employers are fictional and records
    are flagged demo:true. Replace with live ingestion from permitted APIs/feeds. */
@@ -8503,50 +8503,6 @@ const DEMO_JOBS = [
     "demo": false
   },
   {
-    "id": "jsOFBWNGxFZVF5VnVtVFhTdkFB",
-    "title": "Senior Registrar – Internal Medicine",
-    "profession": "Specialist",
-    "specialty": "Internal Medicine",
-    "employer": "amer",
-    "city": "Jeddah",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 0,
-    "expMax": 5,
-    "degreeReq": "MBBS or equivalent medical degree",
-    "scfhs": "required",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Medical Records",
-      "Internal Medicine"
-    ],
-    "certs": [],
-    "requirements": [
-      "Our mission is to improve patient outcomes, promote community health, and deliver an exceptional healthcare experience built on professionalism, compassion, and clinical excellence.",
-      "Medical degree (MBBS or equivalent) from a recognized medical institution.",
-      "Recognized postgraduate qualification or board certification in Internal Medicine.",
-      "Valid Saudi Commission for Health Specialties (SCFHS) classification as Senior Registrar – Internal Medicine.",
-      "Valid SCFHS professional registration and eligibility to practice in Saudi Arabia."
-    ],
-    "responsibilities": [
-      "The organization provides comprehensive healthcare services, including medical consultations, diagnosis, treatment, preventive care, and ongoing management of acute and chronic conditions.",
-      "Amer is committed to providing safe, accessible, and evidence-based healthcare through qualified medical professionals, modern clinical facilities, and advanced medical practices.",
-      "This is a full-time, on-site position responsible for providing comprehensive internal medicine services in a multidisciplinary outpatient healthcare setting.",
-      "Proven clinical experience in diagnosing and managing acute and chronic internal medicine conditions."
-    ],
-    "description": "Amer is a healthcare organization based in Jeddah, Saudi Arabia, dedicated to delivering high-quality, patient-centered medical services through its multidisciplinary medical complex. The organization provides comprehensive healthcare services, including medical consultations, diagnosis, treatment, preventive care, and ongoing management of acute and chronic conditions. Amer is committed to providing safe, accessible, and evidence-based healthcare through qualified medical professionals, modern clinical facilities, and advanced medical practices. Our mission is to improve patient outcomes, pro",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://bebee.com/sa/jobs/senior-registrar-internal-medicine-amer-jeddah--fj-2409220181",
-    "applyIsDirect": false,
-    "postedDaysAgo": 1,
-    "demo": false
-  },
-  {
     "id": "jsdHZTNm1CTmgxWnJGZzR4akFB",
     "title": "Senior ED Doctor (In-Charge) Needed - Southern South Australia Hospital",
     "profession": "General Practitioner",
@@ -9118,44 +9074,6 @@ const DEMO_JOBS = [
     "applyUrl": "https://careers.rcjy.gov.sa/en/saudi-arabia/jobs/nursing-er-trauma-center-unit-staff-nurse-i-1100090846/",
     "applyIsDirect": false,
     "postedDaysAgo": 11,
-    "demo": false
-  },
-  {
-    "id": "jsczhZV3BzSDlrRG1URjZOZ0FB",
-    "title": "ممرض/ممرضة",
-    "profession": "Nurse",
-    "specialty": "Dermatology",
-    "employer": "قطاع صحي",
-    "city": "Riyadh",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 0,
-    "expMax": 5,
-    "degreeReq": "",
-    "scfhs": "preferred",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Dermatology"
-    ],
-    "certs": [],
-    "requirements": [
-      "📢 JOB VACANCY – LICENSED FEMALE NURSE 📍 Location: Riyadh, Saudi Arabia We are looking for a qualified and licensed Female Nurse to join our team at a Dermatology & Aesthetic Clinic in Riyadh.",
-      "Requirements: • Valid Saudi Commission for Health Specialties (SCFHS) license.",
-      "Previous experience in dermatology and aesthetic clinics is preferred."
-    ],
-    "responsibilities": [
-      "Professional attitude and excellent patient care."
-    ],
-    "description": "📢 JOB VACANCY – LICENSED FEMALE NURSE 📍 Location: Riyadh, Saudi Arabia We are looking for a qualified and licensed Female Nurse to join our team at a Dermatology & Aesthetic Clinic in Riyadh. Requirements: • Valid Saudi Commission for Health Specialties (SCFHS) license. • Previous experience in dermatology and aesthetic clinics is preferred. • Good communication and interpersonal skills. • Professional attitude and excellent patient care. • Ability to work effectively within a medical team. 📩 How to Apply: Interested candidates are invited to send their updated CV via WhatsApp. 📞 Contact Numbe",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sa.linkedin.com/jobs/view/%D9%85%D9%85%D8%B1%D8%B6-%D9%85%D9%85%D8%B1%D8%B6%D8%A9-at-%D9%82%D8%B7%D8%A7%D8%B9-%D8%B5%D8%AD%D9%8A-4475625523",
-    "applyIsDirect": false,
-    "postedDaysAgo": 2,
     "demo": false
   },
   {
@@ -12807,36 +12725,6 @@ const DEMO_JOBS = [
     "applyUrl": "https://sabbar.com/en/jobs/c-al-ula-r-general-surgeon/id-5afb3447-4f1e-4f05-aef6-68fe92cb9283",
     "applyIsDirect": false,
     "postedDaysAgo": 21,
-    "demo": false
-  },
-  {
-    "id": "jsby1wcldQQzdzcVNQdzRVd0FB",
-    "title": "General Surgeon",
-    "profession": "Other",
-    "specialty": "",
-    "employer": "مجمع تألق أفضل لطب الاسنان",
-    "city": "Dammam",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 0,
-    "expMax": 5,
-    "degreeReq": "",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [],
-    "certs": [],
-    "requirements": [],
-    "responsibilities": [],
-    "description": "نبذة عن الدور يبحث مجمع تألق أفضل لطب الأسنان عن طبيب جراح للانضمام إلى فريقه في الدمام، المنطقة الشرقية. يركز هذا الدور بدوام كامل على دراسة وتشخيص الحالات المرضية التي تتطلب تدخلات جراحية عامة، مع ضمان متابعة شاملة للمرضى حتى الشفاء التام. المهام والمسؤوليات الرئيسية • دراسة وتشخيص الحالات المرضية التي تستدعي تدخلات وعمليات جراحية عامة. • تقييم إمكانية إجراء العملية الجراحية بالتنسيق مع طبيب التخدير. • إجراء التدخلات والعمليات الجراحية اللازمة. • متابعة حالة المريض بعد إجراء العملية الجراحية حتى الشفاء التام. • توثيق جميع الإجراءات الطبية أثناء العملية الجراحية، بالإضافة إلى خطة المعالجة وال",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sabbar.com/en/jobs/c-dammam-r-general-surgeon/id-0f7eede5-4cc9-4479-8418-ee0981c4b8c0",
-    "applyIsDirect": false,
-    "postedDaysAgo": 28,
     "demo": false
   },
   {
