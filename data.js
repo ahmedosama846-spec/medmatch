@@ -1,4 +1,4 @@
-/* Last link-check: 2026-10-18 — removed 3 dead posting(s). */
+/* Last link-check: 2026-10-25 — removed 9 dead posting(s). */
 /* MedMatch Saudi — static data & demo dataset.
    All jobs below are SYNTHETIC DEMO DATA. Employers are fictional and records
    are flagged demo:true. Replace with live ingestion from permitted APIs/feeds. */
@@ -8290,48 +8290,6 @@ const DEMO_JOBS = [
     "demo": false
   },
   {
-    "id": "jsdTBSWnN0cVhCZzZfM3ZMT0FB",
-    "title": "Private Physician and Medical Care Coordinator",
-    "profession": "General Practitioner",
-    "specialty": "Internal Medicine",
-    "employer": "Wahj AlMustaqbal Company Holding",
-    "city": "Riyadh",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 0,
-    "expMax": 5,
-    "degreeReq": "MBBS or equivalent medical degree",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Contract",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Internal Medicine"
-    ],
-    "certs": [],
-    "requirements": [
-      "The roleA private family seeks an experienced physician to provide clinical review, medical research, patient advocacy and care coordination for Dr.",
-      "Qualifications and experience · A medical degree and current physician registration, with appropriate licensing for any clinical practice undertaken in Saudi Arabia.",
-      "· At least five years of clinical experience, including meaningful experience in oncology or management of complex medical cases.",
-      "· Experience coordinating care across specialists and hospitals; international referrals and second opinions are highly desirable."
-    ],
-    "responsibilities": [
-      "Hamad, who is receiving complex oncology treatment.",
-      "The role requires proactive clinical judgment: reviewing the complete medical picture, anticipating complications and presenting practical pathways to address current problems and future risks.",
-      "You will work closely with the patient, family and treating specialists in Saudi Arabia and internationally, translating findings into clear recommendations, timely decisions and coordinated follow-through.",
-      "Key responsibilities· Comprehensive clinical review."
-    ],
-    "description": "The roleA private family seeks an experienced physician to provide clinical review, medical research, patient advocacy and care coordination for Dr. Hamad, who is receiving complex oncology treatment. The role requires proactive clinical judgment: reviewing the complete medical picture, anticipating complications and presenting practical pathways to address current problems and future risks. You will work closely with the patient, family and treating specialists in Saudi Arabia and internationally, translating findings into clear recommendations, timely decisions and coordinated follow-through",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://bebee.com/sa/jobs/private-physician-and-medical-care-coordinator-wahj-almustaqbal-company-holding-riyadh--fj-2413627673?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
-    "applyIsDirect": false,
-    "postedDaysAgo": 5,
-    "demo": false
-  },
-  {
     "id": "jscTNpYzFsR0RxYURWdjlyYUFB",
     "title": "Senior Medical Officer/GP Anaesthetics / GPA Oncall",
     "profession": "General Practitioner",
@@ -11357,45 +11315,6 @@ const DEMO_JOBS = [
     "demo": false
   },
   {
-    "id": "jsZXBSWmlZdWFpRXJLVm9nQ0FB",
-    "title": "REGISTRAR INTERNAL MEDICINE",
-    "profession": "Specialist",
-    "specialty": "Internal Medicine",
-    "employer": "Royal Commission for Jubail and Yanbu",
-    "city": "Other",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 0,
-    "expMax": 5,
-    "degreeReq": "",
-    "scfhs": "required",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Internal Medicine"
-    ],
-    "certs": [],
-    "requirements": [
-      "Possession of a valid Saudi Commission for Health Specialties (SCFHS) classification and registration is mandatory."
-    ],
-    "responsibilities": [
-      "Key Responsibilities • Communicate regularly with the Consultant regarding the progress of patient conditions.",
-      "Endorse detailed clinical conditions of patients to colleagues, ensuring continuity of care.",
-      "Communicate with patients regularly during shifts and upon patient request to provide updates and address concerns.",
-      "The Registrar will work within a medical team, collaborating with Consultants and colleagues to provide comprehensive patient care."
-    ],
-    "description": "About the Role The Royal Commission for Jubail and Yanbu is seeking a Registrar - Internal Medicine to join its Medical Center in Yanbu. This full-time position involves providing medical care and support within the Internal Medicine department, ensuring effective communication and documentation of patient conditions. Key Responsibilities • Communicate regularly with the Consultant regarding the progress of patient conditions. • Endorse detailed clinical conditions of patients to colleagues, ensuring continuity of care. • Maintain proper documentation of patient history, physical examinations,",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sabbar.com/ar/jobs/c-%D9%8A%D9%86%D8%A8%D8%B9-r-registrar-internal-medicine/id-1616e45d-36a0-4753-85ff-6d40ffd51b50",
-    "applyIsDirect": false,
-    "postedDaysAgo": 19,
-    "demo": false
-  },
-  {
     "id": "jsRkNUMEF2WmhPYXR5VjZmSkFB",
     "title": "Internal Medicine Consultant — Career Growth & Research",
     "profession": "Consultant",
@@ -12844,47 +12763,6 @@ const DEMO_JOBS = [
     "demo": false
   },
   {
-    "id": "jsZTBVQzBBeWVSZG8tTUJUckFB",
-    "title": "CONSULTANT GENERAL SURGERY",
-    "profession": "Consultant",
-    "specialty": "Surgery",
-    "employer": "Royal Commission for Jubail and Yanbu (RCJY)",
-    "city": "Other",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 3,
-    "expMax": 8,
-    "degreeReq": "",
-    "scfhs": "required",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [],
-    "certs": [],
-    "requirements": [
-      "This full-time position requires a professional with 2-5 years of experience in the field of specialization.",
-      "Valid SCFHS classification and registration.",
-      "Hold a Saudi board or equivalent degree.",
-      "Complete a period of experience not less than 3 years in the field of specialization in a recognized hospital or health center.",
-      "Experience Candidates should possess 2-5 years of experience in General Surgery within a recognized hospital or health center."
-    ],
-    "responsibilities": [
-      "Key Responsibilities • Make decisions regarding patient care plans.",
-      "Treat patients and their families with respect and dignity.",
-      "Conduct daily clinical rounds personally or through a designated person, if applicable.",
-      "Examine, assess, and provide investigation and treatment orders for medical/surgical patients admitted under their care in a timely manner, in accordance with RCMC policies and procedures."
-    ],
-    "description": "About the Role The Royal Commission Medical Center Yanbu is seeking a Consultant in General Surgery to join their team in Yanbu. This full-time position requires a professional with 2-5 years of experience in the field of specialization. Key Responsibilities • Make decisions regarding patient care plans. • Treat patients and their families with respect and dignity. • Interact professionally with patients and their families, involving them in the care plan formation. • Conduct daily clinical rounds personally or through a designated person, if applicable. • Be available for calls after hours fo",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sabbar.com/en/jobs/c-yanbu-r-consultant-general-surgery/id-435a6fff-44df-4cca-a7d7-a83820b4e386",
-    "applyIsDirect": false,
-    "postedDaysAgo": 7,
-    "demo": false
-  },
-  {
     "id": "jsVVY2UXB5UDdKUHlEMEFDU0FB",
     "title": "Consultant General Surgery",
     "profession": "Consultant",
@@ -13689,48 +13567,6 @@ const DEMO_JOBS = [
     "demo": false
   },
   {
-    "id": "jsdTBSWnN0cVhCZzZfM3ZMT0FB",
-    "title": "Private Physician and Medical Care Coordinator",
-    "profession": "General Practitioner",
-    "specialty": "Internal Medicine",
-    "employer": "Wahj AlMustaqbal Company Holding",
-    "city": "Other",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 0,
-    "expMax": 5,
-    "degreeReq": "MBBS or equivalent medical degree",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Contract",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Internal Medicine"
-    ],
-    "certs": [],
-    "requirements": [
-      "The roleA private family seeks an experienced physician to provide clinical review, medical research, patient advocacy and care coordination for Dr.",
-      "Qualifications and experience · A medical degree and current physician registration, with appropriate licensing for any clinical practice undertaken in Saudi Arabia.",
-      "· At least five years of clinical experience, including meaningful experience in oncology or management of complex medical cases.",
-      "· Experience coordinating care across specialists and hospitals; international referrals and second opinions are highly desirable."
-    ],
-    "responsibilities": [
-      "Hamad, who is receiving complex oncology treatment.",
-      "The role requires proactive clinical judgment: reviewing the complete medical picture, anticipating complications and presenting practical pathways to address current problems and future risks.",
-      "You will work closely with the patient, family and treating specialists in Saudi Arabia and internationally, translating findings into clear recommendations, timely decisions and coordinated follow-through.",
-      "Key responsibilities· Comprehensive clinical review."
-    ],
-    "description": "The roleA private family seeks an experienced physician to provide clinical review, medical research, patient advocacy and care coordination for Dr. Hamad, who is receiving complex oncology treatment. The role requires proactive clinical judgment: reviewing the complete medical picture, anticipating complications and presenting practical pathways to address current problems and future risks. You will work closely with the patient, family and treating specialists in Saudi Arabia and internationally, translating findings into clear recommendations, timely decisions and coordinated follow-through",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://bebee.com/sa/jobs/private-physician-and-medical-care-coordinator-wahj-almustaqbal-company-holding-riyadh--fj-2413627673?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
-    "applyIsDirect": false,
-    "postedDaysAgo": 5,
-    "demo": false
-  },
-  {
     "id": "jsNGtWTVhwblJOTW94OEFRWkFB",
     "title": "Physical Therapist (Home Care)",
     "profession": "Physiotherapist",
@@ -13804,50 +13640,6 @@ const DEMO_JOBS = [
     "applyUrl": "https://bebee.com/sa/jobs/insurance-clerk-alkhaleej-medical-company-riyadh--t7xk-868133466",
     "applyIsDirect": false,
     "postedDaysAgo": 12,
-    "demo": false
-  },
-  {
-    "id": "jsWGpXYl82RjNlS01pQlJXQkFB",
-    "title": "RCM Medical Claims Specialist",
-    "profession": "Specialist",
-    "specialty": "ENT",
-    "employer": "My Clinic KSA",
-    "city": "Other",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 2,
-    "expMax": 7,
-    "degreeReq": "MBBS or equivalent medical degree",
-    "scfhs": "required",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Microbiology",
-      "Medical Records"
-    ],
-    "certs": [],
-    "requirements": [
-      "Qualifications and Experience • Education: Bachelor’s degree in medicine (MBBS/MD), Pharm D, Biology, Microbiology, Chemistry, or an equivalent medical/clinical qualification.",
-      "Experience: A minimum of 2 years of experience, with 2-5 years preferred, in healthcare, medical insurance, claims review, utilization review, or Revenue Cycle Management.",
-      "Experience in a high-volume outpatient setting is preferred.",
-      "License (Optional): Valid Saudi Commission for Health Specialties (SCFHS) classification/registration, where applicable to the professional qualification.",
-      "Professional Certification (Optional): Certification or formal training in medical coding, health insurance, claims management, or Revenue Cycle Management is preferred."
-    ],
-    "responsibilities": [
-      "About My Clinic KSA My Clinic KSA, established in 2017, is a leading multispecialty outpatient care provider in Saudi Arabia.",
-      "The organization is dedicated to helping individuals achieve longer, healthier, and happier lives, driven by core values of care, collaboration, ambition, and responsibility.",
-      "As My Clinic KSA expands, it seeks professionals who align with its vision and values.",
-      "The Role of RCM Medical Claims Specialist My Clinic KSA is seeking an RCM Medical Claims Specialist to join its team in Jeddah, Makkah, Saudi Arabia."
-    ],
-    "description": "About My Clinic KSA My Clinic KSA, established in 2017, is a leading multispecialty outpatient care provider in Saudi Arabia. The organization is dedicated to helping individuals achieve longer, healthier, and happier lives, driven by core values of care, collaboration, ambition, and responsibility. As My Clinic KSA expands, it seeks professionals who align with its vision and values. The Role of RCM Medical Claims Specialist My Clinic KSA is seeking an RCM Medical Claims Specialist to join its team in Jeddah, Makkah, Saudi Arabia. This full-time role is integral to the Medical Operations func",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sabbar.com/en/jobs/c-jeddah-r-rcm-medical-claims-specialist/id-0c623240-a413-4092-aab7-3521ba048420",
-    "applyIsDirect": false,
-    "postedDaysAgo": 13,
     "demo": false
   },
   {
@@ -14049,90 +13841,6 @@ const DEMO_JOBS = [
     "demo": false
   },
   {
-    "id": "jsbGN1VTY1Nmt4MGY3bk9tTEFB",
-    "title": "Medical Claims Review Officer",
-    "profession": "Other",
-    "specialty": "ENT",
-    "employer": "SAICO Insurance",
-    "city": "Riyadh",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 1,
-    "expMax": 6,
-    "degreeReq": "MBBS or equivalent medical degree",
-    "scfhs": "preferred",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [],
-    "certs": [],
-    "requirements": [
-      "This is a full-time position requiring 0-1 years of experience, focusing on the accurate evaluation and processing of medical claims.",
-      "Qualifications and Experience • Medicine Bachelor’s degree (MBBS).",
-      "Licensed by the Saudi Commission for Health Specialties (SCFHS).",
-      "0-1 years of relevant experience."
-    ],
-    "responsibilities": [
-      "Role Overview The Medical Claims Review Officer is responsible for ensuring the clinical accuracy and compliance of medical claims with established policy guidelines and regulatory standards.",
-      "This role involves detailed review of medical documentation and direct communication with healthcare providers to facilitate efficient claims management.",
-      "Key Responsibilities • Evaluate and verify medical claims to ensure clinical accuracy and compliance with policy guidelines and regulatory standards.",
-      "Provide healthcare providers with medical justifications for rejected claims in line with international and Saudi medical guidelines."
-    ],
-    "description": "About SAICO Insurance SAICO Insurance is seeking a Medical Claims Review Officer to join their team in Riyadh, Saudi Arabia. This is a full-time position requiring 0-1 years of experience, focusing on the accurate evaluation and processing of medical claims. Role Overview The Medical Claims Review Officer is responsible for ensuring the clinical accuracy and compliance of medical claims with established policy guidelines and regulatory standards. This role involves detailed review of medical documentation and direct communication with healthcare providers to facilitate efficient claims managem",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sabbar.com/en/jobs/c-riyadh-r-medical-claims-review-officer/id-fc02d3de-456f-481e-9484-4caf2ac91634",
-    "applyIsDirect": false,
-    "postedDaysAgo": 14,
-    "demo": false
-  },
-  {
-    "id": "jsWGpXYl82RjNlS01pQlJXQkFB",
-    "title": "RCM Medical Claims Specialist",
-    "profession": "Specialist",
-    "specialty": "ENT",
-    "employer": "My Clinic KSA",
-    "city": "Jeddah",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 2,
-    "expMax": 7,
-    "degreeReq": "MBBS or equivalent medical degree",
-    "scfhs": "required",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Microbiology",
-      "Medical Records"
-    ],
-    "certs": [],
-    "requirements": [
-      "Qualifications and Experience • Education: Bachelor’s degree in medicine (MBBS/MD), Pharm D, Biology, Microbiology, Chemistry, or an equivalent medical/clinical qualification.",
-      "Experience: A minimum of 2 years of experience, with 2-5 years preferred, in healthcare, medical insurance, claims review, utilization review, or Revenue Cycle Management.",
-      "Experience in a high-volume outpatient setting is preferred.",
-      "License (Optional): Valid Saudi Commission for Health Specialties (SCFHS) classification/registration, where applicable to the professional qualification.",
-      "Professional Certification (Optional): Certification or formal training in medical coding, health insurance, claims management, or Revenue Cycle Management is preferred."
-    ],
-    "responsibilities": [
-      "About My Clinic KSA My Clinic KSA, established in 2017, is a leading multispecialty outpatient care provider in Saudi Arabia.",
-      "The organization is dedicated to helping individuals achieve longer, healthier, and happier lives, driven by core values of care, collaboration, ambition, and responsibility.",
-      "As My Clinic KSA expands, it seeks professionals who align with its vision and values.",
-      "The Role of RCM Medical Claims Specialist My Clinic KSA is seeking an RCM Medical Claims Specialist to join its team in Jeddah, Makkah, Saudi Arabia."
-    ],
-    "description": "About My Clinic KSA My Clinic KSA, established in 2017, is a leading multispecialty outpatient care provider in Saudi Arabia. The organization is dedicated to helping individuals achieve longer, healthier, and happier lives, driven by core values of care, collaboration, ambition, and responsibility. As My Clinic KSA expands, it seeks professionals who align with its vision and values. The Role of RCM Medical Claims Specialist My Clinic KSA is seeking an RCM Medical Claims Specialist to join its team in Jeddah, Makkah, Saudi Arabia. This full-time role is integral to the Medical Operations func",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sabbar.com/en/jobs/c-jeddah-r-rcm-medical-claims-specialist/id-0c623240-a413-4092-aab7-3521ba048420",
-    "applyIsDirect": false,
-    "postedDaysAgo": 13,
-    "demo": false
-  },
-  {
     "id": "jsbmdqVU5hdUYtQTBNeEZpdUFB",
     "title": "Medical Record Analyst",
     "profession": "General Practitioner",
@@ -14286,44 +13994,6 @@ const DEMO_JOBS = [
     "applyUrl": "https://www.jobleads.com/sa/job/senior-medical-insurance-portfolio-manager--riyadh--e6534eedcf1057a02367a72a231ae62d5",
     "applyIsDirect": false,
     "postedDaysAgo": 13,
-    "demo": false
-  },
-  {
-    "id": "jsZFJ1NG55YlVBRUJIQV9YeEFB",
-    "title": "Tamheer Claims & Billing",
-    "profession": "Other",
-    "specialty": "ENT",
-    "employer": "MAGRABi Retail Group",
-    "city": "Riyadh",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 1,
-    "expMax": 6,
-    "degreeReq": "",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [],
-    "certs": [],
-    "requirements": [
-      "This full-time role is designed for individuals with 0-1 years of experience, focusing on managing insurance claims and billing processes within the healthcare retail sector.",
-      "Required Experience Candidates for this position should possess 0-1 years of relevant experience."
-    ],
-    "responsibilities": [
-      "The position is integral to the Revenue Cycle Management team, ensuring accurate and timely financial operations.",
-      "Key Responsibilities • Manage the submission of claims for assigned insurance partners throughout the monthly cycle.",
-      "Perform re-submissions with updated status and all necessary supporting documentation.",
-      "Support the Revenue Cycle Management team by preparing monthly billing and rejection reports, and conducting collection analysis."
-    ],
-    "description": "About the Role: Tamheer Claims & Billing MAGRABi Retail Group is seeking a Tamheer Claims & Billing professional to join their team in Riyadh, Saudi Arabia. This full-time role is designed for individuals with 0-1 years of experience, focusing on managing insurance claims and billing processes within the healthcare retail sector. The position is integral to the Revenue Cycle Management team, ensuring accurate and timely financial operations. Key Responsibilities • Manage the submission of claims for assigned insurance partners throughout the monthly cycle. • Reconcile MAGRABi system data again",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sabbar.com/en/jobs/c-riyadh-r-tamheer-claims-billing/id-b9a57f08-9d19-4c12-8dc2-485e5a73923e",
-    "applyIsDirect": false,
-    "postedDaysAgo": 26,
     "demo": false
   },
   {
@@ -14597,47 +14267,6 @@ const DEMO_JOBS = [
     "applyUrl": "https://sa.linkedin.com/jobs/view/consultant-gastroenterology-at-national-medical-care-4467333107",
     "applyIsDirect": false,
     "postedDaysAgo": 29,
-    "demo": false
-  },
-  {
-    "id": "jsNUh2cUVJU1FtcnZrMzU3Y0FB",
-    "title": "Emergency Medicine Resident",
-    "profession": "General Practitioner",
-    "specialty": "Emergency Medicine",
-    "employer": "National Medical Care",
-    "city": "Riyadh",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 5,
-    "expMax": 10,
-    "degreeReq": "",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Emergency Medicine",
-      "Triage",
-      "Patient Education"
-    ],
-    "certs": [],
-    "requirements": [
-      "The position requires 2-5 years of experience in a relevant medical field."
-    ],
-    "responsibilities": [
-      "This role is responsible for the comprehensive medical care of patients presenting to the Emergency Room, from initial assessment and treatment initiation to safe discharge.",
-      "Key Responsibilities • Ensure high-quality medical treatment, compassion, and understanding for all patients at Care National Hospital.",
-      "Perform full patient assessments, including history taking, physical examinations, and routine diagnostic tests.",
-      "Initiate appropriate medical care and treatment within the scope of clinical privileges."
-    ],
-    "description": "About the Role National Medical Care is seeking an Emergency Medicine Resident for a full-time position in Riyadh, Saudi Arabia. This role is responsible for the comprehensive medical care of patients presenting to the Emergency Room, from initial assessment and treatment initiation to safe discharge. The position requires 2-5 years of experience in a relevant medical field. Key Responsibilities • Ensure high-quality medical treatment, compassion, and understanding for all patients at Care National Hospital. • Triage patients for medical care based on illness acuity, collaborating with Emergen",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sabbar.com/ar/jobs/c-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-r-emergency-medicine-resident/id-fe97927e-511a-44bd-9bf2-cbb4200e9dc6",
-    "applyIsDirect": false,
-    "postedDaysAgo": 28,
     "demo": false
   },
   {
