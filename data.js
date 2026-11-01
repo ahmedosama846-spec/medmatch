@@ -1,4 +1,4 @@
-/* Last link-check: 2026-10-25 — removed 9 dead posting(s). */
+/* Last link-check: 2026-11-01 — removed 8 dead posting(s). */
 /* MedMatch Saudi — static data & demo dataset.
    All jobs below are SYNTHETIC DEMO DATA. Employers are fictional and records
    are flagged demo:true. Replace with live ingestion from permitted APIs/feeds. */
@@ -5961,7 +5961,7 @@ const DEMO_JOBS = [
       "...Previous experience in a medical representative role is highly valued."
     ],
     "responsibilities": [],
-    "description": "...Previous experience in a medical representative role is highly valued. \\* Scientific & Medical Expertise: Deep understanding of dermatology and the ability to translate scientific information into compelling medical detailing. \\* Entrepreneurial Spirit: A proactive approach...",
+    "description": "...Previous experience in a medical representative role is highly valued. \* Scientific & Medical Expertise: Deep understanding of dermatology and the ability to translate scientific information into compelling medical detailing. \* Entrepreneurial Spirit: A proactive approach...",
     "source": "jobleads.com",
     "applyUrl": "https://sa.jooble.org/away/-6382099831234860988?p=1&pos=5&rgn=0&cid=36&ckey=dermatology&jobAge=36&relb=50&brelb=10&scr=1421.6535&bscr=284.3307&aq=-6384695266053342595&elckey=-6044639674401794268",
     "applyIsDirect": false,
@@ -8710,36 +8710,6 @@ const DEMO_JOBS = [
     "demo": false
   },
   {
-    "id": "jsWWk0SGhLdGNJbUlqZEZ5ZkFB",
-    "title": "Specialist Physician",
-    "profession": "Specialist",
-    "specialty": "",
-    "employer": "برنامج الخدمات الصحية للهيئة الملكية بينبع",
-    "city": "Other",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 0,
-    "expMax": 5,
-    "degreeReq": "",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [],
-    "certs": [],
-    "requirements": [],
-    "responsibilities": [],
-    "description": "أخذ السيرة المرضية من المريض وذويه ودراسة الحالة المرضية وإجراء الفحص السريري وطلب الفحوصات والتحاليل المخبرية والصور الشعاعية أو الصوتية أو الموجية وقراءة النتائج والتقارير وتشخيص الحالة المرضية في موضوع التخصص. المهارات: - المختبرات السريرية - اختبار اكلينيكي (سريري) - التفسير الطبي - الوصفات الطبية - المسؤولية الطبية - الطب - البحث - إعداد التقارير / المراقبة - التقارير السريرية - تحديد تطور المرض",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://job-ksa.com/en/jobs/26635",
-    "applyIsDirect": false,
-    "postedDaysAgo": 25,
-    "demo": false
-  },
-  {
     "id": "jsSl9uQ1pvOUhuT2dnRHhCOUFB",
     "title": "Consultant Physician, Radiation Therapy",
     "profession": "Consultant",
@@ -10458,49 +10428,6 @@ const DEMO_JOBS = [
     "demo": false
   },
   {
-    "id": "jsX1NoVjVsVngxVG9BTFZCMUFB",
-    "title": "Radiologist",
-    "profession": "Radiologist",
-    "specialty": "Radiology",
-    "employer": "AL MASHFA",
-    "city": "Jeddah",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 0,
-    "expMax": 5,
-    "degreeReq": "MBBS or equivalent medical degree",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Patient Education",
-      "CT",
-      "MRI",
-      "Ultrasound"
-    ],
-    "certs": [],
-    "requirements": [
-      "Experience or training in Nuclear Medicine for diagnostic and, where applicable, therapeutic procedures.",
-      "Recognized medical degree, completed residency in Radiology, and valid license/registration to practice as a Radiologist as per local regulations."
-    ],
-    "responsibilities": [
-      "The facility focuses on modern clinical practices, safety standards, and collaboration across specialties to improve health outcomes.",
-      "The Radiologist will perform and interpret a variety of imaging studies, including X-ray, CT, MRI, ultrasound, and mammography, in accordance with clinical protocols and safety standards.",
-      "Responsibilities include providing accurate diagnostic reports, consulting with referring physicians on imaging findings, and contributing to multidisciplinary case discussions.",
-      "Qualifications • Strong foundation in clinical Medicine with the ability to integrate imaging findings into overall patient care."
-    ],
-    "description": "Company Description AL MASHFA is a healthcare organization committed to delivering high-quality medical services and patient-centered care in Jeddah. The facility focuses on modern clinical practices, safety standards, and collaboration across specialties to improve health outcomes. Team members work in a professional environment with access to advanced medical technologies and opportunities for continuous learning. The organization values ethical practice, respect, and inclusivity for patients and staff alike. Role Description This is a full-time, on-site Radiologist role based in Jeddah. The",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sa.linkedin.com/jobs/view/radiologist-at-al-mashfa-4467606730",
-    "applyIsDirect": false,
-    "postedDaysAgo": 3,
-    "demo": false
-  },
-  {
     "id": "jsVnN4ZWNlOUlMZFRTX2pSVEFB",
     "title": "Diagnostic Radiologist — Imaging & Diagnostic Expert",
     "profession": "Radiologist",
@@ -10967,7 +10894,9 @@ const DEMO_JOBS = [
     "responsibilities": [
       "Job Description Medical Technologist/MLS or Medical Laboratory Technician Opening at one of New York's Top Healthcare Providers!"
     ],
-    "description": "Job Description Medical Technologist/MLS or Medical Laboratory Technician Opening at one of New York's Top Healthcare Providers! \n This organization is looking to add a permanent and full time Medical Technologist/ Medical Laboratory Technician to their team on either day, evening or night shift! They also have department specific openings in blood bank, microbiology, core laboratory or special chemistry! \n This facility is offering a highly competitive hourly rate and a top notch benefits package! Benefits include: Medical Dental and Vision, Retirement Benefits, Generous PTO, Recognition an",
+    "description": "Job Description Medical Technologist/MLS or Medical Laboratory Technician Opening at one of New York's Top Healthcare Providers! 
+ This organization is looking to add a permanent and full time Medical Technologist/ Medical Laboratory Technician to their team on either day, evening or night shift! They also have department specific openings in blood bank, microbiology, core laboratory or special chemistry! 
+ This facility is offering a highly competitive hourly rate and a top notch benefits package! Benefits include: Medical Dental and Vision, Retirement Benefits, Generous PTO, Recognition an",
     "source": "JSearch / Google for Jobs (Live)",
     "applyUrl": "https://www.energyjobline.com/job/mt-or-mlt-or-medical-technologist-or-medical-laboratory-technician-or-medical-laboratory-2",
     "applyIsDirect": false,
@@ -11313,48 +11242,6 @@ const DEMO_JOBS = [
     "applyUrl": "https://sa.jooble.org/jdp/7707811366316660260",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
-    "demo": false
-  },
-  {
-    "id": "jsWnVCZHVxNEM3VHM0OUJGakFB",
-    "title": "Senior Medical Director",
-    "profession": "Healthcare Administrator",
-    "specialty": "Cardiology",
-    "employer": "AL MASHFA",
-    "city": "Jeddah",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 0,
-    "expMax": 5,
-    "degreeReq": "MBBS or equivalent medical degree",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Cardiology"
-    ],
-    "certs": [],
-    "requirements": [
-      "Specialized expertise in one or more areas such as Cardiology, Neurology, or Oncology, with experience managing complex cases and multidisciplinary teams.",
-      "Advanced medical degree (MD or equivalent) and board certification in a relevant specialty; eligibility for appropriate licensure and credentialing.",
-      "Extensive experience in medical administration, clinical governance, and quality improvement within a hospital or large healthcare setting.",
-      "Experience with clinical data analysis, accreditation standards, and implementation of evidence-based protocols is highly beneficial."
-    ],
-    "responsibilities": [
-      "The organization emphasizes multidisciplinary collaboration to provide comprehensive care across a range of specialties.",
-      "AL MASHFA is committed to clinical excellence, adherence to international standards, and continuous improvement of patient outcomes.",
-      "Senior leaders at AL MASHFA play a critical role in shaping clinical strategy and enhancing service quality.",
-      "Role Description The Senior Medical Director is a full-time, on-site leadership role based in Jeddah, responsible for overseeing clinical services, medical standards, and patient care quality across the organization."
-    ],
-    "description": "Company Description AL MASHFA is a healthcare organization based in Jeddah, focused on delivering high-quality, patient-centered medical services. The organization emphasizes multidisciplinary collaboration to provide comprehensive care across a range of specialties. AL MASHFA is committed to clinical excellence, adherence to international standards, and continuous improvement of patient outcomes. The environment supports innovation in medical practice, evidence-based care, and professional development for healthcare teams. Senior leaders at AL MASHFA play a critical role in shaping clinical s",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sa.linkedin.com/jobs/view/senior-medical-director-at-al-mashfa-4480680944",
-    "applyIsDirect": false,
-    "postedDaysAgo": 2,
     "demo": false
   },
   {
@@ -11775,48 +11662,6 @@ const DEMO_JOBS = [
     "applyUrl": "https://jeddah.sa.expertini.com/job/consultant-cardiologist-jeddah-chase-resourcing-571875679735842280/",
     "applyIsDirect": false,
     "postedDaysAgo": 15,
-    "demo": false
-  },
-  {
-    "id": "jsX2M5WV9UZk5lYXhaRGEyR0FB",
-    "title": "Pediatrician",
-    "profession": "Nurse",
-    "specialty": "Pediatrics",
-    "employer": "AL MASHFA",
-    "city": "Jeddah",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 0,
-    "expMax": 5,
-    "degreeReq": "MBBS or equivalent medical degree",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Primary Care",
-      "Infection Control",
-      "Medical Records"
-    ],
-    "certs": [],
-    "requirements": [
-      "Experience or training in Neonatology, with the skills to assess and manage newborns and collaborate with neonatal care teams as needed.",
-      "Medical degree (MD or equivalent), completion of pediatric residency, and valid license/registration to practice pediatrics as per local regulatory requirements."
-    ],
-    "responsibilities": [
-      "Company Description AL MASHFA is a healthcare provider committed to delivering safe, high-quality medical services to patients and families in Jeddah and the surrounding region.",
-      "The organization focuses on integrated, patient-centered care, with an emphasis on clinical excellence and collaboration among multidisciplinary teams.",
-      "AL MASHFA supports continuous learning and professional development for its medical staff to ensure evidence-based practices and up-to-date clinical standards.",
-      "Role Description The Pediatrician will provide comprehensive primary and specialty care to infants, children, and adolescents in an on-site clinical setting in Jeddah."
-    ],
-    "description": "Company Description AL MASHFA is a healthcare provider committed to delivering safe, high-quality medical services to patients and families in Jeddah and the surrounding region. The organization focuses on integrated, patient-centered care, with an emphasis on clinical excellence and collaboration among multidisciplinary teams. AL MASHFA supports continuous learning and professional development for its medical staff to ensure evidence-based practices and up-to-date clinical standards. The environment encourages ethical, compassionate care and respects the diverse backgrounds of patients and em",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sa.linkedin.com/jobs/view/pediatrician-at-al-mashfa-4480682776",
-    "applyIsDirect": false,
-    "postedDaysAgo": 2,
     "demo": false
   },
   {
@@ -12504,48 +12349,6 @@ const DEMO_JOBS = [
     "demo": false
   },
   {
-    "id": "jsU0p4ZzNOZVlJUlNIdzcyWkFB",
-    "title": "Dermatology",
-    "profession": "Dentist",
-    "specialty": "Dermatology",
-    "employer": "Professor Clinics",
-    "city": "Other",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 0,
-    "expMax": 5,
-    "degreeReq": "",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Infection Control",
-      "Dermatology"
-    ],
-    "certs": [],
-    "requirements": [
-      "Qualifications • Board certification or equivalent qualification in Dermatology, with a valid license or eligibility to practice in Saudi Arabia.",
-      "Experience with modern dermatologic technologies and procedures, such as laser therapies, dermatoscopy, and minimally invasive aesthetic treatments.",
-      "Prior experience in a private clinic or hospital dermatology department in Riyadh or the wider Gulf region is an advantage."
-    ],
-    "responsibilities": [
-      "Company Description Professor Clinics is a specialized medical group that brings together leading Saudi consultants across dentistry, dental implants, dermatology, laser treatments, and advanced skincare.",
-      "The clinic is known for using the latest international technologies and equipment to deliver high-quality, evidence-based care.",
-      "A collaborative environment allows different specialties to work together to design comprehensive treatment plans tailored to each patient.",
-      "The organization focuses on safety, innovation, and patient-centered service, making it an attractive workplace for dermatology professionals seeking clinical excellence."
-    ],
-    "description": "Company Description Professor Clinics is a specialized medical group that brings together leading Saudi consultants across dentistry, dental implants, dermatology, laser treatments, and advanced skincare. The clinic is known for using the latest international technologies and equipment to deliver high-quality, evidence-based care. A collaborative environment allows different specialties to work together to design comprehensive treatment plans tailored to each patient. The organization focuses on safety, innovation, and patient-centered service, making it an attractive workplace for dermatology",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://bebee.com/sa/jobs/dermatology-professor-clinics-jizan--t7xk-896135427",
-    "applyIsDirect": false,
-    "postedDaysAgo": 4,
-    "demo": false
-  },
-  {
     "id": "jsX2JiY3lZbkZKWjdDN2ZFQ0FB",
     "title": "Dermatologist - Transform Skin Care in Saudi | Free Housing",
     "profession": "Consultant",
@@ -12800,47 +12603,6 @@ const DEMO_JOBS = [
     "applyUrl": "https://riyadh.sa.expertini.com/job/consultant-obstetrics-and-gynaecology-riyadh-prospect-health-534436434018174950/",
     "applyIsDirect": false,
     "postedDaysAgo": 9,
-    "demo": false
-  },
-  {
-    "id": "jsZTBVQzBBeWVSZG8tTUJUckFB",
-    "title": "CONSULTANT GENERAL SURGERY",
-    "profession": "Consultant",
-    "specialty": "Surgery",
-    "employer": "Royal Commission for Jubail and Yanbu (RCJY)",
-    "city": "Other",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 3,
-    "expMax": 8,
-    "degreeReq": "",
-    "scfhs": "required",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [],
-    "certs": [],
-    "requirements": [
-      "This full-time position requires a professional with 2-5 years of experience in the field of specialization.",
-      "Valid SCFHS classification and registration.",
-      "Hold a Saudi board or equivalent degree.",
-      "Complete a period of experience not less than 3 years in the field of specialization in a recognized hospital or health center.",
-      "Experience Candidates should possess 2-5 years of experience in General Surgery within a recognized hospital or health center."
-    ],
-    "responsibilities": [
-      "Key Responsibilities • Make decisions regarding patient care plans.",
-      "Treat patients and their families with respect and dignity.",
-      "Conduct daily clinical rounds personally or through a designated person, if applicable.",
-      "Examine, assess, and provide investigation and treatment orders for medical/surgical patients admitted under their care in a timely manner, in accordance with RCMC policies and procedures."
-    ],
-    "description": "About the Role The Royal Commission Medical Center Yanbu is seeking a Consultant in General Surgery to join their team in Yanbu. This full-time position requires a professional with 2-5 years of experience in the field of specialization. Key Responsibilities • Make decisions regarding patient care plans. • Treat patients and their families with respect and dignity. • Interact professionally with patients and their families, involving them in the care plan formation. • Conduct daily clinical rounds personally or through a designated person, if applicable. • Be available for calls after hours fo",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sabbar.com/en/jobs/c-yanbu-r-consultant-general-surgery/id-435a6fff-44df-4cca-a7d7-a83820b4e386",
-    "applyIsDirect": false,
-    "postedDaysAgo": 14,
     "demo": false
   },
   {
@@ -13375,86 +13137,6 @@ const DEMO_JOBS = [
     "applyUrl": "https://job-ksa.com/en/jobs/26825",
     "applyIsDirect": false,
     "postedDaysAgo": 23,
-    "demo": false
-  },
-  {
-    "id": "jsdTBSWnN0cVhCZzZfM3ZMT0FB",
-    "title": "Private Physician and Medical Care Coordinator",
-    "profession": "General Practitioner",
-    "specialty": "Internal Medicine",
-    "employer": "Wahj AlMustaqbal Company Holding",
-    "city": "Riyadh",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 0,
-    "expMax": 5,
-    "degreeReq": "MBBS or equivalent medical degree",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Contract",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Internal Medicine"
-    ],
-    "certs": [],
-    "requirements": [
-      "The roleA private family seeks an experienced physician to provide clinical review, medical research, patient advocacy and care coordination for Dr.",
-      "Qualifications and experience · A medical degree and current physician registration, with appropriate licensing for any clinical practice undertaken in Saudi Arabia.",
-      "· At least five years of clinical experience, including meaningful experience in oncology or management of complex medical cases.",
-      "· Experience coordinating care across specialists and hospitals; international referrals and second opinions are highly desirable."
-    ],
-    "responsibilities": [
-      "Hamad, who is receiving complex oncology treatment.",
-      "The role requires proactive clinical judgment: reviewing the complete medical picture, anticipating complications and presenting practical pathways to address current problems and future risks.",
-      "You will work closely with the patient, family and treating specialists in Saudi Arabia and internationally, translating findings into clear recommendations, timely decisions and coordinated follow-through.",
-      "Key responsibilities· Comprehensive clinical review."
-    ],
-    "description": "The roleA private family seeks an experienced physician to provide clinical review, medical research, patient advocacy and care coordination for Dr. Hamad, who is receiving complex oncology treatment. The role requires proactive clinical judgment: reviewing the complete medical picture, anticipating complications and presenting practical pathways to address current problems and future risks. You will work closely with the patient, family and treating specialists in Saudi Arabia and internationally, translating findings into clear recommendations, timely decisions and coordinated follow-through",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://bebee.com/sa/jobs/private-physician-and-medical-care-coordinator-wahj-almustaqbal-company-holding-riyadh--fj-2413627673",
-    "applyIsDirect": false,
-    "postedDaysAgo": 12,
-    "demo": false
-  },
-  {
-    "id": "jsdFpMUkV3bVJZTEhTOHdwcUFB",
-    "title": "Case Management Supervisor",
-    "profession": "Nurse",
-    "specialty": "ENT",
-    "employer": "National Medical Care",
-    "city": "Riyadh",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 10,
-    "expMax": 15,
-    "degreeReq": "",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [],
-    "certs": [],
-    "requirements": [
-      "Collaborate with nursing services to ensure optimal patient care.",
-      "Qualifications and Experience • A minimum of 5-10 years of relevant experience is required for this position."
-    ],
-    "responsibilities": [
-      "About the Role National Medical Care is seeking a Case Management Supervisor to join their team in Riyadh, Saudi Arabia.",
-      "This full-time role involves overseeing the end-to-end management of in-patient cases, ensuring the timely delivery of discharge summaries, and coordinating financial collections.",
-      "The supervisor will report directly to the Manager of In-Patient Services.",
-      "Key Responsibilities • Ensure the delivery of high-quality medical treatment, compassion, and understanding to all patients."
-    ],
-    "description": "About the Role National Medical Care is seeking a Case Management Supervisor to join their team in Riyadh, Saudi Arabia. This full-time role involves overseeing the end-to-end management of in-patient cases, ensuring the timely delivery of discharge summaries, and coordinating financial collections. The supervisor will report directly to the Manager of In-Patient Services. Key Responsibilities • Ensure the delivery of high-quality medical treatment, compassion, and understanding to all patients. • Manage all in-patient cases from admission through to discharge. • Coordinate with physicians reg",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sabbar.com/en/jobs/c-riyadh-r-case-management-supervisor/id-0c598cbe-1ba7-4a3e-b72a-0990cc6857a0",
-    "applyIsDirect": false,
-    "postedDaysAgo": 28,
     "demo": false
   },
   {
