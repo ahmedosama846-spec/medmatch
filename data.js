@@ -87,7 +87,7 @@ const JOB_SOURCES = [
     "url": "https://www.health.sa/en/careers",
     "type": "Employer portals",
     "api": "HTML/JSON scrape",
-    "lastSync": "2026-10-19 10:25",
+    "lastSync": "2026-11-02 12:57",
     "imported": 0,
     "active": false
   }
