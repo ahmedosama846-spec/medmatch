@@ -1,4 +1,4 @@
-/* Last link-check: 2026-11-01 — removed 8 dead posting(s). */
+/* Last link-check: 2026-11-08 — removed 2 dead posting(s). */
 /* MedMatch Saudi — static data & demo dataset.
    All jobs below are SYNTHETIC DEMO DATA. Employers are fictional and records
    are flagged demo:true. Replace with live ingestion from permitted APIs/feeds. */
@@ -9125,38 +9125,6 @@ const DEMO_JOBS = [
     "demo": false
   },
   {
-    "id": "jsNHNURHhYVm9rTjBWUjc5ZUFB",
-    "title": "Senior Medical Officer/GP Rural Generalist",
-    "profession": "General Practitioner",
-    "specialty": "General Practice",
-    "employer": "Skilled Medical",
-    "city": "Other",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 0,
-    "expMax": 5,
-    "degreeReq": "",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [],
-    "certs": [],
-    "requirements": [],
-    "responsibilities": [
-      "0800-0800 ONCALL (RMC Cares Oncall 1900-0700) • Accommodation, car and flights provided Details An Eastern SA hospital requires a Senior Medical Officer in General Practice from 04/07/2026 to 13/12/2026."
-    ],
-    "description": "Ref: 212860 Senior Medical Officer/GP Rural Generalist Eastern SA • The town is located in South Australia in the Mid North region, 136 km north of Adelaide. Known as the oldest wine region. The town itself had a population of 3160 as part of an urban area with 3327 people. • Sole Dr location. 0800-0800 ONCALL (RMC Cares Oncall 1900-0700) • Accommodation, car and flights provided Details An Eastern SA hospital requires a Senior Medical Officer in General Practice from 04/07/2026 to 13/12/2026. Thursday, 11 June 2026 Thursday, 11 June 2026 $3,500.00 Tuesday, 16 June 2026 Tuesday, 16 June 2026 $",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sa.jobrapido.com/jobpreview/1592131317779136512",
-    "applyIsDirect": false,
-    "postedDaysAgo": 24,
-    "demo": false
-  },
-  {
     "id": "jsd2ZSVURVVENyNzZ2TlhleEFB",
     "title": "Chief Medical & Quality Officer",
     "profession": "General Practitioner",
@@ -14490,53 +14458,6 @@ const DEMO_JOBS = [
     "applyUrl": "https://sa.linkedin.com/jobs/view/healthcare-specialist-at-palmer-hospitality-group-phg-4484792058",
     "applyIsDirect": false,
     "postedDaysAgo": 4,
-    "demo": false
-  },
-  {
-    "id": "jsYTJESFFWWU0xSFZYbnN6aUFB",
-    "title": "Phlebotomist",
-    "profession": "Nurse",
-    "specialty": "ENT",
-    "employer": "National Medical Care",
-    "city": "Riyadh",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 5,
-    "expMax": 10,
-    "degreeReq": "BSc Medical Laboratory Sciences",
-    "scfhs": "required",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Phlebotomy",
-      "Blood Bank",
-      "Infection Control"
-    ],
-    "certs": [
-      "BLS"
-    ],
-    "requirements": [
-      "Qualifications and Experience • Bachelor’s Degree or equivalent from an approved school of Medical Technology, or Nursing College or University.",
-      "Current registration with the designated authority for Medical Technologist / Technician from the country of origin / recruitment.",
-      "Valid license from the Saudi Commission for Health Specialties (SCFHS) and the Ministry of Health (MOH) in Saudi Arabia.",
-      "Current certification in Basic Life Support (BLS).",
-      "A minimum of 2-5 years of relevant experience is required for this position."
-    ],
-    "responsibilities": [
-      "This full-time role involves drawing blood from patients or donors for analysis and other medical purposes, ensuring high-quality medical treatment and patient care.",
-      "Key Responsibilities • Collect blood from patients in hospital settings, blood banks, or similar facilities.",
-      "Perform venipuncture by applying a tourniquet, locating a suitable vein, sterilizing the puncture area, and inserting a needle to draw blood into collection tubes or bags.",
-      "Apply post-puncture treatment, label, and store blood containers for subsequent processing."
-    ],
-    "description": "About the Role National Medical Care is seeking a skilled Phlebotomist to join their team in Riyadh, Saudi Arabia. This full-time role involves drawing blood from patients or donors for analysis and other medical purposes, ensuring high-quality medical treatment and patient care. Key Responsibilities • Collect blood from patients in hospital settings, blood banks, or similar facilities. • Assemble necessary equipment, including tourniquets, needles, collection devices, gauze, cotton, and alcohol, according to test requirements. • Verify and record patient or donor identity, engaging with them ",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sabbar.com/ar/jobs/c-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-r-phlebotomist/id-b18c6ee6-2cbe-4dc8-a756-30114d32ecf9",
-    "applyIsDirect": false,
-    "postedDaysAgo": 22,
     "demo": false
   },
   {
