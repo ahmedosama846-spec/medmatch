@@ -1,4 +1,4 @@
-/* Last link-check: 2026-11-08 — removed 2 dead posting(s). */
+/* Last link-check: 2026-11-15 — removed 1 dead posting(s). */
 /* MedMatch Saudi — static data & demo dataset.
    All jobs below are SYNTHETIC DEMO DATA. Employers are fictional and records
    are flagged demo:true. Replace with live ingestion from permitted APIs/feeds. */
@@ -7874,7 +7874,7 @@ const DEMO_JOBS = [
     "certs": [],
     "requirements": [],
     "responsibilities": [],
-    "description": "# CONSULTANT – GENERAL MEDICINE FOR MEDICAL SPECIALTIES DEPARTMENTJob LocationSaudi Arabia, RiyadhDate postedJanuary 10, 2020PDF ExportExport as PDFPosition titleCONSULTANT – GENERAL MEDICINE FOR MEDICAL SPECIALTIES DEPARTMENTDescriptionEducational Requirements: üGraduate from a medical school recognized by Saudi Commission for Health Specialties (SCHS) \\* Successful completion of Sub Specialty Fellowship training recognized by SCHS for Consultant Position \\* Certification by the appropriate specialty board recognized by SCHS 1 or more years of specialty training in a recognized program outs",
+    "description": "# CONSULTANT – GENERAL MEDICINE FOR MEDICAL SPECIALTIES DEPARTMENTJob LocationSaudi Arabia, RiyadhDate postedJanuary 10, 2020PDF ExportExport as PDFPosition titleCONSULTANT – GENERAL MEDICINE FOR MEDICAL SPECIALTIES DEPARTMENTDescriptionEducational Requirements: üGraduate from a medical school recognized by Saudi Commission for Health Specialties (SCHS) \* Successful completion of Sub Specialty Fellowship training recognized by SCHS for Consultant Position \* Certification by the appropriate specialty board recognized by SCHS 1 or more years of specialty training in a recognized program outs",
     "source": "JSearch / Google for Jobs (Live)",
     "applyUrl": "https://sa.jooble.org/jdp/-4961302936321881035",
     "applyIsDirect": false,
@@ -10802,7 +10802,9 @@ const DEMO_JOBS = [
     "responsibilities": [
       "Job Description Medical Technologist/MLS or Medical Laboratory Technician Opening at one of New York's Top Healthcare Providers!"
     ],
-    "description": "Job Description Medical Technologist/MLS or Medical Laboratory Technician Opening at one of New York's Top Healthcare Providers! \n This organization is looking to add a permanent and full time Medical Technologist/ Medical Laboratory Technician to their team on either day, evening or night shift! They also have department specific openings in blood bank, microbiology, core laboratory or special chemistry! \n This facility is offering a highly competitive hourly rate and a top notch benefits package! Benefits include: Medical Dental and Vision, Retirement Benefits, Generous PTO, Recognition an",
+    "description": "Job Description Medical Technologist/MLS or Medical Laboratory Technician Opening at one of New York's Top Healthcare Providers! 
+ This organization is looking to add a permanent and full time Medical Technologist/ Medical Laboratory Technician to their team on either day, evening or night shift! They also have department specific openings in blood bank, microbiology, core laboratory or special chemistry! 
+ This facility is offering a highly competitive hourly rate and a top notch benefits package! Benefits include: Medical Dental and Vision, Retirement Benefits, Generous PTO, Recognition an",
     "source": "JSearch / Google for Jobs (Live)",
     "applyUrl": "https://www.energyjobline.com/job/mt-or-mlt-or-medical-technologist-or-medical-laboratory-technician-or-medical-laboratory-2",
     "applyIsDirect": false,
@@ -13438,46 +13440,6 @@ const DEMO_JOBS = [
     "applyUrl": "https://www.jobleads.com/sa/job/hospital-delegate-representative-cigna-healthcare--riyadh--e195ae4365be7cb076007ce8ecb0ea46f",
     "applyIsDirect": false,
     "postedDaysAgo": 7,
-    "demo": false
-  },
-  {
-    "id": "jsY210YnRnaWU2VFFkb0xzb0FB",
-    "title": "Medical Affairs Lead",
-    "profession": "Other",
-    "specialty": "ENT",
-    "employer": "Gilead Sciences, Inc",
-    "city": "Riyadh",
-    "salaryMin": 0,
-    "salaryMax": 0,
-    "expMin": 10,
-    "expMax": 15,
-    "degreeReq": "",
-    "scfhs": "not_specified",
-    "dataflow": "not_specified",
-    "saudiExp": "not_specified",
-    "gender": "Not specified",
-    "employment": "Full-time",
-    "contract": "",
-    "hours": "",
-    "skills": [
-      "Hematology"
-    ],
-    "certs": [],
-    "requirements": [
-      "Qualifications and Experience • Experience required: 5-10 years in a relevant field.",
-      "Experience in supporting content development and delivery of clinical presentations at Advisory Boards."
-    ],
-    "responsibilities": [
-      "The role provides strategic leadership for all Medical Affairs activities and focuses on developing and executing strategic initiatives in the Middle East.",
-      "Key Responsibilities • Provide local medical expertise input into global product development for Kite.",
-      "Support the development of local complex clinical data through clinical trials and investigator studies.",
-      "Manage the Middle East Medical Affairs function and oversee the Medical budget within a +/-5% variance."
-    ],
-    "description": "About the Role Gilead Sciences, Inc. is seeking a Medical Affairs Lead for Kite Middle East, based in Riyadh. This full-time position involves building and overseeing strategies and tactics for Cell Therapy within the Kite Middle East Medical Affairs Department. The role provides strategic leadership for all Medical Affairs activities and focuses on developing and executing strategic initiatives in the Middle East. The Medical Affairs Lead will report to the Kite International Region Head of Medical Affairs. Company Context Kite operates at the forefront of immunotherapy and engineered T-cell ",
-    "source": "JSearch / Google for Jobs (Live)",
-    "applyUrl": "https://sabbar.com/en/jobs/c-riyadh-r-medical-affairs-lead/id-395493d7-10f5-43ff-b6e3-8fc0138d8971",
-    "applyIsDirect": false,
-    "postedDaysAgo": 23,
     "demo": false
   },
   {
