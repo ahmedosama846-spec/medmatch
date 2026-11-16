@@ -87,7 +87,7 @@ const JOB_SOURCES = [
     "url": "https://www.health.sa/en/careers",
     "type": "Employer portals",
     "api": "HTML/JSON scrape",
-    "lastSync": "2026-11-02 12:57",
+    "lastSync": "2026-11-16 13:14",
     "imported": 0,
     "active": false
   }
@@ -9300,7 +9300,7 @@ const DEMO_JOBS = [
     "certs": [],
     "requirements": [],
     "responsibilities": [],
-    "description": "# CONSULTANT – GENERAL MEDICINE FOR MEDICAL SPECIALTIES DEPARTMENTJob LocationSaudi Arabia, RiyadhDate postedJanuary 10, 2020PDF ExportExport as PDFPosition titleCONSULTANT – GENERAL MEDICINE FOR MEDICAL SPECIALTIES DEPARTMENTDescriptionEducational Requirements: üGraduate from a medical school recognized by Saudi Commission for Health Specialties (SCHS) \\* Successful completion of Sub Specialty Fellowship training recognized by SCHS for Consultant Position \\* Certification by the appropriate specialty board recognized by SCHS 1 or more years of specialty training in a recognized program outs",
+    "description": "# CONSULTANT – GENERAL MEDICINE FOR MEDICAL SPECIALTIES DEPARTMENTJob LocationSaudi Arabia, RiyadhDate postedJanuary 10, 2020PDF ExportExport as PDFPosition titleCONSULTANT – GENERAL MEDICINE FOR MEDICAL SPECIALTIES DEPARTMENTDescriptionEducational Requirements: üGraduate from a medical school recognized by Saudi Commission for Health Specialties (SCHS) \* Successful completion of Sub Specialty Fellowship training recognized by SCHS for Consultant Position \* Certification by the appropriate specialty board recognized by SCHS 1 or more years of specialty training in a recognized program outs",
     "source": "JSearch / Google for Jobs (Live)",
     "applyUrl": "https://sa.jooble.org/jdp/-4961302936321881035",
     "applyIsDirect": false,
